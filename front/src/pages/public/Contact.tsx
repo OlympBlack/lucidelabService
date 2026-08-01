@@ -157,6 +157,7 @@ export const Contact: React.FC = () => {
                       <option value="GROWTH">GROWTH — Visibilité &amp; SEO</option>
                       <option value="CONTENT">CONTENT — Contenu &amp; Médias</option>
                       <option value="ADVERTISING">ADVERTISING — Publicité &amp; Campagnes</option>
+                      <option value="OTHER">Autre — Préciser dans le message</option>
                     </select>
                   </div>
                 </div>
