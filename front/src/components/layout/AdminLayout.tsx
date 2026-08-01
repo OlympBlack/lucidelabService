@@ -160,14 +160,21 @@ export const AdminLayout: React.FC = () => {
                   <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
                     {recentMessages.length > 0 ? (
                       recentMessages.map((msg) => (
-                        <div key={msg.id} style={{ padding: '15px 20px', borderBottom: '1px solid #f0f2f5' }}>
+                        <Link 
+                          key={msg.id} 
+                          to="/admin/messages" 
+                          onClick={() => setIsDropdownOpen(false)}
+                          style={{ display: 'block', padding: '15px 20px', borderBottom: '1px solid #f0f2f5', textDecoration: 'none', transition: 'background-color 0.2s' }}
+                          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f8fafc'}
+                          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                        >
                           <p style={{ margin: '0 0 5px 0', fontSize: '13px', fontWeight: '600', color: '#0122bc' }}>
                             Nouveau message de {msg.name}
                           </p>
                           <p style={{ margin: 0, fontSize: '12px', color: '#57647c', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                             Sujet : {msg.subject || msg.service}
                           </p>
-                        </div>
+                        </Link>
                       ))
                     ) : (
                       <div style={{ padding: '20px', textAlign: 'center', fontSize: '13px', color: '#a0aec0' }}>
