@@ -16,13 +16,12 @@ import {
   ArrowRight,
   Building,
   Building2,
-  Star,
-  Quote,
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
 import { api, type Realisation } from '../../services/api';
 import { RealisationsCarousel } from '../../components/common/RealisationsCarousel';
+import { TestimonialsCarousel } from '../../components/common/TestimonialsCarousel';
 
 
 export const Home: React.FC = () => {
@@ -167,21 +166,25 @@ export const Home: React.FC = () => {
       name: 'Marc Lawson',
       role: 'Directeur Général, FinTech Bénin',
       comment: 'LUCIDE LAB a totalement métamorphosé notre image de marque. Leur approche rigoureuse et lucide nous a permis de gagner la confiance d\'investisseurs majeurs.',
-      rating: 5
+      rating: 5,
+      avatar: '/assets/images/testimonials/testimonial1.webp'
     },
     {
       name: 'Sophie Tossou',
       role: 'Fondatrice, AgroTech Solutions',
       comment: 'L\'équipe a su capter l\'essence de notre projet et créer une plateforme web performante couplée à une campagne growth qui a doublé nos ventes.',
-      rating: 5
+      rating: 5,
+      avatar: '/assets/images/testimonials/testimonial2.webp'
     },
     {
       name: 'Koffi Mensah',
       role: 'Directeur Marketing, Groupe Immobilier',
       comment: 'Excellence et créativité au rendez-vous. Les vidéos et visuels produits par LUCIDE LAB sont d\'une qualité digne des plus grands cabinets internationaux.',
-      rating: 5
+      rating: 5,
+      avatar: '/assets/images/testimonials/testimonial3.webp'
     }
   ];
+
 
   return (
     <div>
@@ -500,36 +503,8 @@ export const Home: React.FC = () => {
             ))}
           </div>
 
-          {/* Testimonials */}
-          <div className="grid-3">
-            {testimonials.map((t, idx) => (
-              <div key={idx} style={{
-                background: '#ffffff',
-                border: '1px solid #e5e9f2',
-                borderRadius: '16px',
-                padding: '32px 24px',
-                boxShadow: '0 4px 15px rgba(1, 34, 188, 0.06)',
-                position: 'relative'
-              }}>
-                <Quote size={32} style={{ color: 'rgba(253, 134, 4, 0.2)', position: 'absolute', top: '20px', right: '20px' }} />
-                
-                <div style={{ display: 'flex', gap: '4px', marginBottom: '15px' }}>
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} size={16} fill="#ffc107" color="#ffc107" />
-                  ))}
-                </div>
-
-                <p style={{ color: '#1e293b', fontStyle: 'italic', fontSize: '15px', marginBottom: '22px', lineHeight: '1.7' }}>
-                  "{t.comment}"
-                </p>
-
-                <div>
-                  <h4 style={{ fontSize: '16px', color: '#0122bc', marginBottom: '2px' }}>{t.name}</h4>
-                  <p style={{ color: '#fd8604', fontSize: '13px', fontWeight: '600', margin: 0 }}>{t.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Testimonials — Horizontal Sliding Carousel */}
+          <TestimonialsCarousel items={testimonials} />
         </div>
       </section>
 
