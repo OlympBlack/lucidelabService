@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Lock, Mail } from 'lucide-react';
+import { Lock, Mail, Eye, EyeOff } from 'lucide-react';
 import { CommonButton } from '../../components/common/CommonButton';
 
 export const AdminLogin: React.FC = () => {
   const [email, setEmail] = useState('admin@lucidelab.com');
   const [password, setPassword] = useState('password');
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = (e: React.FormEvent) => {
@@ -74,11 +75,11 @@ export const AdminLogin: React.FC = () => {
             <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#0122bc', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Mot de passe</label>
             <div style={{ position: 'relative' }}>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 className="form-control"
                 style={{
                   width: '100%',
-                  padding: '12px 16px 12px 42px',
+                  padding: '12px 42px 12px 42px',
                   borderRadius: '8px',
                   border: '2px solid #dbe3f5',
                   fontSize: '14px',
@@ -95,6 +96,26 @@ export const AdminLogin: React.FC = () => {
                 required
               />
               <Lock size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: '#0122bc', pointerEvents: 'none' }} />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                style={{
+                  position: 'absolute',
+                  right: '14px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: '#57647c',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '4px'
+                }}
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
             </div>
           </div>
 
