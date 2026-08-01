@@ -354,31 +354,35 @@ export const Home: React.FC = () => {
       {/* About Summary / Mission & Vision */}
       <section className="ptb-100">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '50px', alignItems: 'center' }}>
+          <div className="about-grid">
+
+            {/* Left — Identity & Checklist */}
             <div>
-              <span className="sub-title" style={{ color: '#fd8604', fontWeight: '700', fontSize: '14px', textTransform: 'uppercase' }}>
-                Qui sommes-nous ?
-              </span>
-              <h2 style={{ fontSize: '36px', marginTop: '10px', marginBottom: '20px' }}>
+              <span className="about-sub-title">Qui sommes-nous ?</span>
+              <h2 className="about-heading">
                 Accompagner les entreprises qui exigent la crédibilité.
               </h2>
-              <p style={{ color: '#57647c', marginBottom: '20px', fontSize: '16px', lineHeight: '1.7' }}>
-                <strong>LUCIDE LAB</strong> est un cabinet d'expertise en communication et croissance de marque basé au Bénin. Notre mission est d'aider les entreprises ambitieuses à construire une image de marque cohérente, crédible et performante.
+              <p className="about-text">
+                <strong>LUCIDE LAB</strong> est un cabinet d'expertise en communication et croissance de marque basé au Bénin.
+                Notre mission est d'aider les entreprises ambitieuses à construire une image de marque cohérente,
+                crédible et performante.
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '30px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <CheckCircle size={20} style={{ color: '#fd8604' }} />
-                  <span style={{ fontWeight: '600', color: '#0122bc' }}>Stratégies claires et orientées résultats.</span>
+
+              <div className="about-checklist">
+                <div className="about-check-item">
+                  <CheckCircle size={18} style={{ color: '#fd8604', flexShrink: 0 }} />
+                  <span>Stratégies claires et orientées résultats.</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <CheckCircle size={20} style={{ color: '#fd8604' }} />
-                  <span style={{ fontWeight: '600', color: '#0122bc' }}>Design & Branding haut de gamme.</span>
+                <div className="about-check-item">
+                  <CheckCircle size={18} style={{ color: '#fd8604', flexShrink: 0 }} />
+                  <span>Design &amp; Branding haut de gamme.</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <CheckCircle size={20} style={{ color: '#fd8604' }} />
-                  <span style={{ fontWeight: '600', color: '#0122bc' }}>Accompagnement continu et suivi de performance.</span>
+                <div className="about-check-item">
+                  <CheckCircle size={18} style={{ color: '#fd8604', flexShrink: 0 }} />
+                  <span>Accompagnement continu et suivi de performance.</span>
                 </div>
               </div>
+
               <Link to="/a-propos">
                 <CommonButton variant="dark">
                   Découvrir notre histoire <ArrowRight size={16} />
@@ -386,31 +390,35 @@ export const Home: React.FC = () => {
               </Link>
             </div>
 
-            {/* Vision & Mission Cards */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
-              <div style={{ background: '#0122bc', color: '#fff', padding: '30px', borderRadius: '12px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
-                  <Target size={24} style={{ color: '#fd8604' }} />
-                  <h3 style={{ color: '#fff', fontSize: '22px' }}>Notre Mission</h3>
+            {/* Right — Mission & Vision Cards */}
+            <div className="mission-vision-stack">
+              <div className="mv-card mv-card-mission">
+                <div className="mv-card-header">
+                  <Target size={22} style={{ color: '#fd8604' }} />
+                  <h3>Notre Mission</h3>
                 </div>
-                <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '15px' }}>
-                  Aider les entreprises ambitieuses à construire une image de marque cohérente, crédible et performante.
+                <p>
+                  Aider les entreprises ambitieuses à construire une image de marque cohérente,
+                  crédible et performante en Afrique de l'Ouest.
                 </p>
               </div>
 
-              <div style={{ background: '#f4f7fc', border: '1px solid #e5e9f2', padding: '30px', borderRadius: '12px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
-                  <Building size={24} style={{ color: '#fd8604' }} />
-                  <h3 style={{ color: '#0122bc', fontSize: '22px' }}>Notre Vision</h3>
+              <div className="mv-card mv-card-vision">
+                <div className="mv-card-header">
+                  <Building size={22} style={{ color: '#fd8604' }} />
+                  <h3>Notre Vision</h3>
                 </div>
-                <p style={{ color: '#57647c', fontSize: '15px' }}>
-                  Devenir le cabinet de référence en communication et stratégie de marque au Bénin, puis rayonner à l'échelle de l'Afrique de l'Ouest francophone.
+                <p>
+                  Devenir le cabinet de référence en communication et stratégie de marque au Bénin,
+                  puis rayonner à l'échelle de l'Afrique de l'Ouest francophone.
                 </p>
               </div>
             </div>
+
           </div>
         </div>
       </section>
+
 
       {/* Core Values */}
       <section className="ptb-100" style={{ background: '#f4f7fc' }}>
