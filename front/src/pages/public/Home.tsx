@@ -327,7 +327,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Section - 4 Cards on 1 Line with Bottom CTA */}
       <section className="ptb-100" style={{ background: '#f4f7fc' }}>
         <div className="container">
           <div className="section-title">
@@ -336,8 +336,8 @@ export const Home: React.FC = () => {
             <p>Une approche intégrée combinant stratégie globale, création visuelle et levier numérique.</p>
           </div>
 
-          <div className="grid-3">
-            {servicesToDisplay.map((item, idx) => (
+          <div className="grid-4">
+            {servicesToDisplay.slice(0, 4).map((item, idx) => (
               <div key={idx} className="service-card">
                 <div className="service-icon">{item.icon}</div>
                 <h3>{item.title}</h3>
@@ -345,11 +345,16 @@ export const Home: React.FC = () => {
                   {item.subtitle}
                 </span>
                 <p>{item.description}</p>
-                <Link to="/services" style={{ color: '#0122bc', fontWeight: '700', fontSize: '14px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                  En savoir plus <ArrowRight size={14} />
-                </Link>
               </div>
             ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '35px' }}>
+            <Link to="/services">
+              <CommonButton variant="blue">
+                Voir tous nos pôles d'expertise <ArrowRight size={16} />
+              </CommonButton>
+            </Link>
           </div>
         </div>
       </section>

@@ -438,11 +438,18 @@ ul {
   box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 }
 
-/* Card & Service Grid - Compact with generous spacing */
+/* Card & Service Grid */
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px 28px;
+}
+
+/* Single line 4-column grid for Home page Services */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 }
 
 .service-card {
@@ -493,7 +500,7 @@ ul {
   color: var(--text-muted);
   font-size: 14px;
   flex-grow: 1;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   line-height: 1.55;
 }
 
@@ -771,6 +778,9 @@ ul {
   .mobile-drawer-menu {
     display: block;
   }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 991px) {
@@ -830,9 +840,9 @@ ul {
   .section-title p {
     font-size: 14px;
   }
-  .grid-3 {
+  .grid-3, .grid-4 {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
   }
   .footer-grid {
     grid-template-columns: 1fr;
