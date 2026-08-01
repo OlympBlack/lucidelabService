@@ -50,20 +50,32 @@ export const Blog: React.FC = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             style={{
-              paddingLeft: '40px',
-              paddingRight: '16px',
-              borderRadius: '20px',
-              height: '42px',
-              fontSize: '14px',
+              paddingLeft: '38px',
+              paddingRight: '14px',
+              borderRadius: '18px',
+              height: '36px',
+              fontSize: '13px',
               border: '2px solid #0122bc',
               boxShadow: '0 2px 12px rgba(1,34,188,0.10)',
               background: '#f4f7fc',
               color: '#011a41',
               outline: 'none',
+              boxSizing: 'border-box',
             }}
           />
-          <Search size={16} style={{ position: 'absolute', left: '14px', top: '13px', color: '#0122bc', pointerEvents: 'none' }} />
+          <Search
+            size={15}
+            style={{
+              position: 'absolute',
+              left: '13px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              color: '#0122bc',
+              pointerEvents: 'none',
+            }}
+          />
         </div>
+
 
 
 
