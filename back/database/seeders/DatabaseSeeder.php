@@ -148,6 +148,7 @@ class DatabaseSeeder extends Seeder
                 'category' => 'BRAND',
                 'client_name' => 'Groupe Financier Régional',
                 'description' => 'Refonte complète de l\'identité visuelle et déploiement de la nouvelle charte graphique sur l\'ensemble des supports.',
+                'image_url' => '/assets/images/hero1.jpg',
                 'year' => '2025',
                 'is_featured' => true
             ],
@@ -156,6 +157,7 @@ class DatabaseSeeder extends Seeder
                 'category' => 'DIGITAL',
                 'client_name' => 'AgroTech Bénin',
                 'description' => 'Conception web responsive et système de commande en ligne sécurisé pour des produits agricoles locaux.',
+                'image_url' => '/assets/images/hero2.png',
                 'year' => '2025',
                 'is_featured' => true
             ],
@@ -164,6 +166,7 @@ class DatabaseSeeder extends Seeder
                 'category' => 'GROWTH',
                 'client_name' => 'Startup Logistique',
                 'description' => 'Stratégie d\'acquisition d\'utilisateurs ayant permis d\'augmenter les demandes de livraison de +180% en 3 mois.',
+                'image_url' => '/assets/images/hero3.jpg',
                 'year' => '2026',
                 'is_featured' => true
             ],
@@ -172,6 +175,7 @@ class DatabaseSeeder extends Seeder
                 'category' => 'CONTENT',
                 'client_name' => 'Groupe Immobilier Pan-Africain',
                 'description' => 'Production audiovisuelle haute définition mettant en valeur les projets architecturaux phares de la marque.',
+                'image_url' => '/assets/images/hero1.jpg',
                 'year' => '2025',
                 'is_featured' => false
             ],
@@ -180,6 +184,7 @@ class DatabaseSeeder extends Seeder
                 'category' => 'ADVERTISING',
                 'client_name' => 'Compagnie d\'Assurance Vie',
                 'description' => 'Achat média multi-canal déployé au Bénin, Togo et Côte d\'Ivoire.',
+                'image_url' => '/assets/images/hero2.png',
                 'year' => '2026',
                 'is_featured' => false
             ],
@@ -188,6 +193,7 @@ class DatabaseSeeder extends Seeder
                 'category' => 'STRATEGY',
                 'client_name' => 'Institution de Microfinance',
                 'description' => 'Définition d\'une stratégie 360° pour conquérir une nouvelle cible de jeunes entrepreneurs.',
+                'image_url' => '/assets/images/hero3.jpg',
                 'year' => '2025',
                 'is_featured' => false
             ]
@@ -196,6 +202,7 @@ class DatabaseSeeder extends Seeder
         foreach ($realisations as $r) {
             Realisation::updateOrCreate(['title' => $r['title']], $r);
         }
+
 
         // 5. Blogs
         $blogs = [

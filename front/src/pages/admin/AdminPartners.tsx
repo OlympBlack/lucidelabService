@@ -56,11 +56,13 @@ export const AdminMessages: React.FC = () => {
 
   useEffect(() => {
     api.getAdminMessages().then((data) => {
-      if (data && data.length > 0) {
-        setMessages(data);
+      const arr = data as any[];
+      if (arr && arr.length > 0) {
+        setMessages(arr);
       }
     });
   }, []);
+
 
   const handleDelete = (id: number) => {
     setMessages(messages.filter(m => m.id !== id));

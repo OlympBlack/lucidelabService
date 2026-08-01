@@ -21,10 +21,11 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
-import { api } from '../../services/api';
+import { api, type Realisation } from '../../services/api';
 
 export const Home: React.FC = () => {
   const [apiServices, setApiServices] = useState<any[]>([]);
+  const [apiRealisations, setApiRealisations] = useState<Realisation[]>([]);
 
   // Hero Slider setup: hero1.jpg, hero2.png, hero3.jpg
   const heroImages = [
@@ -52,9 +53,10 @@ export const Home: React.FC = () => {
 
   useEffect(() => {
     api.getServices().then((data) => {
-      if (data && data.length > 0) {
-        setApiServices(data);
-      }
+      if (data && data.length > 0) setApiServices(data);
+    });
+    api.getRealisations().then((data) => {
+      if (data && data.length > 0) setApiRealisations(data);
     });
   }, []);
 
@@ -141,26 +143,13 @@ export const Home: React.FC = () => {
     }
   ];
 
-  const realisations = [
-    {
-      title: 'Repositionnement Global de Marque FinTech',
-      category: 'Brand & Strategy',
-      desc: 'Refonte complète de l\'identité visuelle et stratégie d\'acquisition pour une institution financière.',
-      image: '/assets/images/hero1.jpg'
-    },
-    {
-      title: 'Plateforme E-commerce & Expansion Digital',
-      category: 'Digital & Growth',
-      desc: 'Développement d\'une plateforme web moderne et campagne d\'acquisition clients multi-canal.',
-      image: '/assets/images/hero2.png'
-    },
-    {
-      title: 'Campagne de Lancement Produit Agro-alimentaire',
-      category: 'Content & Advertising',
-      desc: 'Création de contenus vidéos et campagnes ciblées en Afrique de l\'Ouest.',
-      image: '/assets/images/hero3.jpg'
-    }
-  ];
+  // Dynamic realisations from API: featured first, then latest, up to 3
+  const realisations = apiRealisations.length > 0
+    ? [
+        ...apiRealisations.filter((r) => r.is_featured),
+        ...apiRealisations.filter((r) => !r.is_featured)
+      ].slice(0, 3)
+    : [];
 
   const partners = [
     'Banque & Finance',
@@ -454,24 +443,38 @@ export const Home: React.FC = () => {
           </div>
 
           <div className="grid-3">
-            {realisations.map((item, idx) => (
-              <div key={idx} className="portfolio-card">
+            {realisations.length === 0 ? (
+              <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '40px', color: '#57647c' }}>
+                Les réalisations seront affichées ici dès qu'elles seront ajoutées depuis l'administration.
+              </div>
+            ) : realisations.map((item) => (
+              <div key={item.id} className="portfolio-card">
                 <div className="portfolio-img-wrapper">
-                  <img src={item.image} alt={item.title} />
+                  <img
+                    src={item.image_url || `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="220"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%230122bc"/><stop offset="1" stop-color="%23fd8604"/></linearGradient></defs><rect width="400" height="220" fill="url(%23g)"/><text x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="22" font-family="sans-serif" font-weight="bold">${encodeURIComponent(item.category)}</text></svg>`}
+                    alt={item.title}
+                    onError={(e) => { (e.target as HTMLImageElement).src = '/assets/images/hero1.jpg'; }}
+                  />
                 </div>
                 <div className="portfolio-body">
-                  <span className="portfolio-tag">{item.category}</span>
-                  <h3 style={{ fontSize: '18px', marginBottom: '10px' }}>{item.title}</h3>
-                  <p style={{ color: '#57647c', fontSize: '14px' }}>{item.desc}</p>
+                  <span className="portfolio-tag">{item.category}{item.year ? ` • ${item.year}` : ''}</span>
+                  <h3 style={{ fontSize: '18px', marginBottom: '8px', color: '#0122bc' }}>{item.title}</h3>
+                  {item.client_name && (
+                    <p style={{ color: '#fd8604', fontWeight: '600', fontSize: '13px', marginBottom: '8px' }}>
+                      Client : {item.client_name}
+                    </p>
+                  )}
+                  <p style={{ color: '#57647c', fontSize: '14px' }}>{item.description}</p>
                 </div>
               </div>
             ))}
           </div>
 
+
           <div style={{ textAlign: 'center', marginTop: '40px' }}>
             <Link to="/realisations">
               <CommonButton variant="blue">
-                Voir tous nos projets <ArrowRight size={16} />
+                Voir plus de projets <ArrowRight size={16} />
               </CommonButton>
             </Link>
           </div>

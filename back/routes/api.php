@@ -25,6 +25,7 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('services', ServiceController::class);
         Route::apiResource('realisations', RealisationController::class);
         Route::apiResource('blogs', BlogController::class);
+        Route::get('/blogs/{blog}', [BlogController::class, 'show']);
         Route::apiResource('messages', ContactController::class)->only(['index', 'destroy']);
         Route::post('/settings', [SettingController::class, 'update']);
     });

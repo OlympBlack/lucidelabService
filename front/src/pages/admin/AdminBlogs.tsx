@@ -1,105 +1,327 @@
-import React, { useState } from 'react';
-import { Plus, Edit, Trash2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Plus, Edit, Trash2, X, Eye, EyeOff, Image, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { CommonButton } from '../../components/common/CommonButton';
+import { api, type Blog } from '../../services/api';
+
+const CATEGORIES = ['STRATEGY', 'BRANDING', 'DIGITAL', 'GROWTH', 'CONTENT', 'ADVERTISING'];
+
+const emptyForm = {
+  title: '',
+  category: 'BRANDING',
+  excerpt: '',
+  content: '',
+  author: 'Équipe LUCIDE LAB',
+  image_url: '',
+  is_published: false,
+};
+
+type FormData = typeof emptyForm;
 
 export const AdminBlogs: React.FC = () => {
-  const [blogs, setBlogs] = useState([
-    { id: 1, title: 'Comment construire une identité de marque forte et mémorable en 2026 ?', category: 'BRANDING', date: '15/07/2026', views: 420 },
-    { id: 2, title: 'Les clés d\'une stratégie de Growth Hacking réussie en Afrique de l\'Ouest', category: 'GROWTH', date: '28/06/2026', views: 310 },
-    { id: 3, title: 'Pourquoi la lucidité est la clé de voûte du positionnement', category: 'STRATEGY', date: '10/06/2026', views: 285 },
-  ]);
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
 
-  const [isAdding, setIsAdding] = useState(false);
-  const [newTitle, setNewTitle] = useState('');
-  const [newCat, setNewCat] = useState('BRANDING');
+  const [showForm, setShowForm] = useState(false);
+  const [editingId, setEditingId] = useState<number | null>(null);
+  const [form, setForm] = useState<FormData>(emptyForm);
 
-  const handleAdd = (e: React.FormEvent) => {
+  // ── Fetch ─────────────────────────────────────────────────────────────────
+  const fetchBlogs = async () => {
+    setLoading(true);
+    const data = await api.adminGetBlogs();
+    setBlogs(data ?? []);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
+  // ── Notify ────────────────────────────────────────────────────────────────
+  const notify = (msg: string, isError = false) => {
+    if (isError) { setError(msg); setSuccess(null); }
+    else { setSuccess(msg); setError(null); }
+    setTimeout(() => { setError(null); setSuccess(null); }, 4500);
+  };
+
+  // ── Form handlers ─────────────────────────────────────────────────────────
+  const openAdd = () => {
+    setForm(emptyForm);
+    setEditingId(null);
+    setShowForm(true);
+  };
+
+  const openEdit = (b: Blog) => {
+    setForm({
+      title: b.title,
+      category: b.category,
+      excerpt: b.excerpt,
+      content: b.content,
+      author: b.author ?? 'Équipe LUCIDE LAB',
+      image_url: b.image_url ?? '',
+      is_published: b.is_published ?? false,
+    });
+    setEditingId(b.id);
+    setShowForm(true);
+  };
+
+  const closeForm = () => {
+    setShowForm(false);
+    setEditingId(null);
+    setForm(emptyForm);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (newTitle.trim()) {
-      setBlogs([...blogs, {
-        id: Date.now(),
-        title: newTitle,
-        category: newCat,
-        date: new Date().toLocaleDateString('fr-FR'),
-        views: 0
-      }]);
-      setNewTitle('');
-      setIsAdding(false);
+    setSaving(true);
+
+    if (editingId) {
+      const res = await api.updateBlog(editingId, { ...form, is_published: Boolean(form.is_published) });
+      if (res.success) {
+        notify('✅ Article mis à jour avec succès !');
+        closeForm();
+        fetchBlogs();
+      } else {
+        notify(res.message ?? 'Erreur lors de la mise à jour.', true);
+      }
+    } else {
+      const res = await api.createBlog({ ...form, is_published: Boolean(form.is_published) });
+      if (res.success) {
+        notify('✅ Article créé ! Il sera visible dès sa publication.');
+        closeForm();
+        fetchBlogs();
+      } else {
+        notify(res.message ?? "Erreur lors de la création.", true);
+      }
+    }
+    setSaving(false);
+  };
+
+  const handleDelete = async (id: number, title: string) => {
+    if (!confirm(`Supprimer définitivement l'article "${title}" ?`)) return;
+    const res = await api.deleteBlog(id);
+    if (res.success) {
+      notify('Article supprimé.');
+      setBlogs(blogs.filter((b) => b.id !== id));
+    } else {
+      notify(res.message ?? 'Erreur lors de la suppression.', true);
     }
   };
 
-  const handleDelete = (id: number) => {
-    if (confirm('Voulez-vous supprimer cet article ?')) {
-      setBlogs(blogs.filter(b => b.id !== id));
+  const togglePublish = async (b: Blog) => {
+    const res = await api.updateBlog(b.id, { is_published: !b.is_published });
+    if (res.success) {
+      notify(b.is_published ? 'Article dépublié (brouillon).' : '✅ Article publié sur le site !');
+      setBlogs(blogs.map((x) => (x.id === b.id ? { ...x, is_published: !x.is_published } : x)));
+    } else {
+      notify('Erreur lors du changement de statut.', true);
     }
   };
 
+  // ── Render ────────────────────────────────────────────────────────────────
   return (
     <div>
+      {/* Header */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '25px' }}>
         <div>
-          <h2 style={{ fontSize: '24px', color: '#011a41' }}>Gestion des Blogs & Catégories</h2>
-          <p style={{ color: '#57647c', fontSize: '14px' }}>Rédigez, modifiez et organisez vos articles de presse et conseils.</p>
+          <h2 style={{ fontSize: '24px', color: '#011a41' }}>Gestion des Blogs & Articles</h2>
+          <p style={{ color: '#57647c', fontSize: '14px' }}>Rédigez et publiez vos articles. Les articles publiés apparaissent automatiquement sur le site.</p>
         </div>
-        <CommonButton variant="orange" onClick={() => setIsAdding(!isAdding)}>
-          <Plus size={16} /> Nouveau Blog
+        <CommonButton variant="orange" onClick={openAdd}>
+          <Plus size={16} /> Nouvel Article
         </CommonButton>
       </div>
 
-      {isAdding && (
-        <form onSubmit={handleAdd} style={{ background: '#ffffff', padding: '25px', borderRadius: '12px', marginBottom: '25px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
-          <h3 style={{ fontSize: '18px', marginBottom: '15px', color: '#011a41' }}>Créer un nouvel article</h3>
-          <div className="form-group">
-            <label>Titre de l'article</label>
-            <input type="text" className="form-control" required value={newTitle} onChange={(e) => setNewTitle(e.target.value)} placeholder="Titre de l'article..." />
-          </div>
-          <div className="form-group">
-            <label>Catégorie</label>
-            <select className="form-control" value={newCat} onChange={(e) => setNewCat(e.target.value)}>
-              <option value="STRATEGY">STRATEGY</option>
-              <option value="BRANDING">BRANDING</option>
-              <option value="DIGITAL">DIGITAL</option>
-              <option value="GROWTH">GROWTH</option>
-              <option value="CONTENT">CONTENT</option>
-              <option value="ADVERTISING">ADVERTISING</option>
-            </select>
-          </div>
-          <div style={{ display: 'flex', gap: '10px' }}>
-            <CommonButton type="submit" variant="orange">Enregistrer</CommonButton>
-            <CommonButton type="button" variant="dark" onClick={() => setIsAdding(false)}>Annuler</CommonButton>
-          </div>
-        </form>
+      {/* Notifications */}
+      {success && (
+        <div style={{ background: '#dcfce7', border: '1px solid #86efac', borderRadius: '10px', padding: '12px 16px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px', color: '#166534' }}>
+          <CheckCircle size={18} /> {success}
+        </div>
+      )}
+      {error && (
+        <div style={{ background: '#fee2e2', border: '1px solid #fca5a5', borderRadius: '10px', padding: '12px 16px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px', color: '#991b1b' }}>
+          <AlertCircle size={18} /> {error}
+        </div>
       )}
 
-      <div className="table-responsive">
-        <table className="custom-table">
-          <thead>
-            <tr>
-              <th>Titre de l'Article</th>
-              <th>Catégorie</th>
-              <th>Date de Publication</th>
-              <th>Vues</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {blogs.map((b) => (
-              <tr key={b.id}>
-                <td><strong>{b.title}</strong></td>
-                <td><span style={{ background: '#f4f7fc', padding: '4px 10px', borderRadius: '6px', fontSize: '12px', fontWeight: '700' }}>{b.category}</span></td>
-                <td>{b.date}</td>
-                <td>{b.views} vues</td>
-                <td>
-                  <div style={{ display: 'flex', gap: '8px' }}>
-                    <button style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#355efc' }}><Edit size={18} /></button>
-                    <button onClick={() => handleDelete(b.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#fb2448' }}><Trash2 size={18} /></button>
+      {/* Form Panel */}
+      {showForm && (
+        <div style={{ background: '#ffffff', padding: '28px', borderRadius: '14px', marginBottom: '28px', boxShadow: '0 4px 24px rgba(1,34,188,0.09)', border: '1px solid #e5e9f2' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+            <h3 style={{ fontSize: '20px', color: '#011a41' }}>
+              {editingId ? '✏️ Modifier l\'Article' : '➕ Créer un Nouvel Article'}
+            </h3>
+            <button onClick={closeForm} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#57647c' }}>
+              <X size={22} />
+            </button>
+          </div>
+
+          <form onSubmit={handleSubmit}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px' }}>
+              {/* Title */}
+              <div className="form-group" style={{ gridColumn: '1 / -1' }}>
+                <label>Titre de l'Article *</label>
+                <input type="text" className="form-control" required
+                  value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })}
+                  placeholder="Ex. : Comment construire une identité de marque forte ?" />
+              </div>
+
+              {/* Category */}
+              <div className="form-group">
+                <label>Catégorie *</label>
+                <select className="form-control" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })}>
+                  {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
+                </select>
+              </div>
+
+              {/* Author */}
+              <div className="form-group">
+                <label>Auteur</label>
+                <input type="text" className="form-control"
+                  value={form.author} onChange={(e) => setForm({ ...form, author: e.target.value })}
+                  placeholder="Équipe LUCIDE LAB" />
+              </div>
+
+              {/* Excerpt */}
+              <div className="form-group" style={{ gridColumn: '1 / -1' }}>
+                <label>Résumé / Extrait * <span style={{ color: '#57647c', fontWeight: '400' }}>(affiché dans la liste)</span></label>
+                <textarea className="form-control" required rows={2}
+                  value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })}
+                  placeholder="Une courte description percutante de l'article (2-3 phrases max)..." />
+              </div>
+
+              {/* Content */}
+              <div className="form-group" style={{ gridColumn: '1 / -1' }}>
+                <label>Contenu Complet *</label>
+                <textarea className="form-control" required rows={8}
+                  value={form.content} onChange={(e) => setForm({ ...form, content: e.target.value })}
+                  placeholder="Rédigez votre article ici. Utilisez des sauts de ligne pour séparer les paragraphes..." />
+              </div>
+
+              {/* Image URL */}
+              <div className="form-group" style={{ gridColumn: '1 / -1' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <Image size={15} /> URL de l'Image de Couverture
+                </label>
+                <input type="text" className="form-control"
+                  value={form.image_url} onChange={(e) => setForm({ ...form, image_url: e.target.value })}
+                  placeholder="https://... ou /assets/images/article.jpg" />
+                {form.image_url && (
+                  <div style={{ marginTop: '10px', borderRadius: '8px', overflow: 'hidden', height: '120px' }}>
+                    <img src={form.image_url} alt="aperçu" style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
                   </div>
-                </td>
+                )}
+              </div>
+
+              {/* Published */}
+              <div className="form-group" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <input type="checkbox" id="is_published"
+                  checked={form.is_published}
+                  onChange={(e) => setForm({ ...form, is_published: e.target.checked })}
+                  style={{ width: '18px', height: '18px', cursor: 'pointer' }} />
+                <label htmlFor="is_published" style={{ cursor: 'pointer', fontWeight: '600', color: '#0122bc' }}>
+                  Publier immédiatement sur le site
+                </label>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '12px', marginTop: '20px' }}>
+              <CommonButton type="submit" variant="orange" disabled={saving}>
+                {saving ? <><Loader2 size={16} /> Enregistrement...</> : (editingId ? 'Mettre à Jour' : 'Créer l\'Article')}
+              </CommonButton>
+              <CommonButton type="button" variant="dark" onClick={closeForm}>Annuler</CommonButton>
+            </div>
+          </form>
+        </div>
+      )}
+
+      {/* Table */}
+      {loading ? (
+        <div style={{ textAlign: 'center', padding: '60px', color: '#57647c' }}>
+          <Loader2 size={32} style={{ animation: 'spin 1s linear infinite' }} />
+          <p style={{ marginTop: '12px' }}>Chargement des articles...</p>
+        </div>
+      ) : (
+        <div className="table-responsive">
+          <table className="custom-table">
+            <thead>
+              <tr>
+                <th>Couverture</th>
+                <th>Titre de l'Article</th>
+                <th>Catégorie</th>
+                <th>Auteur</th>
+                <th>Vues</th>
+                <th>Statut</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {blogs.length === 0 ? (
+                <tr>
+                  <td colSpan={7} style={{ textAlign: 'center', padding: '40px', color: '#57647c' }}>
+                    Aucun article pour l'instant. Cliquez sur "Nouvel Article" pour commencer.
+                  </td>
+                </tr>
+              ) : (
+                blogs.map((b) => (
+                  <tr key={b.id}>
+                    <td>
+                      {b.image_url ? (
+                        <img src={b.image_url} alt={b.title}
+                          style={{ width: '60px', height: '42px', objectFit: 'cover', borderRadius: '6px' }}
+                          onError={(e) => { (e.target as HTMLImageElement).src = ''; (e.target as HTMLImageElement).style.display = 'none'; }} />
+                      ) : (
+                        <div style={{ width: '60px', height: '42px', background: 'linear-gradient(135deg, #0122bc, #fd8604)', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <span style={{ color: '#fff', fontSize: '10px', fontWeight: '700' }}>{b.category.slice(0, 3)}</span>
+                        </div>
+                      )}
+                    </td>
+                    <td style={{ maxWidth: '260px' }}>
+                      <strong style={{ color: '#011a41', fontSize: '14px', display: 'block', marginBottom: '3px' }}>{b.title}</strong>
+                      <span style={{ color: '#57647c', fontSize: '12px' }}>{b.excerpt?.slice(0, 70)}...</span>
+                    </td>
+                    <td>
+                      <span style={{ background: '#f4f7fc', padding: '4px 10px', borderRadius: '6px', fontSize: '12px', fontWeight: '700', color: '#0122bc' }}>
+                        {b.category}
+                      </span>
+                    </td>
+                    <td style={{ color: '#57647c', fontSize: '13px' }}>{b.author ?? '—'}</td>
+                    <td style={{ color: '#57647c', fontSize: '13px' }}>{(b.views_count ?? 0).toLocaleString()}</td>
+                    <td>
+                      <button onClick={() => togglePublish(b)} title={b.is_published ? 'Dépublier' : 'Publier'}
+                        style={{
+                          display: 'inline-flex', alignItems: 'center', gap: '6px',
+                          background: b.is_published ? 'rgba(22,163,74,0.1)' : 'rgba(156,163,175,0.2)',
+                          border: 'none', cursor: 'pointer', borderRadius: '20px',
+                          padding: '5px 12px', fontSize: '12px', fontWeight: '700',
+                          color: b.is_published ? '#15803d' : '#57647c'
+                        }}>
+                        {b.is_published ? <><Eye size={13} /> Publié</> : <><EyeOff size={13} /> Brouillon</>}
+                      </button>
+                    </td>
+                    <td>
+                      <div style={{ display: 'flex', gap: '8px' }}>
+                        <button onClick={() => openEdit(b)} title="Modifier"
+                          style={{ background: 'rgba(1,34,188,0.08)', border: 'none', cursor: 'pointer', color: '#0122bc', borderRadius: '6px', padding: '6px 8px' }}>
+                          <Edit size={16} />
+                        </button>
+                        <button onClick={() => handleDelete(b.id, b.title)} title="Supprimer"
+                          style={{ background: 'rgba(251,36,72,0.08)', border: 'none', cursor: 'pointer', color: '#fb2448', borderRadius: '6px', padding: '6px 8px' }}>
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 };

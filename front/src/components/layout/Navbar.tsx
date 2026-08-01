@@ -51,7 +51,7 @@ export const Navbar: React.FC = () => {
         <div className="nav-actions">
           <Link to="/contact" className="desktop-nav-cta">
             <CommonButton variant="orange">
-              Projet & Dévis <ArrowRight size={16} />
+              Projet et Dévis <ArrowRight size={16} />
             </CommonButton>
           </Link>
 

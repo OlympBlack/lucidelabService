@@ -1,113 +1,182 @@
 const API_BASE_URL = 'http://localhost:8000/api/v1';
 
+// ── Types ──────────────────────────────────────────────────────────────────
+export interface Realisation {
+  id: number;
+  title: string;
+  category: string;
+  client_name: string;
+  description: string;
+  image_url?: string;
+  year?: string;
+  is_featured?: boolean;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface Blog {
+  id: number;
+  title: string;
+  slug: string;
+  category: string;
+  excerpt: string;
+  content: string;
+  author?: string;
+  image_url?: string;
+  views_count?: number;
+  is_published?: boolean;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface Service {
+  id: number;
+  code: string;
+  title: string;
+  subtitle?: string;
+  description: string;
+  details?: string[];
+  is_active?: boolean;
+}
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+const jsonHeaders = { 'Content-Type': 'application/json', 'Accept': 'application/json' };
+
+async function get<T>(url: string): Promise<T | null> {
+  try {
+    const res = await fetch(url, { headers: { Accept: 'application/json' } });
+    const data = await res.json();
+    return data.success ? data.data : null;
+  } catch (e) {
+    console.warn('API GET error:', url, e);
+    return null;
+  }
+}
+
+async function post<T>(url: string, body: unknown): Promise<{ success: boolean; data?: T; message?: string; errors?: Record<string, string[]> }> {
+  try {
+    const res = await fetch(url, { method: 'POST', headers: jsonHeaders, body: JSON.stringify(body) });
+    return await res.json();
+  } catch (e) {
+    console.error('API POST error:', url, e);
+    return { success: false, message: 'Erreur de connexion au serveur.' };
+  }
+}
+
+async function put<T>(url: string, body: unknown): Promise<{ success: boolean; data?: T; message?: string; errors?: Record<string, string[]> }> {
+  try {
+    const res = await fetch(url, { method: 'PUT', headers: jsonHeaders, body: JSON.stringify(body) });
+    return await res.json();
+  } catch (e) {
+    console.error('API PUT error:', url, e);
+    return { success: false, message: 'Erreur de connexion au serveur.' };
+  }
+}
+
+async function del(url: string): Promise<{ success: boolean; message?: string }> {
+  try {
+    const res = await fetch(url, { method: 'DELETE', headers: { Accept: 'application/json' } });
+    return await res.json();
+  } catch (e) {
+    console.error('API DELETE error:', url, e);
+    return { success: false, message: 'Erreur de connexion au serveur.' };
+  }
+}
+
+// ── Public API ─────────────────────────────────────────────────────────────
 export const api = {
-  // Public APIs
-  async getServices() {
-    try {
-      const res = await fetch(`${API_BASE_URL}/services`);
-      const data = await res.json();
-      return data.success ? data.data : [];
-    } catch (e) {
-      console.warn('API non joignable, utilisation des données fallback local:', e);
-      return null;
-    }
+  // Services
+  async getServices(): Promise<Service[] | null> {
+    return get<Service[]>(`${API_BASE_URL}/services`);
   },
 
-  async getRealisations() {
-    try {
-      const res = await fetch(`${API_BASE_URL}/realisations`);
-      const data = await res.json();
-      return data.success ? data.data : [];
-    } catch (e) {
-      console.warn('API error:', e);
-      return null;
-    }
+  // Réalisations
+  async getRealisations(): Promise<Realisation[] | null> {
+    return get<Realisation[]>(`${API_BASE_URL}/realisations`);
   },
 
-  async getBlogs() {
-    try {
-      const res = await fetch(`${API_BASE_URL}/blogs`);
-      const data = await res.json();
-      return data.success ? data.data : [];
-    } catch (e) {
-      console.warn('API error:', e);
-      return null;
-    }
+  // Blog
+  async getBlogs(): Promise<Blog[] | null> {
+    return get<Blog[]>(`${API_BASE_URL}/blogs`);
   },
 
-  async getBlogBySlug(slug: string) {
-    try {
-      const res = await fetch(`${API_BASE_URL}/blogs/${slug}`);
-      const data = await res.json();
-      return data.success ? data.data : null;
-    } catch (e) {
-      console.warn('API error:', e);
-      return null;
-    }
+  async getBlogBySlug(slug: string): Promise<Blog | null> {
+    return get<Blog>(`${API_BASE_URL}/blogs/${slug}`);
   },
 
-  async getSettings() {
-    try {
-      const res = await fetch(`${API_BASE_URL}/settings`);
-      const data = await res.json();
-      return data.success ? data.data : null;
-    } catch (e) {
-      console.warn('API error:', e);
-      return null;
-    }
+  // Settings
+  async getSettings(): Promise<Record<string, string> | null> {
+    return get<Record<string, string>>(`${API_BASE_URL}/settings`);
   },
 
+  // Contact
   async sendContact(formData: { name: string; email: string; phone: string; service: string; subject?: string; message: string }) {
-    try {
-      const res = await fetch(`${API_BASE_URL}/contact`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      return await res.json();
-    } catch (e) {
-      console.error('Contact API error:', e);
-      return { success: false, message: 'Erreur de connexion au serveur API.' };
-    }
+    return post(`${API_BASE_URL}/contact`, formData);
   },
 
-  // Admin APIs
+  // ── Admin Auth ────────────────────────────────────────────────────────────
   async adminLogin(credentials: { email: string; password: string }) {
-    try {
-      const res = await fetch(`${API_BASE_URL}/admin/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(credentials)
-      });
-      return await res.json();
-    } catch (e) {
-      console.error('Admin Login error:', e);
-      return { success: false, message: 'Impossible de se connecter au serveur backend Laravel.' };
-    }
+    return post(`${API_BASE_URL}/admin/login`, credentials);
   },
 
+  // ── Admin — Réalisations CRUD ────────────────────────────────────────────
+  async adminGetRealisations(): Promise<Realisation[] | null> {
+    return get<Realisation[]>(`${API_BASE_URL}/admin/realisations`);
+  },
+
+  async createRealisation(data: Omit<Realisation, 'id' | 'created_at' | 'updated_at'>) {
+    return post<Realisation>(`${API_BASE_URL}/admin/realisations`, data);
+  },
+
+  async updateRealisation(id: number, data: Partial<Realisation>) {
+    return put<Realisation>(`${API_BASE_URL}/admin/realisations/${id}`, data);
+  },
+
+  async deleteRealisation(id: number) {
+    return del(`${API_BASE_URL}/admin/realisations/${id}`);
+  },
+
+  // ── Admin — Blog CRUD ────────────────────────────────────────────────────
+  async adminGetBlogs(): Promise<Blog[] | null> {
+    return get<Blog[]>(`${API_BASE_URL}/admin/blogs`);
+  },
+
+  async createBlog(data: Omit<Blog, 'id' | 'slug' | 'created_at' | 'updated_at' | 'views_count'>) {
+    return post<Blog>(`${API_BASE_URL}/admin/blogs`, data);
+  },
+
+  async updateBlog(id: number, data: Partial<Blog>) {
+    return put<Blog>(`${API_BASE_URL}/admin/blogs/${id}`, data);
+  },
+
+  async deleteBlog(id: number) {
+    return del(`${API_BASE_URL}/admin/blogs/${id}`);
+  },
+
+  // ── Admin — Services CRUD ────────────────────────────────────────────────
+  async adminGetServices(): Promise<Service[] | null> {
+    return get<Service[]>(`${API_BASE_URL}/admin/services`);
+  },
+
+  async updateService(id: number, data: Partial<Service>) {
+    return put<Service>(`${API_BASE_URL}/admin/services/${id}`, data);
+  },
+
+  async deleteService(id: number) {
+    return del(`${API_BASE_URL}/admin/services/${id}`);
+  },
+
+  // ── Admin — Messages ─────────────────────────────────────────────────────
   async getAdminMessages() {
-    try {
-      const res = await fetch(`${API_BASE_URL}/admin/messages`);
-      const data = await res.json();
-      return data.success ? data.data : [];
-    } catch (e) {
-      console.warn('Admin API error:', e);
-      return null;
-    }
+    return get(`${API_BASE_URL}/admin/messages`);
   },
 
+  async deleteMessage(id: number) {
+    return del(`${API_BASE_URL}/admin/messages/${id}`);
+  },
+
+  // ── Admin — Settings ─────────────────────────────────────────────────────
   async updateSettings(settings: Record<string, string>) {
-    try {
-      const res = await fetch(`${API_BASE_URL}/admin/settings`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(settings)
-      });
-      return await res.json();
-    } catch (e) {
-      console.error('Update settings API error:', e);
-      return { success: false };
-    }
+    return post(`${API_BASE_URL}/admin/settings`, settings);
   }
 };
