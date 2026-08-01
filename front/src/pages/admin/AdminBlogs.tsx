@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Edit, Trash2, X, Eye, EyeOff, Image, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { Plus, Edit, Trash2, X, Eye, EyeOff, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { CommonButton } from '../../components/common/CommonButton';
+import { ImageUploader } from '../../components/common/ImageUploader';
 import { api, type Blog } from '../../services/api';
 
 const CATEGORIES = ['STRATEGY', 'BRANDING', 'DIGITAL', 'GROWTH', 'CONTENT', 'ADVERTISING'];
@@ -201,20 +202,13 @@ export const AdminBlogs: React.FC = () => {
                   placeholder="Rédigez votre article ici. Utilisez des sauts de ligne pour séparer les paragraphes..." />
               </div>
 
-              {/* Image URL */}
-              <div className="form-group" style={{ gridColumn: '1 / -1' }}>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Image size={15} /> URL de l'Image de Couverture
-                </label>
-                <input type="text" className="form-control"
-                  value={form.image_url} onChange={(e) => setForm({ ...form, image_url: e.target.value })}
-                  placeholder="https://... ou /assets/images/article.jpg" />
-                {form.image_url && (
-                  <div style={{ marginTop: '10px', borderRadius: '8px', overflow: 'hidden', height: '120px' }}>
-                    <img src={form.image_url} alt="aperçu" style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-                  </div>
-                )}
+              {/* Image Upload / URL */}
+              <div style={{ gridColumn: '1 / -1' }}>
+                <ImageUploader
+                  value={form.image_url}
+                  onChange={(url) => setForm({ ...form, image_url: url })}
+                  label="Image de Couverture de l'Article"
+                />
               </div>
 
               {/* Published */}

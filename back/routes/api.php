@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\SettingController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\UploadController;
 
 // Public Endpoints
 Route::prefix('v1')->group(function () {
@@ -28,5 +29,10 @@ Route::prefix('v1')->group(function () {
         Route::get('/blogs/{blog}', [BlogController::class, 'show']);
         Route::apiResource('messages', ContactController::class)->only(['index', 'destroy']);
         Route::post('/settings', [SettingController::class, 'update']);
+
+        // Image Upload
+        Route::post('/upload-image', [UploadController::class, 'uploadImage']);
+        Route::delete('/delete-image', [UploadController::class, 'deleteImage']);
     });
+
 });

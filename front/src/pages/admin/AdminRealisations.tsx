@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Edit, Trash2, X, Image, Star, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { Plus, Edit, Trash2, X, Star, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { CommonButton } from '../../components/common/CommonButton';
+import { ImageUploader } from '../../components/common/ImageUploader';
 import { api, type Realisation } from '../../services/api';
 
 const CATEGORIES = ['STRATEGY', 'BRAND', 'DIGITAL', 'GROWTH', 'CONTENT', 'ADVERTISING'];
@@ -207,20 +208,13 @@ export const AdminRealisations: React.FC = () => {
                   placeholder="Décrivez le défi client et les résultats obtenus..." />
               </div>
 
-              {/* Image URL */}
-              <div className="form-group" style={{ gridColumn: '1 / -1' }}>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Image size={15} /> URL de l'Image de Couverture
-                </label>
-                <input type="text" className="form-control"
-                  value={form.image_url} onChange={(e) => setForm({ ...form, image_url: e.target.value })}
-                  placeholder="https://... ou /assets/images/projet.jpg" />
-                {form.image_url && (
-                  <div style={{ marginTop: '10px', borderRadius: '8px', overflow: 'hidden', height: '120px' }}>
-                    <img src={form.image_url} alt="aperçu" style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-                  </div>
-                )}
+              {/* Image URL / Upload */}
+              <div style={{ gridColumn: '1 / -1' }}>
+                <ImageUploader
+                  value={form.image_url}
+                  onChange={(url) => setForm({ ...form, image_url: url })}
+                  label="Image de Couverture du Projet"
+                />
               </div>
             </div>
 
@@ -270,10 +264,11 @@ export const AdminRealisations: React.FC = () => {
                           style={{ width: '60px', height: '42px', objectFit: 'cover', borderRadius: '6px' }}
                           onError={(e) => { (e.target as HTMLImageElement).src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="42" fill="%23f4f7fc"><rect width="60" height="42" fill="%23e5e9f2"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%2357647c" font-size="10">IMG</text></svg>'; }} />
                       ) : (
-                        <div style={{ width: '60px', height: '42px', background: '#f4f7fc', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                          <Image size={16} style={{ color: '#c0c9d8' }} />
+                        <div style={{ width: '60px', height: '42px', background: '#f4f7fc', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#c0c9d8', fontSize: '10px', fontWeight: '600' }}>
+                          IMG
                         </div>
                       )}
+
                     </td>
                     <td><strong style={{ color: '#011a41' }}>{p.title}</strong></td>
                     <td style={{ color: '#57647c', fontSize: '14px' }}>{p.client_name}</td>

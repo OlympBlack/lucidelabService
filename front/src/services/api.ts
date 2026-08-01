@@ -178,5 +178,37 @@ export const api = {
   // ── Admin — Settings ─────────────────────────────────────────────────────
   async updateSettings(settings: Record<string, string>) {
     return post(`${API_BASE_URL}/admin/settings`, settings);
+  },
+
+  // ── Admin — Image Upload ──────────────────────────────────────────────────
+  async uploadImage(file: File): Promise<{ success: boolean; url?: string; path?: string; message?: string }> {
+    try {
+      const formData = new FormData();
+      formData.append('image', file);
+      const res = await fetch(`${API_BASE_URL}/admin/upload-image`, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: formData,
+      });
+      return await res.json();
+    } catch (e) {
+      console.error('Upload error:', e);
+      return { success: false, message: 'Erreur lors de l\'upload.' };
+    }
+  },
+
+  async deleteImage(path: string): Promise<{ success: boolean; message?: string }> {
+    try {
+      const res = await fetch(`${API_BASE_URL}/admin/delete-image`, {
+        method: 'DELETE',
+        headers: jsonHeaders,
+        body: JSON.stringify({ path }),
+      });
+      return await res.json();
+    } catch (e) {
+      console.error('Delete image error:', e);
+      return { success: false, message: 'Erreur lors de la suppression.' };
+    }
   }
 };
+
