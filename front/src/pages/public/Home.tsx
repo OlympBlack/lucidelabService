@@ -215,17 +215,17 @@ export const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Right side: Interactive 3-Image Slider (hero1.jpg, hero2.png, hero3.jpg) */}
+            {/* Right side: Slightly compact 3-Image Slider */}
             <div className="hero-slider-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
               <div
                 style={{
                   position: 'relative',
                   width: '100%',
-                  maxWidth: '520px',
-                  height: '430px',
-                  borderRadius: '16px',
+                  maxWidth: '480px',
+                  height: '370px',
+                  borderRadius: '14px',
                   overflow: 'hidden',
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+                  boxShadow: '0 16px 36px rgba(0,0,0,0.28)',
                   background: 'rgba(255, 255, 255, 0.05)'
                 }}
               >
@@ -254,7 +254,7 @@ export const Home: React.FC = () => {
                   aria-label="Image précédente"
                   style={{
                     position: 'absolute',
-                    left: '12px',
+                    left: '10px',
                     top: '50%',
                     transform: 'translateY(-50%)',
                     background: 'rgba(1, 34, 188, 0.75)',
@@ -262,8 +262,8 @@ export const Home: React.FC = () => {
                     color: '#ffffff',
                     border: '1px solid rgba(255, 255, 255, 0.3)',
                     borderRadius: '50%',
-                    width: '40px',
-                    height: '40px',
+                    width: '36px',
+                    height: '36px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -272,7 +272,7 @@ export const Home: React.FC = () => {
                     boxShadow: '0 4px 12px rgba(0,0,0,0.25)'
                   }}
                 >
-                  <ChevronLeft size={22} />
+                  <ChevronLeft size={20} />
                 </button>
 
                 {/* Manual Next Navigation Button */}
@@ -281,7 +281,7 @@ export const Home: React.FC = () => {
                   aria-label="Image suivante"
                   style={{
                     position: 'absolute',
-                    right: '12px',
+                    right: '10px',
                     top: '50%',
                     transform: 'translateY(-50%)',
                     background: 'rgba(1, 34, 188, 0.75)',
@@ -289,8 +289,8 @@ export const Home: React.FC = () => {
                     color: '#ffffff',
                     border: '1px solid rgba(255, 255, 255, 0.3)',
                     borderRadius: '50%',
-                    width: '40px',
-                    height: '40px',
+                    width: '36px',
+                    height: '36px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -299,21 +299,21 @@ export const Home: React.FC = () => {
                     boxShadow: '0 4px 12px rgba(0,0,0,0.25)'
                   }}
                 >
-                  <ChevronRight size={22} />
+                  <ChevronRight size={20} />
                 </button>
               </div>
 
               {/* Slider Pagination Dots */}
-              <div style={{ display: 'flex', gap: '10px', marginTop: '16px' }}>
+              <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
                 {heroImages.map((_, idx) => (
                   <button
                     key={idx}
                     onClick={() => setCurrentHeroIndex(idx)}
                     aria-label={`Vue ${idx + 1}`}
                     style={{
-                      width: idx === currentHeroIndex ? '28px' : '10px',
-                      height: '10px',
-                      borderRadius: '5px',
+                      width: idx === currentHeroIndex ? '24px' : '8px',
+                      height: '8px',
+                      borderRadius: '4px',
                       background: idx === currentHeroIndex ? '#fd8604' : 'rgba(255, 255, 255, 0.4)',
                       border: 'none',
                       cursor: 'pointer',
