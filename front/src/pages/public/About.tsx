@@ -10,7 +10,7 @@ export const About: React.FC = () => {
         {/* Main Intro */}
         <div className="section-title">
           <span className="sub-title">Qui sommes-nous ?</span>
-          <h2>LUCIDE LAB — Cabinet d'Expertise en Communication & Croissance de Marque</h2>
+          <h2>LUCIDE LAB | Cabinet d'Expertise en Communication <br/> et Croissance de Marque</h2>
           <p style={{ maxWidth: '800px', margin: '0 auto' }}>
             Nous offrons de l'expertise en stratégie, branding, digital, growth et contenu pour accompagner les entreprises qui veulent une image de marque crédible et performante.
           </p>

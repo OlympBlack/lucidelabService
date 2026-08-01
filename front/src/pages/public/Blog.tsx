@@ -42,17 +42,30 @@ export const Blog: React.FC = () => {
         </div>
 
         {/* Search */}
-        <div style={{ maxWidth: '500px', margin: '0 auto 40px', position: 'relative' }}>
+        <div style={{ maxWidth: '360px', margin: '-10px auto 36px', position: 'relative' }}>
           <input
             type="text"
             className="form-control"
-            placeholder="Rechercher un article ou un thème..."
+            placeholder="Rechercher un article..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            style={{ paddingLeft: '45px', borderRadius: '25px', height: '50px' }}
+            style={{
+              paddingLeft: '40px',
+              paddingRight: '16px',
+              borderRadius: '20px',
+              height: '42px',
+              fontSize: '14px',
+              border: '2px solid #0122bc',
+              boxShadow: '0 2px 12px rgba(1,34,188,0.10)',
+              background: '#f4f7fc',
+              color: '#011a41',
+              outline: 'none',
+            }}
           />
-          <Search size={20} style={{ position: 'absolute', left: '15px', top: '15px', color: '#57647c' }} />
+          <Search size={16} style={{ position: 'absolute', left: '14px', top: '13px', color: '#0122bc', pointerEvents: 'none' }} />
         </div>
+
+
 
         {/* Error */}
         {error && (
