@@ -4,6 +4,7 @@ import { CommonButton } from '../../components/common/CommonButton';
 import { ImageUploader } from '../../components/common/ImageUploader';
 import { Modal } from '../../components/common/Modal';
 import { ConfirmModal } from '../../components/common/ConfirmModal';
+import { Toast } from '../../components/common/Toast';
 import { api, type Realisation } from '../../services/api';
 
 const CATEGORIES = ['STRATEGY', 'BRAND', 'DIGITAL', 'GROWTH', 'CONTENT', 'ADVERTISING'];
@@ -48,7 +49,6 @@ export const AdminRealisations: React.FC = () => {
   const notify = (msg: string, isError = false) => {
     if (isError) { setError(msg); setSuccess(null); }
     else { setSuccess(msg); setError(null); }
-    setTimeout(() => { setError(null); setSuccess(null); }, 4000);
   };
 
   // ── Form handlers ─────────────────────────────────────────────────────────
@@ -140,16 +140,11 @@ export const AdminRealisations: React.FC = () => {
       </div>
 
       {/* Notifications */}
-      {success && (
-        <div style={{ background: '#dcfce7', border: '1px solid #86efac', borderRadius: '10px', padding: '12px 16px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px', color: '#166534' }}>
-          <CheckCircle size={18} /> {success}
-        </div>
-      )}
-      {error && (
-        <div style={{ background: '#fee2e2', border: '1px solid #fca5a5', borderRadius: '10px', padding: '12px 16px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px', color: '#991b1b' }}>
-          <AlertCircle size={18} /> {error}
-        </div>
-      )}
+      <Toast 
+        message={success || error} 
+        type={error ? 'error' : 'success'} 
+        onClose={() => { setSuccess(null); setError(null); }} 
+      />
 
       {/* Form Panel Modal */}
       <Modal 
