@@ -38,7 +38,8 @@ Route::prefix('v1')->group(function () {
         Route::post('/messages/read-all', [ContactController::class, 'markAllAsRead']);
         Route::post('/settings', [SettingController::class, 'update']);
 
-        // Image Upload
+        // Image Upload & Media
+        Route::get('/media', [UploadController::class, 'listImages']);
         Route::post('/upload-image', [UploadController::class, 'uploadImage']);
         Route::delete('/delete-image', [UploadController::class, 'deleteImage']);
     });

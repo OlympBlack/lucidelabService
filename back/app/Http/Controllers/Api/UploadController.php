@@ -10,6 +10,42 @@ use Illuminate\Support\Str;
 class UploadController extends Controller
 {
     /**
+     * List all images in the uploads directory.
+     */
+    public function listImages()
+    {
+        try {
+            $files = Storage::disk('public')->files('uploads');
+            
+            $images = [];
+            foreach ($files as $file) {
+                // Filter only images if needed, or assume all are images
+                $images[] = [
+                    'url' => url('storage/' . $file),
+                    'path' => '/storage/' . $file,
+                    'filename' => basename($file),
+                    'size' => Storage::disk('public')->size($file),
+                    'last_modified' => Storage::disk('public')->lastModified($file),
+                ];
+            }
+
+            // Sort by newest first
+            usort($images, function ($a, $b) {
+                return $b['last_modified'] <=> $a['last_modified'];
+            });
+
+            return response()->json([
+                'success' => true,
+                'data' => $images,
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Erreur : ' . $e->getMessage(),
+            ], 500);
+        }
+    }
+    /**
      * Upload an image to public storage and return the accessible URL.
      */
     public function uploadImage(Request $request)

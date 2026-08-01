@@ -230,6 +230,25 @@ export const api = {
     return del(`${API_BASE_URL}/admin/announcements/${id}`);
   },
 
+  // ── Admin — Media ────────────────────────────────────────────────────────
+  async getAdminMedia() {
+    return get(`${API_BASE_URL}/admin/media`);
+  },
+
+  async deleteAdminMedia(path: string) {
+    try {
+      const res = await fetch(`${API_BASE_URL}/admin/delete-image`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ path })
+      });
+      return await res.json();
+    } catch (e) {
+      console.error('API DELETE error:', e);
+      return { success: false, message: 'Erreur de connexion' };
+    }
+  },
+
   // ── Admin — Messages ─────────────────────────────────────────────────────
   async getAdminMessages() {
     return get(`${API_BASE_URL}/admin/messages`);

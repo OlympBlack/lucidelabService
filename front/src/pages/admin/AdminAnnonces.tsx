@@ -4,6 +4,7 @@ import { CommonButton } from '../../components/common/CommonButton';
 import { Modal } from '../../components/common/Modal';
 import { ConfirmModal } from '../../components/common/ConfirmModal';
 import { Toast } from '../../components/common/Toast';
+import { ImageUploader } from '../../components/common/ImageUploader';
 import { api, type Announcement } from '../../services/api';
 
 const emptyForm = {
@@ -278,17 +279,114 @@ export const AdminUsers: React.FC = () => {
 };
 
 export const AdminMedia: React.FC = () => {
+  const [mediaList, setMediaList] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [deleteConfirm, setDeleteConfirm] = useState<{isOpen: boolean, path: string|null, filename: string}>({ isOpen: false, path: null, filename: '' });
+
+  const fetchMedia = async () => {
+    setLoading(true);
+    const data = await api.getAdminMedia();
+    setMediaList(data ?? []);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchMedia();
+  }, []);
+
+  const notify = (msg: string, isError = false) => {
+    if (isError) { setError(msg); setSuccess(null); }
+    else { setSuccess(msg); setError(null); }
+  };
+
+  const handleConfirmDelete = async () => {
+    const path = deleteConfirm.path;
+    if (!path) return;
+    const res = await api.deleteAdminMedia(path);
+    if (res.success) {
+      notify('Média supprimé avec succès.');
+      fetchMedia();
+    } else {
+      notify(res.message ?? 'Erreur lors de la suppression.', true);
+    }
+    setDeleteConfirm({ isOpen: false, path: null, filename: '' });
+  };
+
+  const formatSize = (bytes: number) => {
+    if (bytes === 0) return '0 B';
+    const k = 1024;
+    const sizes = ['B', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  };
+
   return (
     <div>
       <h2 style={{ fontSize: '24px', color: '#011a41', marginBottom: '10px' }}>Médiathèque & Gestion d'Images</h2>
       <p style={{ color: '#57647c', fontSize: '14px', marginBottom: '25px' }}>Stockage et organisation des logos, visuels et illustrations de projets.</p>
 
-      <div style={{ background: '#ffffff', padding: '40px', borderRadius: '12px', textAlign: 'center', border: '2px dashed #e5e9f2' }}>
-        <ImageIcon size={48} style={{ color: '#57647c', marginBottom: '15px' }} />
-        <h3 style={{ fontSize: '18px', color: '#011a41', marginBottom: '10px' }}>Glissez-déposez des médias ici</h3>
-        <p style={{ color: '#57647c', fontSize: '14px', marginBottom: '20px' }}>Supports acceptés: PNG, JPG, WEBP, SVG (max 10MB)</p>
-        <CommonButton variant="orange">Parcourir les fichiers</CommonButton>
+      <Toast 
+        message={success || error} 
+        type={error ? 'error' : 'success'} 
+        onClose={() => { setSuccess(null); setError(null); }} 
+      />
+
+      <div style={{ marginBottom: '30px', maxWidth: '600px' }}>
+        <h3 style={{ fontSize: '16px', color: '#011a41', marginBottom: '10px' }}>Ajouter un nouveau média</h3>
+        <ImageUploader 
+          value="" 
+          onChange={(url) => { if (url) { notify('✅ Image uploadée avec succès'); fetchMedia(); } }} 
+          label="Sélectionnez ou glissez une image"
+        />
       </div>
+
+      {loading ? (
+        <div style={{ textAlign: 'center', padding: '60px', color: '#57647c' }}>
+          <Loader2 size={32} style={{ animation: 'spin 1s linear infinite' }} />
+          <p>Chargement des médias...</p>
+        </div>
+      ) : (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '20px' }}>
+          {mediaList.map((media, idx) => (
+            <div key={idx} style={{ background: '#fff', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.05)', border: '1px solid #e5e9f2' }}>
+              <div style={{ height: '150px', background: '#f1f5f9', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <img src={media.url} alt={media.filename} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }} />
+              </div>
+              <div style={{ padding: '12px' }}>
+                <p style={{ margin: '0 0 5px 0', fontSize: '13px', fontWeight: '600', color: '#011a41', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={media.filename}>
+                  {media.filename}
+                </p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '12px', color: '#57647c' }}>{formatSize(media.size)}</span>
+                  <button 
+                    onClick={() => setDeleteConfirm({ isOpen: true, path: media.path, filename: media.filename })}
+                    style={{ background: 'rgba(251,36,72,0.1)', border: 'none', borderRadius: '6px', padding: '6px', color: '#fb2448', cursor: 'pointer' }}
+                    title="Supprimer"
+                  >
+                    <Trash2 size={14} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+          {mediaList.length === 0 && (
+            <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '40px', background: '#fff', borderRadius: '12px', border: '1px solid #e5e9f2' }}>
+              <ImageIcon size={48} style={{ color: '#c0c9d8', marginBottom: '15px' }} />
+              <p style={{ color: '#57647c', fontSize: '14px' }}>Aucun média trouvé.</p>
+            </div>
+          )}
+        </div>
+      )}
+
+      <ConfirmModal
+        isOpen={deleteConfirm.isOpen}
+        onClose={() => setDeleteConfirm({ ...deleteConfirm, isOpen: false })}
+        onConfirm={handleConfirmDelete}
+        title="Supprimer l'image ?"
+        message={`Voulez-vous vraiment supprimer "${deleteConfirm.filename}" ? Cette action est irréversible et brisera les liens de cette image sur le site.`}
+      />
     </div>
   );
 };
