@@ -172,7 +172,7 @@ export const Home: React.FC = () => {
           <div className="hero-grid">
             <div className="hero-content">
               
-              <h1>Construisez une image de marque forte & performante.</h1>
+              <h1>Construisez une image de marque forte et performante.</h1>
               <p>
                 <strong>LUCIDE LAB</strong> accompagne les entreprises ambitieuses à structurer leur stratégie, sublimer leur branding et accélérer leur croissance en Afrique de l'Ouest.
               </p>

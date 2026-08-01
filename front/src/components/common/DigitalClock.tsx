@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Clock } from 'lucide-react';
 
 export const DigitalClock: React.FC = () => {
   const [time, setTime] = useState<Date>(new Date());
@@ -16,9 +15,10 @@ export const DigitalClock: React.FC = () => {
   const seconds = formatDigits(time.getSeconds());
 
   return (
-    <div className="digital-clock" title="Heure locale en temps réel">
-      <Clock size={14} style={{ color: '#38ef7d' }} />
-      <span>{hours}:{minutes}:{seconds}</span>
+    <div className="digital-clock" title="Heure locale Cotonou (Bénin)">
+      <span className="clock-pulse-dot"></span>
+      <span className="clock-label">Cotonou</span>
+      <span className="clock-time">{hours}:{minutes}:{seconds}</span>
     </div>
   );
 };
