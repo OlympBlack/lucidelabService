@@ -17,12 +17,38 @@ import {
   Building,
   Building2,
   Star,
-  Quote
+  Quote,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import { api } from '../../services/api';
 
 export const Home: React.FC = () => {
   const [apiServices, setApiServices] = useState<any[]>([]);
+
+  // Hero Slider setup: hero1.jpg, hero2.png, hero3.jpg
+  const heroImages = [
+    { src: '/assets/images/hero1.jpg', alt: 'LUCIDE LAB Stratégie et Branding' },
+    { src: '/assets/images/hero2.png', alt: 'LUCIDE LAB Création et Digital' },
+    { src: '/assets/images/hero3.jpg', alt: 'LUCIDE LAB Croissance et Performance' },
+  ];
+
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [heroImages.length]);
+
+  const nextHero = () => {
+    setCurrentHeroIndex((prev) => (prev + 1) % heroImages.length);
+  };
+
+  const prevHero = () => {
+    setCurrentHeroIndex((prev) => (prev === 0 ? heroImages.length - 1 : prev - 1));
+  };
 
   useEffect(() => {
     api.getServices().then((data) => {
@@ -189,22 +215,113 @@ export const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Right side: Replaced preview text card with hero.png image */}
-            <div className="hero-image-wrapper" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <img
-                src="/assets/images/hero.png"
-                alt="LUCIDE LAB Expertise"
+            {/* Right side: Interactive 3-Image Slider (hero1.jpg, hero2.png, hero3.jpg) */}
+            <div className="hero-slider-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+              <div
                 style={{
+                  position: 'relative',
                   width: '100%',
                   maxWidth: '520px',
-                  height: 'auto',
-                  maxHeight: '460px',
-                  objectFit: 'contain',
+                  height: '430px',
                   borderRadius: '16px',
+                  overflow: 'hidden',
                   boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                  display: 'block'
+                  background: 'rgba(255, 255, 255, 0.05)'
                 }}
-              />
+              >
+                {heroImages.map((img, idx) => (
+                  <img
+                    key={idx}
+                    src={img.src}
+                    alt={img.alt}
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      opacity: idx === currentHeroIndex ? 1 : 0,
+                      transition: 'opacity 0.7s ease-in-out',
+                      pointerEvents: idx === currentHeroIndex ? 'auto' : 'none'
+                    }}
+                  />
+                ))}
+
+                {/* Manual Previous Navigation Button */}
+                <button
+                  onClick={prevHero}
+                  aria-label="Image précédente"
+                  style={{
+                    position: 'absolute',
+                    left: '12px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    background: 'rgba(1, 34, 188, 0.75)',
+                    backdropFilter: 'blur(6px)',
+                    color: '#ffffff',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    borderRadius: '50%',
+                    width: '40px',
+                    height: '40px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    zIndex: 10,
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.25)'
+                  }}
+                >
+                  <ChevronLeft size={22} />
+                </button>
+
+                {/* Manual Next Navigation Button */}
+                <button
+                  onClick={nextHero}
+                  aria-label="Image suivante"
+                  style={{
+                    position: 'absolute',
+                    right: '12px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    background: 'rgba(1, 34, 188, 0.75)',
+                    backdropFilter: 'blur(6px)',
+                    color: '#ffffff',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    borderRadius: '50%',
+                    width: '40px',
+                    height: '40px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    zIndex: 10,
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.25)'
+                  }}
+                >
+                  <ChevronRight size={22} />
+                </button>
+              </div>
+
+              {/* Slider Pagination Dots */}
+              <div style={{ display: 'flex', gap: '10px', marginTop: '16px' }}>
+                {heroImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentHeroIndex(idx)}
+                    aria-label={`Vue ${idx + 1}`}
+                    style={{
+                      width: idx === currentHeroIndex ? '28px' : '10px',
+                      height: '10px',
+                      borderRadius: '5px',
+                      background: idx === currentHeroIndex ? '#fd8604' : 'rgba(255, 255, 255, 0.4)',
+                      border: 'none',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
+                    }}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
