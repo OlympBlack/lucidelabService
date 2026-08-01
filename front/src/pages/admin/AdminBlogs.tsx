@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Edit, Trash2, X, Eye, EyeOff, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { Plus, Edit, Trash2, Eye, EyeOff, Loader2 } from 'lucide-react';
 import { CommonButton } from '../../components/common/CommonButton';
 import { ImageUploader } from '../../components/common/ImageUploader';
 import { Modal } from '../../components/common/Modal';

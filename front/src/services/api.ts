@@ -232,7 +232,7 @@ export const api = {
 
   // ── Admin — Media ────────────────────────────────────────────────────────
   async getAdminMedia() {
-    return get(`${API_BASE_URL}/admin/media`);
+    return get<any[]>(`${API_BASE_URL}/admin/media`);
   },
 
   async deleteAdminMedia(path: string) {
@@ -254,8 +254,16 @@ export const api = {
     return get(`${API_BASE_URL}/admin/messages`);
   },
 
-  async deleteMessage(id: number) {
+  async deleteAdminMessage(id: number) {
     return del(`${API_BASE_URL}/admin/messages/${id}`);
+  },
+
+  async markAdminMessageRead(id: number) {
+    return post(`${API_BASE_URL}/admin/messages/${id}/read`, {});
+  },
+
+  async markAllAdminMessagesRead() {
+    return post(`${API_BASE_URL}/admin/messages/read-all`, {});
   },
 
   // ── Admin — Settings ─────────────────────────────────────────────────────

@@ -147,8 +147,8 @@ export const AdminPartners: React.FC = () => {
             <div className="form-group" style={{ gridColumn: '1 / -1' }}>
               <label>Logo / Photo de profil</label>
               <ImageUploader
-                onUploadSuccess={(url) => setForm({ ...form, logo_url: url })}
-                currentImage={form.logo_url}
+                onChange={(url) => setForm({ ...form, logo_url: url })}
+                value={form.logo_url}
               />
             </div>
             

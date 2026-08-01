@@ -184,7 +184,7 @@ export const AdminLayout: React.FC = () => {
                         <Link 
                           key={msg.id} 
                           to="/admin/messages" 
-                          onClick={(e) => {
+                          onClick={() => {
                             // Optionally prevent default if we want to stay on page, but since it's a Link we let it navigate after marking read
                             handleReadMessage(msg.id);
                           }}
