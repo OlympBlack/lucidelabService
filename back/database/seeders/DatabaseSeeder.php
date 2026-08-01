@@ -213,6 +213,7 @@ class DatabaseSeeder extends Seeder
                 'excerpt' => 'Le branding ne se limite pas à un beau logo. Découvrez les 5 étapes clés pour créer une marque crédible qui capte l\'attention de votre cible.',
                 'content' => 'Sur un marché de plus en plus saturé, l\'image de marque (branding) constitue le premier levier de différenciation stratégique pour toute entreprise ambitieuse. Une marque forte ne se résume pas uniquement à un logo élégant ou une typographie tendance : elle incarne une promesse de valeur, une personnalité et une identité cohérente perçue à chaque point de contact.\n\n1. La Lucidité : Connaître sa valeur et sa cible.\n2. L\'Excellence du Design & du Storytelling.\n3. Mesurer et Faire Évoluer.',
                 'author' => 'Équipe LUCIDE LAB',
+                'image_url' => '/assets/images/hero1.jpg',
                 'views_count' => 450,
                 'is_published' => true,
             ],
@@ -223,6 +224,7 @@ class DatabaseSeeder extends Seeder
                 'excerpt' => 'Comprendre les spécificités des consommateurs régionaux pour maximiser le taux de conversion de vos campagnes digitales.',
                 'content' => 'L\'Afrique de l\'Ouest francophone connaît une accélération sans précédent de l\'adoption du numérique. Pour réussir une campagne d\'acquisition, les entreprises doivent adapter leurs leviers aux usages locaux, notamment le mobile-first et le social selling.',
                 'author' => 'Expert Digital LUCIDE LAB',
+                'image_url' => '/assets/images/hero2.png',
                 'views_count' => 310,
                 'is_published' => true,
             ],
@@ -233,6 +235,7 @@ class DatabaseSeeder extends Seeder
                 'excerpt' => 'Une analyse sans concession de vos forces et du marché est la seule manière d\'éviter les erreurs coûteuses de communication.',
                 'content' => 'Chez LUCIDE LAB, la lucidité est le premier des quatre piliers fondamentaux. Sans un diagnostic sans complaisance des réalités de votre marché, toute campagne de communication risque de passer à côté de son objectif.',
                 'author' => 'Directeur Stratégie',
+                'image_url' => '/assets/images/hero3.jpg',
                 'views_count' => 280,
                 'is_published' => true,
             ]
@@ -241,6 +244,7 @@ class DatabaseSeeder extends Seeder
         foreach ($blogs as $b) {
             Blog::updateOrCreate(['slug' => $b['slug']], $b);
         }
+
 
         // 6. Partners / Témoignages
         $partners = [
