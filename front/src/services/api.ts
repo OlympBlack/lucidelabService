@@ -39,6 +39,24 @@ export interface Service {
   is_active?: boolean;
 }
 
+export interface Partner {
+  id: number;
+  name: string;
+  role?: string;
+  testimonial?: string;
+  logo_url?: string;
+  rating?: number;
+  is_active?: boolean;
+}
+
+export interface Announcement {
+  id: number;
+  title: string;
+  content: string;
+  link_url?: string;
+  is_active?: boolean;
+}
+
 // ── Helpers ────────────────────────────────────────────────────────────────
 const jsonHeaders = { 'Content-Type': 'application/json', 'Accept': 'application/json' };
 
@@ -158,12 +176,58 @@ export const api = {
     return get<Service[]>(`${API_BASE_URL}/admin/services`);
   },
 
+  async createService(data: Partial<Service>) {
+    return post<Service>(`${API_BASE_URL}/admin/services`, data);
+  },
+
   async updateService(id: number, data: Partial<Service>) {
     return put<Service>(`${API_BASE_URL}/admin/services/${id}`, data);
   },
 
   async deleteService(id: number) {
     return del(`${API_BASE_URL}/admin/services/${id}`);
+  },
+
+  // ── Admin — Partners CRUD ────────────────────────────────────────────────
+  async getPartners(): Promise<Partner[] | null> {
+    return get<Partner[]>(`${API_BASE_URL}/partners`);
+  },
+
+  async adminGetPartners(): Promise<Partner[] | null> {
+    return get<Partner[]>(`${API_BASE_URL}/admin/partners`);
+  },
+
+  async createPartner(data: Partial<Partner>) {
+    return post<Partner>(`${API_BASE_URL}/admin/partners`, data);
+  },
+
+  async updatePartner(id: number, data: Partial<Partner>) {
+    return put<Partner>(`${API_BASE_URL}/admin/partners/${id}`, data);
+  },
+
+  async deletePartner(id: number) {
+    return del(`${API_BASE_URL}/admin/partners/${id}`);
+  },
+
+  // ── Admin — Announcements CRUD ──────────────────────────────────────────
+  async getAnnouncements(): Promise<Announcement[] | null> {
+    return get<Announcement[]>(`${API_BASE_URL}/announcements`);
+  },
+
+  async adminGetAnnouncements(): Promise<Announcement[] | null> {
+    return get<Announcement[]>(`${API_BASE_URL}/admin/announcements`);
+  },
+
+  async createAnnouncement(data: Partial<Announcement>) {
+    return post<Announcement>(`${API_BASE_URL}/admin/announcements`, data);
+  },
+
+  async updateAnnouncement(id: number, data: Partial<Announcement>) {
+    return put<Announcement>(`${API_BASE_URL}/admin/announcements/${id}`, data);
+  },
+
+  async deleteAnnouncement(id: number) {
+    return del(`${API_BASE_URL}/admin/announcements/${id}`);
   },
 
   // ── Admin — Messages ─────────────────────────────────────────────────────

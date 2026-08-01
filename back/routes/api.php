@@ -8,6 +8,8 @@ use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\SettingController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UploadController;
+use App\Http\Controllers\Api\PartnerController;
+use App\Http\Controllers\Api\AnnouncementController;
 
 // Public Endpoints
 Route::prefix('v1')->group(function () {
@@ -15,6 +17,8 @@ Route::prefix('v1')->group(function () {
     Route::get('/realisations', [RealisationController::class, 'index']);
     Route::get('/blogs', [BlogController::class, 'index']);
     Route::get('/blogs/{slug}', [BlogController::class, 'show']);
+    Route::get('/partners', [PartnerController::class, 'index']);
+    Route::get('/announcements', [AnnouncementController::class, 'index']);
     Route::post('/contact', [ContactController::class, 'store']);
     Route::get('/settings', [SettingController::class, 'index']);
 
@@ -26,6 +30,8 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('services', ServiceController::class);
         Route::apiResource('realisations', RealisationController::class);
         Route::apiResource('blogs', BlogController::class);
+        Route::apiResource('partners', PartnerController::class);
+        Route::apiResource('announcements', AnnouncementController::class);
         Route::get('/blogs/{blog}', [BlogController::class, 'show']);
         Route::apiResource('messages', ContactController::class)->only(['index', 'destroy']);
         Route::post('/settings', [SettingController::class, 'update']);

@@ -8,11 +8,16 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $query = Service::query();
+        if (!$request->is('*/admin/*')) {
+            $query->where('is_active', true);
+        }
+        
         return response()->json([
             'success' => true,
-            'data' => Service::where('is_active', true)->get()
+            'data' => $query->get()
         ]);
     }
 
@@ -24,6 +29,7 @@ class ServiceController extends Controller
             'subtitle' => 'nullable|string',
             'description' => 'required|string',
             'details' => 'nullable|array',
+            'is_active' => 'nullable|boolean',
         ]);
 
         $service = Service::create($validated);
@@ -32,7 +38,16 @@ class ServiceController extends Controller
 
     public function update(Request $request, Service $service)
     {
-        $service->update($request->all());
+        $validated = $request->validate([
+            'code' => 'sometimes|required|string|unique:services,code,' . $service->id,
+            'title' => 'sometimes|required|string',
+            'subtitle' => 'nullable|string',
+            'description' => 'sometimes|required|string',
+            'details' => 'nullable|array',
+            'is_active' => 'nullable|boolean',
+        ]);
+
+        $service->update($validated);
         return response()->json(['success' => true, 'data' => $service]);
     }
 
