@@ -1,4 +1,4 @@
-# 🚀 LUCIDE LAB — Site Web Officiel & Plateforme d'Expertise
+# LUCIDE LAB — Site Web Officiel & Plateforme d'Expertise
 
 ![LUCIDE LAB Logo](front/public/assets/images/logo.png)
 
@@ -8,16 +8,16 @@ Ce projet constitue la plateforme web officielle de **LUCIDE LAB**, comprenant u
 
 ---
 
-## 🌟 Présentation de LUCIDE LAB
+## Présentation de LUCIDE LAB
 
 LUCIDE LAB accompagne les entreprises ambitieuses, les institutions et les startups à structurer leur vision, sublimer leur branding et accélérer leur développement grâce à 6 pôles d'expertise majeurs :
 
-1. 🧭 **STRATEGY** — Direction stratégique, positionnement & plans de communication sur-mesure.
-2. 🎨 **BRAND** — Identité de marque, charte graphique & design système haut de gamme.
-3. 🌐 **DIGITAL** — Conception web, applications interactives & plateformes digitales.
-4. 📈 **GROWTH** — Marketing de performance, SEO & stratégies d'acquisition.
-5. 📝 **CONTENT** — Storytelling, création visuelle/vidéo & rédaction stratégique.
-6. 📢 **ADVERTISING** — Campagnes publicitaires ciblées & achat média.
+1. **STRATEGY** — Direction stratégique, positionnement & plans de communication sur-mesure.
+2. **BRAND** — Identité de marque, charte graphique & design système haut de gamme.
+3. **DIGITAL** — Conception web, applications interactives & plateformes digitales.
+4. **GROWTH** — Marketing de performance, SEO & stratégies d'acquisition.
+5. **CONTENT** — Storytelling, création visuelle/vidéo & rédaction stratégique.
+6. **ADVERTISING** — Campagnes publicitaires ciblées & achat média.
 
 ---
 
@@ -31,7 +31,7 @@ lucideLab_Service/
 └── back/      # Application Serveur API (Laravel)
 ```
 
-### 💻 Frontend (`/front`)
+### Frontend (`/front`)
 - **Framework** : [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - **Build Tool** : [Vite](https://vitejs.dev/)
 - **Navigation** : React Router DOM v6
@@ -39,7 +39,7 @@ lucideLab_Service/
 - **Design & Styles** : Vanilla CSS 3 avec Design Système inspiré de Fludicial (`fludicial.css`)
 - **Layout** : 100% Pleine Largeur (*Full Width*), barre de navigation fixe (*Sticky Navbar*), et responsivité totale (Desktop, Tablette, Mobile).
 
-### ⚙️ Backend (`/back`)
+### Backend (`/back`)
 - **Framework** : [Laravel 11 / 13](https://laravel.com/)
 - **Architecture** : API RESTful (`/api/v1/...`) avec gestion CORS
 - **Base de Données** : SQLite avec Eloquent ORM
@@ -47,7 +47,7 @@ lucideLab_Service/
 
 ---
 
-## 🎨 Charte Graphique & Identité Visuelle
+## Charte Graphique & Identité Visuelle
 
 - **Couleur Principale (Bleu Roi)** : `#0122bc` | `rgb(1, 34, 188)` | `hsl(229, 99%, 37%)`
 - **Couleur d'Accentuation (Orange Vif)** : `#fd8604` | `rgb(253, 134, 4)` | `hsl(31, 98%, 50%)`
@@ -92,7 +92,7 @@ lucideLab_Service/
 
 ---
 
-## 🚀 Installation & Lancement Rapide
+##  Installation & Lancement Rapide
 
 ### 1. Démarrage du Backend (Laravel API)
 
