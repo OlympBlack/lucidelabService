@@ -21,15 +21,15 @@ export const AdminDashboard: React.FC = () => {
       <h2 style={{ fontSize: '24px', color: '#011a41', marginBottom: '20px' }}>Vue d'ensemble des Performances</h2>
 
       {/* Stats Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', marginBottom: '35px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '15px', marginBottom: '35px' }}>
         {stats.map((s, idx) => (
           <div key={idx} className="stat-card">
             <div>
               <p style={{ color: '#57647c', fontSize: '13px', fontWeight: '600', marginBottom: '5px' }}>{s.title}</p>
-              <h3 style={{ fontSize: '28px', color: '#011a41', marginBottom: '4px' }}>{s.value}</h3>
+              <h3 style={{ fontSize: '24px', color: '#011a41', marginBottom: '4px' }}>{s.value}</h3>
               <span style={{ fontSize: '12px', color: s.color, fontWeight: '700' }}>{s.change}</span>
             </div>
-            <div className="stat-icon" style={{ backgroundColor: s.bg, color: s.color }}>
+            <div className="stat-icon" style={{ backgroundColor: s.bg, color: s.color, width: '48px', height: '48px', fontSize: '22px' }}>
               {s.icon}
             </div>
           </div>

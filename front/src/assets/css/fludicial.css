@@ -777,6 +777,12 @@ ul {
   flex-shrink: 0;
   height: 100vh;
   overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.admin-sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 .admin-sidebar-header {
@@ -785,6 +791,10 @@ ul {
   font-weight: 700;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   color: #ffffff;
+  position: sticky;
+  top: 0;
+  background-color: var(--primary-dark);
+  z-index: 10;
 }
 
 .admin-nav {
@@ -836,7 +846,7 @@ ul {
 .stat-card {
   background: #ffffff;
   border-radius: var(--radius-md);
-  padding: 25px;
+  padding: 20px 15px;
   box-shadow: var(--shadow-sm);
   display: flex;
   align-items: center;

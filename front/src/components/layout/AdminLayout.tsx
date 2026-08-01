@@ -95,17 +95,19 @@ export const AdminLayout: React.FC = () => {
             onClick={handleLogout}
             style={{
               width: '100%',
-              background: 'rgba(251, 36, 72, 0.15)',
-              color: '#fb2448',
-              border: '1px solid rgba(251, 36, 72, 0.3)',
-              padding: '10px',
+              background: '#e93c05',
+              color: '#ffffff',
+              border: 'none',
+              padding: '12px',
               borderRadius: '8px',
-              fontWeight: '600',
+              fontWeight: '700',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '8px'
+              gap: '8px',
+              transition: 'background-color 0.2s',
+              boxShadow: '0 4px 10px rgba(233, 60, 5, 0.3)'
             }}
           >
             <LogOut size={16} /> Déconnexion
@@ -118,6 +120,15 @@ export const AdminLayout: React.FC = () => {
         <header className="admin-topbar">
           <h2 style={{ fontSize: '18px', color: '#011a41' }}>Console d'Administration LUCIDE LAB</h2>
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+            <span style={{ fontSize: '14px', color: '#57647c' }}>
+              Connecté en tant qu'<strong>Administrateur</strong>
+            </span>
+            
+            <Link to="/" target="_blank" style={{ fontSize: '13px', background: '#f4f7fc', padding: '6px 12px', borderRadius: '6px', color: '#0e3e78', fontWeight: '600', textDecoration: 'none' }}>
+              Voir le site public →
+            </Link>
+
+            <div style={{ width: '1px', height: '24px', background: '#e5e9f2' }}></div>
             
             {/* Dynamic Notification Bell & Dropdown */}
             <div ref={dropdownRef} style={{ position: 'relative' }}>
@@ -142,7 +153,7 @@ export const AdminLayout: React.FC = () => {
 
               {isDropdownOpen && (
                 <div style={{
-                  position: 'absolute', top: '40px', right: '0',
+                  position: 'absolute', top: '40px', right: '-40px',
                   width: '320px', background: '#fff', borderRadius: '12px',
                   boxShadow: '0 10px 40px rgba(0,0,0,0.1)', border: '1px solid #e5e9f2',
                   zIndex: 100, overflow: 'hidden'
@@ -183,12 +194,29 @@ export const AdminLayout: React.FC = () => {
               )}
             </div>
 
-            <span style={{ fontSize: '14px', color: '#57647c', borderLeft: '1px solid #e5e9f2', paddingLeft: '20px' }}>
-              Connecté en tant qu'<strong>Administrateur</strong>
-            </span>
-            <Link to="/" target="_blank" style={{ fontSize: '13px', background: '#f4f7fc', padding: '6px 12px', borderRadius: '6px', color: '#0e3e78', fontWeight: '600' }}>
-              Voir le site public →
-            </Link>
+            {/* Logout Button */}
+            <button
+              onClick={handleLogout}
+              style={{
+                background: '#e93c05',
+                color: '#ffffff',
+                border: 'none',
+                padding: '8px 16px',
+                borderRadius: '6px',
+                fontWeight: '700',
+                fontSize: '13px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                boxShadow: '0 4px 10px rgba(233, 60, 5, 0.25)',
+                transition: 'transform 0.2s'
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-1px)')}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
+            >
+              Déconnexion
+            </button>
           </div>
         </header>
 
