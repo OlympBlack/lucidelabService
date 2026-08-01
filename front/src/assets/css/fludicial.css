@@ -148,9 +148,12 @@ ul {
   border: 2px solid #ffffff;
   color: #ffffff !important;
 }
+.common-btn.btn-outline span.btn-hover-bg {
+  background-color: var(--accent-orange) !important;
+}
 .common-btn.btn-outline:hover {
-  background-color: var(--accent-orange);
-  border-color: var(--accent-orange);
+  background-color: var(--accent-orange) !important;
+  border-color: var(--accent-orange) !important;
   color: #ffffff !important;
 }
 
