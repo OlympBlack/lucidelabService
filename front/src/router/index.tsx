@@ -3,6 +3,7 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import { HeaderTopbar } from '../components/layout/HeaderTopbar';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
+import { ScrollToTop } from '../components/common/ScrollToTop';
 
 // Public Pages
 import { Home } from '../pages/public/Home';
@@ -27,6 +28,7 @@ import { AdminSettings } from '../pages/admin/AdminSettings';
 const MainLayout: React.FC = () => {
   return (
     <>
+      <ScrollToTop />
       <HeaderTopbar />
       <Navbar />
       <main>
