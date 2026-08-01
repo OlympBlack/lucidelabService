@@ -34,6 +34,8 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('announcements', AnnouncementController::class);
         Route::get('/blogs/{blog}', [BlogController::class, 'show']);
         Route::apiResource('messages', ContactController::class)->only(['index', 'destroy']);
+        Route::post('/messages/{id}/read', [ContactController::class, 'markAsRead']);
+        Route::post('/messages/read-all', [ContactController::class, 'markAllAsRead']);
         Route::post('/settings', [SettingController::class, 'update']);
 
         // Image Upload

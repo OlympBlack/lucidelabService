@@ -31,9 +31,24 @@ class ContactController extends Controller
         return response()->json(['success' => true, 'message' => 'Message envoyé avec succès', 'data' => $message], 201);
     }
 
-    public function destroy(ContactMessage $contactMessage)
+    public function destroy($id)
     {
+        $contactMessage = ContactMessage::findOrFail($id);
         $contactMessage->delete();
         return response()->json(['success' => true, 'message' => 'Message supprimé']);
+    }
+
+    public function markAsRead($id)
+    {
+        $message = ContactMessage::findOrFail($id);
+        $message->status = 'READ';
+        $message->save();
+        return response()->json(['success' => true]);
+    }
+
+    public function markAllAsRead()
+    {
+        ContactMessage::where('status', 'NEW')->update(['status' => 'READ']);
+        return response()->json(['success' => true]);
     }
 }

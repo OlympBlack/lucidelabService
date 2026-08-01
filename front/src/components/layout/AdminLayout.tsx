@@ -23,16 +23,29 @@ export const AdminLayout: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  const fetchNotifications = async () => {
+    const msgs = await api.getAdminMessages();
+    if (msgs && Array.isArray(msgs)) {
+      const unreadMsgs = msgs.filter((m: any) => m.status === 'NEW');
+      setNotificationCount(unreadMsgs.length);
+      setRecentMessages(unreadMsgs.slice(0, 5)); // Keep top 5 latest unread
+    }
+  };
+
   useEffect(() => {
-    const fetchNotifications = async () => {
-      const msgs = await api.getAdminMessages();
-      if (msgs && Array.isArray(msgs)) {
-        setNotificationCount(msgs.length);
-        setRecentMessages(msgs.slice(0, 5)); // Keep top 5 latest
-      }
-    };
     fetchNotifications();
   }, [location.pathname]);
+
+  const handleReadMessage = async (id: number) => {
+    await api.markAdminMessageRead(id);
+    fetchNotifications();
+    setIsDropdownOpen(false);
+  };
+
+  const handleMarkAllRead = async () => {
+    await api.markAllAdminMessagesRead();
+    fetchNotifications();
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -154,8 +167,16 @@ export const AdminLayout: React.FC = () => {
                   boxShadow: '0 10px 40px rgba(0,0,0,0.1)', border: '1px solid #e5e9f2',
                   zIndex: 100, overflow: 'hidden'
                 }}>
-                  <div style={{ padding: '15px 20px', borderBottom: '1px solid #e5e9f2', background: '#f8fafc' }}>
+                  <div style={{ padding: '15px 20px', borderBottom: '1px solid #e5e9f2', background: '#f8fafc', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <h4 style={{ margin: 0, fontSize: '14px', color: '#011a41', fontWeight: '700' }}>Notifications ({notificationCount})</h4>
+                    {notificationCount > 0 && (
+                      <button 
+                        onClick={handleMarkAllRead}
+                        style={{ background: 'none', border: 'none', color: '#0122bc', fontSize: '12px', cursor: 'pointer', fontWeight: '600' }}
+                      >
+                        Tout marquer comme lu
+                      </button>
+                    )}
                   </div>
                   <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
                     {recentMessages.length > 0 ? (
@@ -163,11 +184,15 @@ export const AdminLayout: React.FC = () => {
                         <Link 
                           key={msg.id} 
                           to="/admin/messages" 
-                          onClick={() => setIsDropdownOpen(false)}
-                          style={{ display: 'block', padding: '15px 20px', borderBottom: '1px solid #f0f2f5', textDecoration: 'none', transition: 'background-color 0.2s' }}
+                          onClick={(e) => {
+                            // Optionally prevent default if we want to stay on page, but since it's a Link we let it navigate after marking read
+                            handleReadMessage(msg.id);
+                          }}
+                          style={{ display: 'block', padding: '15px 20px', borderBottom: '1px solid #f0f2f5', textDecoration: 'none', transition: 'background-color 0.2s', position: 'relative' }}
                           onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f8fafc'}
                           onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                         >
+                          <div style={{ width: '8px', height: '8px', background: '#e93c05', borderRadius: '50%', position: 'absolute', top: '20px', right: '20px' }}></div>
                           <p style={{ margin: '0 0 5px 0', fontSize: '13px', fontWeight: '600', color: '#0122bc' }}>
                             Nouveau message de {msg.name}
                           </p>

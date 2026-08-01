@@ -286,8 +286,11 @@ export const AdminMessages: React.FC = () => {
   }, []);
 
 
-  const handleDelete = (id: number) => {
-    setMessages(messages.filter(m => m.id !== id));
+  const handleDelete = async (id: number) => {
+    const res = await api.deleteAdminMessage(id);
+    if (res.success) {
+      setMessages(messages.filter(m => m.id !== id));
+    }
   };
 
   return (
