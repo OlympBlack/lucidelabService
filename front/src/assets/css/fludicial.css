@@ -929,6 +929,10 @@ ul {
 }
 
 /* Comprehensive Responsive Breakpoints - No Cutoffs */
+.admin-menu-toggle {
+  display: none;
+}
+
 @media (max-width: 1180px) {
   .nav-menu {
     display: none;
@@ -960,13 +964,41 @@ ul {
     gap: 30px;
   }
   .admin-layout {
-    flex-direction: column;
+    display: block;
   }
   .admin-sidebar {
-    width: 100%;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    height: 100vh;
+    width: 270px;
+    z-index: 1050;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .admin-sidebar.open {
+    left: 0;
   }
   .admin-content {
     width: 100%;
+  }
+  .admin-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1040;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .admin-overlay.open {
+    display: block;
+    opacity: 1;
+  }
+  .admin-menu-toggle {
+    display: block !important;
   }
   .ptb-100 {
     padding-top: 60px;

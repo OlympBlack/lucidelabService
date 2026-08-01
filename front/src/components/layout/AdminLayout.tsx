@@ -11,7 +11,8 @@ import {
   Settings,
   Image,
   LogOut,
-  UserCheck
+  UserCheck,
+  Menu
 } from 'lucide-react';
 import { api } from '../../services/api';
 
@@ -21,6 +22,7 @@ export const AdminLayout: React.FC = () => {
   const [notificationCount, setNotificationCount] = useState(0);
   const [recentMessages, setRecentMessages] = useState<any[]>([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const fetchNotifications = async () => {
@@ -78,8 +80,14 @@ export const AdminLayout: React.FC = () => {
 
   return (
     <div className="admin-layout">
+      {/* Mobile Overlay */}
+      <div 
+        className={`admin-overlay ${isSidebarOpen ? 'open' : ''}`} 
+        onClick={() => setIsSidebarOpen(false)}
+      ></div>
+
       {/* Sidebar */}
-      <aside className="admin-sidebar">
+      <aside className={`admin-sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <div className="admin-sidebar-header">
           <Link to="/admin/dashboard" style={{ color: '#fff', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <img
@@ -95,6 +103,7 @@ export const AdminLayout: React.FC = () => {
             <Link
               key={item.path}
               to={item.path}
+              onClick={() => setIsSidebarOpen(false)}
               className={`admin-nav-item ${location.pathname === item.path ? 'active' : ''}`}
             >
               {item.icon}
@@ -131,7 +140,16 @@ export const AdminLayout: React.FC = () => {
       {/* Main Content Area */}
       <main className="admin-content">
         <header className="admin-topbar">
-          <h2 style={{ fontSize: '18px', color: '#011a41' }}>Console d'Administration LUCIDE LAB</h2>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <button 
+              onClick={() => setIsSidebarOpen(true)}
+              className="admin-menu-toggle"
+              style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', color: '#011a41' }}
+            >
+              <Menu size={24} />
+            </button>
+            <h2 style={{ fontSize: '18px', color: '#011a41', margin: 0 }}>Console d'Administration</h2>
+          </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
             <Link to="/" target="_blank" style={{ fontSize: '13px', background: '#f4f7fc', padding: '6px 12px', borderRadius: '6px', color: '#0e3e78', fontWeight: '600', textDecoration: 'none' }}>
               Voir le site public →
