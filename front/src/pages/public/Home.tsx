@@ -14,7 +14,6 @@ import {
   Sparkles,
   Target,
   ArrowRight,
-  ShieldCheck,
   Building,
   Building2,
   Star,
@@ -190,31 +189,22 @@ export const Home: React.FC = () => {
               </div>
             </div>
 
-            <div className="hero-card-preview">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-                <ShieldCheck size={36} style={{ color: '#fd8604' }} />
-                <div>
-                  <h3 style={{ color: '#ffffff', fontSize: '20px' }}>Notre Engagement</h3>
-                  <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '14px' }}>Clarté — Impact — Crédibilité</p>
-                </div>
-              </div>
-              <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '15px', marginBottom: '20px' }}>
-                "Nous aidons les marques à se démarquer et à convertir leur vision en résultats tangibles."
-              </p>
-              <div style={{ display: 'flex', gap: '20px', borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '15px' }}>
-                <div>
-                  <h4 style={{ color: '#38ef7d', fontSize: '24px' }}>100%</h4>
-                  <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '12px' }}>Engagement qualité</p>
-                </div>
-                <div>
-                  <h4 style={{ color: '#38ef7d', fontSize: '24px' }}>6+</h4>
-                  <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '12px' }}>Pôles d'expertise</p>
-                </div>
-                <div>
-                  <h4 style={{ color: '#38ef7d', fontSize: '24px' }}>Bénin & Sub-région</h4>
-                  <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '12px' }}>Rayonnement régional</p>
-                </div>
-              </div>
+            {/* Right side: Replaced preview text card with hero.png image */}
+            <div className="hero-image-wrapper" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <img
+                src="/assets/images/hero.png"
+                alt="LUCIDE LAB Expertise"
+                style={{
+                  width: '100%',
+                  maxWidth: '520px',
+                  height: 'auto',
+                  maxHeight: '460px',
+                  objectFit: 'contain',
+                  borderRadius: '16px',
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+                  display: 'block'
+                }}
+              />
             </div>
           </div>
         </div>
