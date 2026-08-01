@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Plus, Edit, Trash2, X, Star, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { CommonButton } from '../../components/common/CommonButton';
 import { ImageUploader } from '../../components/common/ImageUploader';
+import { Modal } from '../../components/common/Modal';
+import { ConfirmModal } from '../../components/common/ConfirmModal';
 import { api, type Realisation } from '../../services/api';
 
 const CATEGORIES = ['STRATEGY', 'BRAND', 'DIGITAL', 'GROWTH', 'CONTENT', 'ADVERTISING'];
@@ -28,6 +30,7 @@ export const AdminRealisations: React.FC = () => {
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [form, setForm] = useState<FormData>(emptyForm);
+  const [deleteConfirm, setDeleteConfirm] = useState<{isOpen: boolean, id: number|null, title: string}>({ isOpen: false, id: null, title: '' });
 
   // ── Fetch ─────────────────────────────────────────────────────────────────
   const fetchProjects = async () => {
@@ -106,11 +109,16 @@ export const AdminRealisations: React.FC = () => {
     setSaving(false);
   };
 
-  const handleDelete = async (id: number, title: string) => {
-    if (!confirm(`Supprimer définitivement "${title}" ?`)) return;
+  const requestDelete = (id: number, title: string) => {
+    setDeleteConfirm({ isOpen: true, id, title });
+  };
+
+  const handleConfirmDelete = async () => {
+    const id = deleteConfirm.id;
+    if (!id) return;
     const res = await api.deleteRealisation(id);
     if (res.success) {
-      notify('Projet supprimé.');
+      notify('Projet supprimé définitivement.');
       setProjects(projects.filter((p) => p.id !== id));
     } else {
       notify(res.message ?? 'Erreur lors de la suppression.', true);
@@ -143,18 +151,13 @@ export const AdminRealisations: React.FC = () => {
         </div>
       )}
 
-      {/* Form Panel */}
-      {showForm && (
-        <div style={{ background: '#ffffff', padding: '28px', borderRadius: '14px', marginBottom: '28px', boxShadow: '0 4px 24px rgba(1,34,188,0.09)', border: '1px solid #e5e9f2' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-            <h3 style={{ fontSize: '20px', color: '#011a41' }}>
-              {editingId ? '✏️ Modifier le Projet' : '➕ Ajouter un Projet au Portfolio'}
-            </h3>
-            <button onClick={closeForm} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#57647c' }}>
-              <X size={22} />
-            </button>
-          </div>
-
+      {/* Form Panel Modal */}
+      <Modal 
+        isOpen={showForm} 
+        onClose={closeForm} 
+        title={editingId ? '✏️ Modifier le Projet' : '➕ Nouveau Projet Portfolio'}
+        maxWidth="900px"
+      >
           <form onSubmit={handleSubmit}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px' }}>
               {/* Title */}
@@ -225,8 +228,7 @@ export const AdminRealisations: React.FC = () => {
               <CommonButton type="button" variant="dark" onClick={closeForm}>Annuler</CommonButton>
             </div>
           </form>
-        </div>
-      )}
+      </Modal>
 
       {/* Table */}
       {loading ? (
@@ -289,7 +291,7 @@ export const AdminRealisations: React.FC = () => {
                           style={{ background: 'rgba(1,34,188,0.08)', border: 'none', cursor: 'pointer', color: '#0122bc', borderRadius: '6px', padding: '6px 8px' }}>
                           <Edit size={16} />
                         </button>
-                        <button onClick={() => handleDelete(p.id, p.title)} title="Supprimer"
+                        <button onClick={() => requestDelete(p.id, p.title)} title="Supprimer"
                           style={{ background: 'rgba(251,36,72,0.08)', border: 'none', cursor: 'pointer', color: '#fb2448', borderRadius: '6px', padding: '6px 8px' }}>
                           <Trash2 size={16} />
                         </button>
@@ -302,6 +304,15 @@ export const AdminRealisations: React.FC = () => {
           </table>
         </div>
       )}
+
+      <ConfirmModal
+        isOpen={deleteConfirm.isOpen}
+        onClose={() => setDeleteConfirm({ ...deleteConfirm, isOpen: false })}
+        onConfirm={handleConfirmDelete}
+        title="Supprimer le projet ?"
+        message={`Êtes-vous sûr de vouloir supprimer définitivement le projet "${deleteConfirm.title}" du portfolio ?`}
+        confirmText="Oui, supprimer"
+      />
     </div>
   );
 };
