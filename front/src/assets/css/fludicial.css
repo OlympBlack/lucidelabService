@@ -763,8 +763,9 @@ ul {
 .admin-layout {
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background-color: #f4f6f9;
+  overflow: hidden;
 }
 
 .admin-sidebar {
@@ -774,6 +775,8 @@ ul {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .admin-sidebar-header {
@@ -811,6 +814,8 @@ ul {
   display: flex;
   flex-direction: column;
   width: calc(100% - 270px);
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .admin-topbar {
@@ -885,26 +890,32 @@ ul {
 
 .form-group label {
   display: block;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0122bc;
   margin-bottom: 8px;
-  font-size: 14px;
-  color: var(--primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .form-control {
   width: 100%;
   padding: 12px 16px;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  font-size: 15px;
+  border: 2px solid #dbe3f5;
+  border-radius: 8px;
+  font-size: 14px;
   font-family: inherit;
-  transition: var(--transition-fast);
+  color: #011a41;
+  background: #f7f9ff;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  box-sizing: border-box;
 }
 
 .form-control:focus {
   outline: none;
-  border-color: var(--primary-dark);
-  box-shadow: 0 0 0 3px rgba(1, 34, 188, 0.15);
+  border-color: #0122bc;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(1, 34, 188, 0.12);
 }
 
 /* Comprehensive Responsive Breakpoints - No Cutoffs */

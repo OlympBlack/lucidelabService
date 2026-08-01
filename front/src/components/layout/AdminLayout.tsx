@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard,
@@ -19,17 +19,31 @@ export const AdminLayout: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [notificationCount, setNotificationCount] = useState(0);
+  const [recentMessages, setRecentMessages] = useState<any[]>([]);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Fetch dynamic count for notifications (e.g. contact messages)
     const fetchNotifications = async () => {
       const msgs = await api.getAdminMessages();
       if (msgs && Array.isArray(msgs)) {
-        setNotificationCount(msgs.length); // You can filter by 'unread' if added to backend later
+        setNotificationCount(msgs.length);
+        setRecentMessages(msgs.slice(0, 5)); // Keep top 5 latest
       }
     };
     fetchNotifications();
-  }, [location.pathname]); // Refresh when navigating in admin
+  }, [location.pathname]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const menuItems = [
     { path: '/admin/dashboard', label: 'Tableau de bord', icon: <LayoutDashboard size={18} /> },
@@ -105,26 +119,69 @@ export const AdminLayout: React.FC = () => {
           <h2 style={{ fontSize: '18px', color: '#011a41' }}>Console d'Administration LUCIDE LAB</h2>
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
             
-            {/* Dynamic Notification Bell */}
-            <Link to="/admin/messages" style={{ position: 'relative', display: 'flex', alignItems: 'center', color: '#011a41' }}>
-              <Bell size={20} />
-              {notificationCount > 0 && (
-                <span style={{
-                  position: 'absolute',
-                  top: '-6px',
-                  right: '-8px',
-                  background: '#fb2448',
-                  color: '#fff',
-                  fontSize: '11px',
-                  fontWeight: 'bold',
-                  padding: '2px 6px',
-                  borderRadius: '12px',
-                  lineHeight: 1
+            {/* Dynamic Notification Bell & Dropdown */}
+            <div ref={dropdownRef} style={{ position: 'relative' }}>
+              <button 
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                style={{ 
+                  background: 'none', border: 'none', cursor: 'pointer', 
+                  display: 'flex', alignItems: 'center', color: '#011a41', padding: '5px' 
+                }}
+              >
+                <Bell size={20} />
+                {notificationCount > 0 && (
+                  <span style={{
+                    position: 'absolute', top: '-2px', right: '-2px',
+                    background: '#fb2448', color: '#fff', fontSize: '11px',
+                    fontWeight: 'bold', padding: '2px 6px', borderRadius: '12px', lineHeight: 1
+                  }}>
+                    {notificationCount}
+                  </span>
+                )}
+              </button>
+
+              {isDropdownOpen && (
+                <div style={{
+                  position: 'absolute', top: '40px', right: '0',
+                  width: '320px', background: '#fff', borderRadius: '12px',
+                  boxShadow: '0 10px 40px rgba(0,0,0,0.1)', border: '1px solid #e5e9f2',
+                  zIndex: 100, overflow: 'hidden'
                 }}>
-                  {notificationCount}
-                </span>
+                  <div style={{ padding: '15px 20px', borderBottom: '1px solid #e5e9f2', background: '#f8fafc' }}>
+                    <h4 style={{ margin: 0, fontSize: '14px', color: '#011a41', fontWeight: '700' }}>Notifications ({notificationCount})</h4>
+                  </div>
+                  <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
+                    {recentMessages.length > 0 ? (
+                      recentMessages.map((msg) => (
+                        <div key={msg.id} style={{ padding: '15px 20px', borderBottom: '1px solid #f0f2f5' }}>
+                          <p style={{ margin: '0 0 5px 0', fontSize: '13px', fontWeight: '600', color: '#0122bc' }}>
+                            Nouveau message de {msg.name}
+                          </p>
+                          <p style={{ margin: 0, fontSize: '12px', color: '#57647c', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                            Sujet : {msg.subject || msg.service}
+                          </p>
+                        </div>
+                      ))
+                    ) : (
+                      <div style={{ padding: '20px', textAlign: 'center', fontSize: '13px', color: '#a0aec0' }}>
+                        Aucune notification
+                      </div>
+                    )}
+                  </div>
+                  <Link 
+                    to="/admin/messages" 
+                    onClick={() => setIsDropdownOpen(false)}
+                    style={{ 
+                      display: 'block', padding: '12px', textAlign: 'center', 
+                      background: '#f4f7fc', color: '#0122bc', fontSize: '13px', 
+                      fontWeight: '600', textDecoration: 'none' 
+                    }}
+                  >
+                    Voir tous les messages →
+                  </Link>
+                </div>
               )}
-            </Link>
+            </div>
 
             <span style={{ fontSize: '14px', color: '#57647c', borderLeft: '1px solid #e5e9f2', paddingLeft: '20px' }}>
               Connecté en tant qu'<strong>Administrateur</strong>
@@ -135,7 +192,6 @@ export const AdminLayout: React.FC = () => {
           </div>
         </header>
 
-
         <div className="admin-body">
           <Outlet />
         </div>
@@ -143,3 +199,4 @@ export const AdminLayout: React.FC = () => {
     </div>
   );
 };
+
