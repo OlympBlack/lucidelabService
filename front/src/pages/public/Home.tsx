@@ -60,37 +60,37 @@ export const Home: React.FC = () => {
 
   const defaultServices = [
     {
-      icon: <Compass size={32} style={{ color: '#fd8604' }} />,
+      icon: <Compass size={26} style={{ color: '#fd8604' }} />,
       title: 'STRATEGY',
       subtitle: 'Définir la bonne direction',
       description: 'Analyse approfondie du marché, positionnement stratégique et plan de communication sur-mesure pour atteindre vos objectifs d\'affaires.'
     },
     {
-      icon: <Palette size={32} style={{ color: '#fd8604' }} />,
+      icon: <Palette size={26} style={{ color: '#fd8604' }} />,
       title: 'BRAND',
       subtitle: 'Construire une identité forte',
       description: 'Création de marque, charte graphique, branding émotionnel et design système pour marquer durablement les esprits.'
     },
     {
-      icon: <Globe size={32} style={{ color: '#fd8604' }} />,
+      icon: <Globe size={26} style={{ color: '#fd8604' }} />,
       title: 'DIGITAL',
       subtitle: 'Créer des expériences numériques',
       description: 'Sites web modernes, applications interactives et plateformes digitales conçues pour la conversion et l\'engagement.'
     },
     {
-      icon: <TrendingUp size={32} style={{ color: '#fd8604' }} />,
+      icon: <TrendingUp size={26} style={{ color: '#fd8604' }} />,
       title: 'GROWTH',
       subtitle: 'Développer la visibilité',
       description: 'Stratégies d\'acquisition, SEO, marketing de performance et optimisation continue pour accélérer votre croissance.'
     },
     {
-      icon: <FileText size={32} style={{ color: '#fd8604' }} />,
+      icon: <FileText size={26} style={{ color: '#fd8604' }} />,
       title: 'CONTENT',
       subtitle: 'Créer du contenu qui marque',
       description: 'Storytelling puissant, création de contenus vidéo/audio, rédaction stratégique et gestion de communauté.'
     },
     {
-      icon: <Megaphone size={32} style={{ color: '#fd8604' }} />,
+      icon: <Megaphone size={26} style={{ color: '#fd8604' }} />,
       title: 'ADVERTISING',
       subtitle: 'Faire connaître les marques',
       description: 'Campagnes publicitaires ciblées, achat média digital & traditionnel, et maximisation du retour sur investissement.'
@@ -99,13 +99,13 @@ export const Home: React.FC = () => {
 
   const getIconForCode = (code: string) => {
     switch (code) {
-      case 'STRATEGY': return <Compass size={32} style={{ color: '#fd8604' }} />;
-      case 'BRAND': return <Palette size={32} style={{ color: '#fd8604' }} />;
-      case 'DIGITAL': return <Globe size={32} style={{ color: '#fd8604' }} />;
-      case 'GROWTH': return <TrendingUp size={32} style={{ color: '#fd8604' }} />;
-      case 'CONTENT': return <FileText size={32} style={{ color: '#fd8604' }} />;
-      case 'ADVERTISING': return <Megaphone size={32} style={{ color: '#fd8604' }} />;
-      default: return <Compass size={32} style={{ color: '#fd8604' }} />;
+      case 'STRATEGY': return <Compass size={26} style={{ color: '#fd8604' }} />;
+      case 'BRAND': return <Palette size={26} style={{ color: '#fd8604' }} />;
+      case 'DIGITAL': return <Globe size={26} style={{ color: '#fd8604' }} />;
+      case 'GROWTH': return <TrendingUp size={26} style={{ color: '#fd8604' }} />;
+      case 'CONTENT': return <FileText size={26} style={{ color: '#fd8604' }} />;
+      case 'ADVERTISING': return <Megaphone size={26} style={{ color: '#fd8604' }} />;
+      default: return <Compass size={26} style={{ color: '#fd8604' }} />;
     }
   };
 
@@ -341,7 +341,7 @@ export const Home: React.FC = () => {
               <div key={idx} className="service-card">
                 <div className="service-icon">{item.icon}</div>
                 <h3>{item.title}</h3>
-                <span style={{ color: '#fd8604', fontWeight: '600', fontSize: '13px', display: 'block', marginBottom: '10px' }}>
+                <span style={{ color: '#fd8604', fontWeight: '600', fontSize: '13px', display: 'block', marginBottom: '8px' }}>
                   {item.subtitle}
                 </span>
                 <p>{item.description}</p>
