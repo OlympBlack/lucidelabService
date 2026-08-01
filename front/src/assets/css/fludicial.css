@@ -1149,3 +1149,133 @@ ul {
   color: #fd8604;
   flex-shrink: 0;
 }
+
+/* ─── Contact Page ─────────────────────────────────────────────────────────── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 36px;
+  align-items: start;
+}
+
+/* Info card — dark blue */
+.contact-info-card {
+  background: linear-gradient(160deg, #011a41 0%, #0122bc 100%);
+  color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 12px 36px rgba(1,26,65,0.22);
+}
+
+.contact-info-card h3 {
+  color: #ffffff;
+  font-size: 22px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.contact-info-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.contact-info-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(253,134,4,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fd8604;
+  flex-shrink: 0;
+}
+
+.contact-info-item h4 {
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.contact-info-item a,
+.contact-info-item p {
+  color: rgba(255,255,255,0.82);
+  font-size: 14px;
+  margin: 0;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.contact-info-item a:hover { color: #fd8604; }
+
+/* Form card */
+.contact-form-card {
+  background: #ffffff;
+  border: 1px solid #e5e9f2;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(1,34,188,0.06);
+}
+
+.contact-form-card h3 {
+  font-size: 22px;
+  margin-bottom: 24px;
+  color: #011a41;
+  padding-bottom: 14px;
+  border-bottom: 2px solid #f4f7fc;
+}
+
+/* 2-column row inside form */
+.contact-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* Visible form inputs */
+.contact-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 2px solid #dbe3f5;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #011a41;
+  background: #f7f9ff;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  box-sizing: border-box;
+}
+
+.contact-input:focus {
+  outline: none;
+  border-color: #0122bc;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(1,34,188,0.12);
+}
+
+.contact-input::placeholder { color: #a0aec0; }
+
+.contact-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0122bc;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+  .contact-form-card { padding: 28px 24px; }
+}
+
+@media (max-width: 640px) {
+  .contact-form-row { grid-template-columns: 1fr; gap: 0; }
+  .contact-info-card { padding: 28px 20px; }
+  .contact-form-card { padding: 22px 16px; }
+}
