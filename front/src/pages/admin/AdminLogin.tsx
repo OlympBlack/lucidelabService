@@ -42,33 +42,59 @@ export const AdminLogin: React.FC = () => {
         </div>
 
         <form onSubmit={handleLogin}>
-          <div className="form-group">
-            <label>Adresse Email Admin</label>
+          <div className="form-group" style={{ marginBottom: '20px' }}>
+            <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#0122bc', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Adresse Email Admin</label>
             <div style={{ position: 'relative' }}>
               <input
                 type="email"
                 className="form-control"
-                style={{ paddingLeft: '40px' }}
+                style={{
+                  width: '100%',
+                  padding: '12px 16px 12px 42px',
+                  borderRadius: '8px',
+                  border: '2px solid #dbe3f5',
+                  fontSize: '14px',
+                  color: '#011a41',
+                  background: '#f7f9ff',
+                  boxSizing: 'border-box',
+                  outline: 'none',
+                  transition: 'border-color 0.25s ease'
+                }}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                onFocus={(e) => e.target.style.borderColor = '#0122bc'}
+                onBlur={(e) => e.target.style.borderColor = '#dbe3f5'}
                 required
               />
-              <Mail size={18} style={{ position: 'absolute', left: '12px', top: '13px', color: '#57647c' }} />
+              <Mail size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: '#0122bc', pointerEvents: 'none' }} />
             </div>
           </div>
 
-          <div className="form-group">
-            <label>Mot de passe</label>
+          <div className="form-group" style={{ marginBottom: '25px' }}>
+            <label style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#0122bc', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Mot de passe</label>
             <div style={{ position: 'relative' }}>
               <input
                 type="password"
                 className="form-control"
-                style={{ paddingLeft: '40px' }}
+                style={{
+                  width: '100%',
+                  padding: '12px 16px 12px 42px',
+                  borderRadius: '8px',
+                  border: '2px solid #dbe3f5',
+                  fontSize: '14px',
+                  color: '#011a41',
+                  background: '#f7f9ff',
+                  boxSizing: 'border-box',
+                  outline: 'none',
+                  transition: 'border-color 0.25s ease'
+                }}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                onFocus={(e) => e.target.style.borderColor = '#0122bc'}
+                onBlur={(e) => e.target.style.borderColor = '#dbe3f5'}
                 required
               />
-              <Lock size={18} style={{ position: 'absolute', left: '12px', top: '13px', color: '#57647c' }} />
+              <Lock size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: '#0122bc', pointerEvents: 'none' }} />
             </div>
           </div>
 
