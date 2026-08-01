@@ -148,14 +148,14 @@ export const AdminLayout: React.FC = () => {
             >
               <Menu size={24} />
             </button>
-            <h2 style={{ fontSize: '18px', color: '#011a41', margin: 0 }}>Console d'Administration</h2>
+            <h2 className="admin-topbar-title" style={{ fontSize: '18px', color: '#011a41', margin: 0 }}>Console d'Administration</h2>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-            <Link to="/" target="_blank" style={{ fontSize: '13px', background: '#f4f7fc', padding: '6px 12px', borderRadius: '6px', color: '#0e3e78', fontWeight: '600', textDecoration: 'none' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <Link to="/" target="_blank" className="admin-topbar-link" style={{ fontSize: '13px', background: '#f4f7fc', padding: '6px 12px', borderRadius: '6px', color: '#0e3e78', fontWeight: '600', textDecoration: 'none' }}>
               Voir le site public →
             </Link>
 
-            <div style={{ width: '1px', height: '24px', background: '#e5e9f2' }}></div>
+            <div className="admin-topbar-divider" style={{ width: '1px', height: '24px', background: '#e5e9f2' }}></div>
             
             {/* Dynamic Notification Bell & Dropdown */}
             <div ref={dropdownRef} style={{ position: 'relative' }}>
@@ -261,7 +261,7 @@ export const AdminLayout: React.FC = () => {
               onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-1px)')}
               onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
             >
-              Déconnexion
+              <LogOut size={16} /> <span className="admin-logout-text">Déconnexion</span>
             </button>
           </div>
         </header>
