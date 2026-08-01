@@ -149,8 +149,9 @@ ul {
   color: #ffffff !important;
 }
 .common-btn.btn-outline:hover {
-  background-color: #ffffff;
-  color: var(--primary-dark) !important;
+  background-color: var(--accent-orange);
+  border-color: var(--accent-orange);
+  color: #ffffff !important;
 }
 
 /* Section Title */
