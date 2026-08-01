@@ -10,7 +10,8 @@ export const Realisations: React.FC = () => {
       category: 'BRAND',
       client: 'Groupe Financier Régional',
       description: 'Refonte complète de l\'identité visuelle et déploiement de la nouvelle charte graphique sur l\'ensemble des supports.',
-      year: '2025'
+      year: '2025',
+      image: '/assets/images/hero1.jpg'
     },
     {
       id: 2,
@@ -18,7 +19,8 @@ export const Realisations: React.FC = () => {
       category: 'DIGITAL',
       client: 'AgroTech Bénin',
       description: 'Conception web responsive et système de commande en ligne sécurisé pour des produits agricoles locaux.',
-      year: '2025'
+      year: '2025',
+      image: '/assets/images/hero2.png'
     },
     {
       id: 3,
@@ -26,7 +28,8 @@ export const Realisations: React.FC = () => {
       category: 'GROWTH',
       client: 'Startup Logistique',
       description: 'Stratégie d\'acquisition d\'utilisateurs ayant permis d\'augmenter les demandes de livraison de +180% en 3 mois.',
-      year: '2026'
+      year: '2026',
+      image: '/assets/images/hero3.jpg'
     },
     {
       id: 4,
@@ -34,7 +37,8 @@ export const Realisations: React.FC = () => {
       category: 'CONTENT',
       client: 'Groupe Immobilier',
       description: 'Production audiovisuelle haute définition mettant en valeur les projets architecturaux phares de la marque.',
-      year: '2025'
+      year: '2025',
+      image: '/assets/images/hero1.jpg'
     },
     {
       id: 5,
@@ -42,15 +46,17 @@ export const Realisations: React.FC = () => {
       category: 'ADVERTISING',
       client: 'Compagnie d\'Assurance',
       description: 'Achat média multi-canal (Affichage urbain + Digital) déployé au Bénin, Togo et Côte d\'Ivoire.',
-      year: '2026'
+      year: '2026',
+      image: '/assets/images/hero2.png'
     },
     {
       id: 6,
-      title: 'Conseil en Positionnement Strategic',
+      title: 'Conseil en Positionnement Stratégique',
       category: 'STRATEGY',
       client: 'Institution de Microfinance',
       description: 'Définition d\'une stratégie 360° pour conquérir une nouvelle cible de jeunes entrepreneurs.',
-      year: '2025'
+      year: '2025',
+      image: '/assets/images/hero3.jpg'
     }
   ];
 
@@ -74,9 +80,9 @@ export const Realisations: React.FC = () => {
               style={{
                 padding: '10px 20px',
                 borderRadius: '20px',
-                border: '1px solid #011a41',
-                background: filter === cat ? '#011a41' : 'transparent',
-                color: filter === cat ? '#ffffff' : '#011a41',
+                border: '1px solid #0122bc',
+                background: filter === cat ? '#0122bc' : 'transparent',
+                color: filter === cat ? '#ffffff' : '#0122bc',
                 fontWeight: '600',
                 fontSize: '13px',
                 cursor: 'pointer',
@@ -88,29 +94,20 @@ export const Realisations: React.FC = () => {
           ))}
         </div>
 
-        {/* Projects Grid */}
+        {/* Projects Grid with Visual Images */}
         <div className="grid-3">
           {filteredProjects.map((p) => (
             <div key={p.id} className="portfolio-card">
-              <div style={{
-                height: '180px',
-                background: 'linear-gradient(135deg, #011a41 0%, #0e3e78 100%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#fff',
-                fontWeight: 'bold',
-                fontSize: '22px'
-              }}>
-                {p.category}
+              <div className="portfolio-img-wrapper">
+                <img src={p.image} alt={p.title} />
               </div>
               <div className="portfolio-body">
                 <span className="portfolio-tag">{p.category} • {p.year}</span>
-                <h3 style={{ fontSize: '20px', marginBottom: '8px' }}>{p.title}</h3>
-                <p style={{ color: '#e93c05', fontWeight: '600', fontSize: '13px', marginBottom: '12px' }}>
-                  Client: {p.client}
+                <h3 style={{ fontSize: '18px', marginBottom: '8px', color: '#0122bc' }}>{p.title}</h3>
+                <p style={{ color: '#fd8604', fontWeight: '600', fontSize: '13px', marginBottom: '10px' }}>
+                  Client : {p.client}
                 </p>
-                <p style={{ color: '#57647c', fontSize: '14px', marginBottom: '20px' }}>
+                <p style={{ color: '#57647c', fontSize: '14px', margin: 0 }}>
                   {p.description}
                 </p>
               </div>

@@ -145,17 +145,20 @@ export const Home: React.FC = () => {
     {
       title: 'Repositionnement Global de Marque FinTech',
       category: 'Brand & Strategy',
-      desc: 'Refonte complète de l\'identité visuelle et stratégie d\'acquisition pour une institution financière.'
+      desc: 'Refonte complète de l\'identité visuelle et stratégie d\'acquisition pour une institution financière.',
+      image: '/assets/images/hero1.jpg'
     },
     {
       title: 'Plateforme E-commerce & Expansion Digital',
       category: 'Digital & Growth',
-      desc: 'Développement d\'une plateforme web moderne et campagne d\'acquisition clients multi-canal.'
+      desc: 'Développement d\'une plateforme web moderne et campagne d\'acquisition clients multi-canal.',
+      image: '/assets/images/hero2.png'
     },
     {
       title: 'Campagne de Lancement Produit Agro-alimentaire',
       category: 'Content & Advertising',
-      desc: 'Création de contenus vidéos et campagnes ciblées en Afrique de l\'Ouest.'
+      desc: 'Création de contenus vidéos et campagnes ciblées en Afrique de l\'Ouest.',
+      image: '/assets/images/hero3.jpg'
     }
   ];
 
@@ -441,7 +444,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Realisations Showcase */}
+      {/* Realisations Showcase with Project Visual Images */}
       <section className="ptb-100">
         <div className="container">
           <div className="section-title">
@@ -453,6 +456,9 @@ export const Home: React.FC = () => {
           <div className="grid-3">
             {realisations.map((item, idx) => (
               <div key={idx} className="portfolio-card">
+                <div className="portfolio-img-wrapper">
+                  <img src={item.image} alt={item.title} />
+                </div>
                 <div className="portfolio-body">
                   <span className="portfolio-tag">{item.category}</span>
                   <h3 style={{ fontSize: '18px', marginBottom: '10px' }}>{item.title}</h3>
