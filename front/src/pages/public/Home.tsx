@@ -474,39 +474,53 @@ export const Home: React.FC = () => {
       </section>
 
 
-      {/* Trust & Testimonials Section (Ils Nous Font Confiance) */}
-      <section className="ptb-100" style={{ background: '#f4f7fc' }}>
-        <div className="container">
-          <div className="section-title">
-            <span className="sub-title">Ils nous font confiance</span>
-            <h2>Secteurs d'Activité & Témoignages Clients</h2>
-            <p>Des entreprises et institutions d'Afrique de l'Ouest qui s'appuient sur l'expertise de LUCIDE LAB.</p>
-          </div>
+      {/* ── Partners Infinite Marquee ── */}
+      <section className="marquee-section">
+        <div className="marquee-header">
+          <span className="sub-title">Ils nous font confiance</span>
+          <h2>Secteurs qui nous font confiance</h2>
+          <p>Des entreprises et institutions d'Afrique de l'Ouest qui s'appuient sur l'expertise de LUCIDE LAB.</p>
+        </div>
 
-          {/* Partners Categories */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', marginBottom: '50px' }}>
-            {partners.map((p, idx) => (
-              <div key={idx} style={{
-                background: '#ffffff',
-                border: '1px solid #e5e9f2',
-                borderRadius: '12px',
-                padding: '22px 15px',
-                textAlign: 'center',
-                fontWeight: '700',
-                color: '#0122bc',
-                fontSize: '15px',
-                boxShadow: '0 4px 12px rgba(1, 34, 188, 0.05)'
-              }}>
-                <Building2 size={24} style={{ color: '#fd8604', marginBottom: '8px' }} />
-                <div>{p}</div>
+        <div className="marquee-track-wrapper">
+          {/* Row 1 — scrolls Left */}
+          <div className="marquee-track row-forward">
+            {[...partners, ...partners].map((p, idx) => (
+              <div key={`fwd-${idx}`} className="partner-badge">
+                <div className="partner-badge-icon">
+                  <Building2 size={15} />
+                </div>
+                {p}
               </div>
             ))}
           </div>
 
-          {/* Testimonials — Horizontal Sliding Carousel */}
+          {/* Row 2 — scrolls Right (reverse) */}
+          <div className="marquee-track row-reverse">
+            {[...partners.slice().reverse(), ...partners.slice().reverse()].map((p, idx) => (
+              <div key={`rev-${idx}`} className="partner-badge">
+                <div className="partner-badge-icon">
+                  <Building2 size={15} />
+                </div>
+                {p}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Testimonials Section ── */}
+      <section className="ptb-100" style={{ background: '#f4f7fc' }}>
+        <div className="container">
+          <div className="section-title">
+            <span className="sub-title">Témoignages</span>
+            <h2>Ce que disent nos clients</h2>
+            <p>Des retours d'expérience authentiques d'entreprises qui ont fait confiance à LUCIDE LAB.</p>
+          </div>
           <TestimonialsCarousel items={testimonials} />
         </div>
       </section>
+
 
       {/* Call to action section */}
       <section className="ptb-100" style={{ background: 'linear-gradient(135deg, #0122bc 0%, #011785 100%)', color: '#fff', textAlign: 'center' }}>

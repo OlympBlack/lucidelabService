@@ -1048,3 +1048,104 @@ ul {
     width: 100%;
   }
 }
+
+/* ─── Infinite Marquee / Partners Ticker ─────────────────────────────────── */
+.marquee-section {
+  padding: 70px 0;
+  background: linear-gradient(135deg, #011785 0%, #0122bc 50%, #011a41 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-section::before,
+.marquee-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 160px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-section::before {
+  left: 0;
+  background: linear-gradient(to right, #011785 0%, transparent 100%);
+}
+
+.marquee-section::after {
+  right: 0;
+  background: linear-gradient(to left, #011a41 0%, transparent 100%);
+}
+
+.marquee-header {
+  text-align: center;
+  margin-bottom: 44px;
+  position: relative;
+  z-index: 3;
+}
+
+.marquee-header .sub-title { color: #fd8604; }
+.marquee-header h2 { color: #ffffff; font-size: 32px; margin-bottom: 10px; }
+.marquee-header p { color: rgba(255,255,255,0.72); font-size: 15px; max-width: 600px; margin: 0 auto; }
+
+.marquee-track-wrapper { overflow: hidden; position: relative; }
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.marquee-track.row-forward  { animation: marquee-fwd 30s linear infinite; }
+.marquee-track.row-reverse  { animation: marquee-rev 36s linear infinite; }
+.marquee-track:hover        { animation-play-state: paused; }
+
+@keyframes marquee-fwd {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-rev {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.partner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: default;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.1);
+  flex-shrink: 0;
+}
+
+.partner-badge:hover {
+  background: rgba(253,134,4,0.2);
+  border-color: rgba(253,134,4,0.5);
+  transform: scale(1.05);
+  box-shadow: 0 8px 28px rgba(253,134,4,0.22), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.partner-badge-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(253,134,4,0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fd8604;
+  flex-shrink: 0;
+}
