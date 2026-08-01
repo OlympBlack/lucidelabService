@@ -1,19 +1,63 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Eye, MessageSquare, FileText, Briefcase, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { api } from '../../services/api';
 
 export const AdminDashboard: React.FC = () => {
-  const stats = [
-    { title: 'Visiteurs du site (ce mois)', value: '4 850', change: '+14%', icon: <Eye />, bg: '#eef2ff', color: '#355efc' },
-    { title: 'Messages de contact reçus', value: '42', change: '+8 ce mois', icon: <MessageSquare />, bg: '#fff7ed', color: '#e93c05' },
-    { title: 'Articles de Blog publiés', value: '18', change: '3 brouillons', icon: <FileText />, bg: '#f0fdf4', color: '#16a34a' },
-    { title: 'Projets au Portfolio', value: '24', change: '6 catégories', icon: <Briefcase />, bg: '#faf5ff', color: '#9333ea' },
-  ];
+  const [statsData, setStatsData] = useState({
+    visitors: 0,
+    messages: 0,
+    blogs: 0,
+    projects: 0,
+  });
+  const [recentMessages, setRecentMessages] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const recentMessages = [
-    { name: 'Jean-Marc D.', service: 'STRATEGY', email: 'jmd@entreprise.bj', date: 'Aujourd\'hui 11:30', status: 'Nouveau' },
-    { name: 'Bernadette K.', service: 'BRAND', email: 'b.k@agrotech.bj', date: 'Hier 16:45', status: 'Traité' },
-    { name: 'Christian A.', service: 'GROWTH', email: 'c.akpo@logistique.com', date: '30 Juil 2026', status: 'Traité' },
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const [msgs, blogs, projects] = await Promise.all([
+          api.getAdminMessages(),
+          api.adminGetBlogs(),
+          api.adminGetRealisations()
+        ]);
+
+        let totalViews = 0;
+        let blogsCount = 0;
+        if (blogs && Array.isArray(blogs)) {
+          blogsCount = blogs.length;
+          totalViews = blogs.reduce((sum, b) => sum + (b.views_count || 0), 0);
+        }
+
+        const messagesCount = (msgs && Array.isArray(msgs)) ? msgs.length : 0;
+        const projectsCount = (projects && Array.isArray(projects)) ? projects.length : 0;
+
+        setStatsData({
+          visitors: totalViews,
+          messages: messagesCount,
+          blogs: blogsCount,
+          projects: projectsCount
+        });
+
+        if (msgs && Array.isArray(msgs)) {
+          setRecentMessages(msgs.slice(0, 5));
+        }
+      } catch (error) {
+        console.error("Failed to fetch admin stats", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const stats = [
+    { title: 'Vues globales du blog', value: loading ? '...' : statsData.visitors.toLocaleString('fr-FR'), change: 'Basé sur les articles', icon: <Eye />, bg: '#eef2ff', color: '#355efc' },
+    { title: 'Messages de contact', value: loading ? '...' : statsData.messages, change: 'Tous les messages', icon: <MessageSquare />, bg: '#fff7ed', color: '#e93c05' },
+    { title: 'Articles de Blog', value: loading ? '...' : statsData.blogs, change: 'Total articles', icon: <FileText />, bg: '#f0fdf4', color: '#16a34a' },
+    { title: 'Projets au Portfolio', value: loading ? '...' : statsData.projects, change: 'Réalisations publiées', icon: <Briefcase />, bg: '#faf5ff', color: '#9333ea' },
   ];
 
   return (
@@ -55,28 +99,34 @@ export const AdminDashboard: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {recentMessages.map((m, idx) => (
+                {recentMessages.length > 0 ? recentMessages.map((m, idx) => (
                   <tr key={idx}>
                     <td>
                       <strong>{m.name}</strong>
                       <div style={{ fontSize: '12px', color: '#57647c' }}>{m.email}</div>
                     </td>
-                    <td><span style={{ background: '#f4f7fc', padding: '4px 10px', borderRadius: '6px', fontSize: '12px', fontWeight: '700' }}>{m.service}</span></td>
-                    <td>{m.date}</td>
+                    <td><span style={{ background: '#f4f7fc', padding: '4px 10px', borderRadius: '6px', fontSize: '12px', fontWeight: '700' }}>{m.service || 'N/A'}</span></td>
+                    <td>{m.created_at ? new Date(m.created_at).toLocaleDateString('fr-FR') : 'Récemment'}</td>
                     <td>
                       <span style={{
-                        background: m.status === 'Nouveau' ? 'rgba(233, 60, 5, 0.1)' : 'rgba(22, 163, 74, 0.1)',
-                        color: m.status === 'Nouveau' ? '#e93c05' : '#16a34a',
+                        background: 'rgba(233, 60, 5, 0.1)',
+                        color: '#e93c05',
                         padding: '4px 10px',
                         borderRadius: '12px',
                         fontSize: '12px',
                         fontWeight: '700'
                       }}>
-                        {m.status}
+                        Nouveau
                       </span>
                     </td>
                   </tr>
-                ))}
+                )) : (
+                  <tr>
+                    <td colSpan={4} style={{ textAlign: 'center', color: '#57647c' }}>
+                      {loading ? 'Chargement...' : 'Aucun message.'}
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>
@@ -112,3 +162,4 @@ export const AdminDashboard: React.FC = () => {
     </div>
   );
 };
+

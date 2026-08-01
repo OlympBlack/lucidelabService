@@ -120,10 +120,6 @@ export const AdminLayout: React.FC = () => {
         <header className="admin-topbar">
           <h2 style={{ fontSize: '18px', color: '#011a41' }}>Console d'Administration LUCIDE LAB</h2>
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-            <span style={{ fontSize: '14px', color: '#57647c' }}>
-              Connecté en tant qu'<strong>Administrateur</strong>
-            </span>
-            
             <Link to="/" target="_blank" style={{ fontSize: '13px', background: '#f4f7fc', padding: '6px 12px', borderRadius: '6px', color: '#0e3e78', fontWeight: '600', textDecoration: 'none' }}>
               Voir le site public →
             </Link>
