@@ -116,7 +116,7 @@ export const Blog: React.FC = () => {
                 <div className="grid-3" style={{ gap: '30px' }}>
                   {filtered.map((article) => (
                     <div key={article.id} style={{
-                      background: 'rgba(255, 255, 255, 0.88)',
+                      background: 'rgba(255, 255, 255, 0.55)',
                       backdropFilter: 'blur(12px)',
                       borderRadius: '16px',
                       overflow: 'hidden',

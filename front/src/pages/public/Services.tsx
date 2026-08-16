@@ -10,76 +10,47 @@ export const Services: React.FC = () => {
     {
       id: 'strategy',
       icon: <Compass size={40} style={{ color: '#fd8604' }} />,
-      title: 'STRATEGY — Définir la bonne direction',
-      shortDesc: 'Positionnement stratégique, audit de marque et plan de communication sur-mesure pour dominer votre marché.',
-      details: [
-        'Audit & Diagnostic de marque 360°',
-        'Étude de marché & Analyse concurrentielle',
-        'Plateforme de marque & Positionnement',
-        'Plan d\'action & Stratégie de communication'
-      ]
+      title: 'STRATEGY',
+      shortDesc: 'Positionnement, audit de marque et plan de communication sur-mesure.',
+      details: ['Audit & Diagnostic de marque', 'Plan stratégique & Positionnement']
     },
     {
       id: 'brand',
       icon: <Palette size={40} style={{ color: '#004C99' }} />,
-      title: 'BRAND — Construire une identité forte',
-      shortDesc: 'Naming, création de logo, charte graphique et branding émotionnel pour captiver et marquer les esprits.',
-      details: [
-        'Naming & Identité verbale',
-        'Conception de logo & Univers visuel HD',
-        'Charte graphique & Brand Guidelines',
-        'Design packaging & Supports de communication'
-      ]
+      title: 'BRAND',
+      shortDesc: 'Naming, logo, charte graphique et identité visuelle forte.',
+      details: ['Conception de logo & Univers visuel', 'Charte graphique & Brand Guidelines']
     },
     {
       id: 'digital',
       icon: <Globe size={40} style={{ color: '#fd8604' }} />,
-      title: 'DIGITAL — Créer des expériences numériques',
-      shortDesc: 'Conception web, applications web/mobile et plateformes sur-mesure orientées haute conversion.',
-      details: [
-        'Création de sites vitrines & corporate',
-        'Développement d\'applications Web & Mobile',
-        'UI/UX Design & Prototypage interactif',
-        'Optimisation de la conversion (CRO)'
-      ]
+      title: 'DIGITAL',
+      shortDesc: 'Sites web, applications mobiles et plateformes sur-mesure.',
+      details: ['Création de sites & applications', 'UI/UX Design & Prototypage']
     },
     {
       id: 'growth',
       icon: <TrendingUp size={40} style={{ color: '#004C99' }} />,
-      title: 'GROWTH — Développer la visibilité',
-      shortDesc: 'Stratégies d\'acquisition d\'utilisateurs, SEO, référencement et leviers d\'accélération de chiffre d\'affaires.',
-      details: [
-        'Référencement naturel (SEO) & Référencement payant (SEA)',
-        'Stratégies d\'acquisition de leads B2B/B2C',
-        'Marketing automation & Lead Nurturing',
-        'Analyse des métriques de croissance'
-      ]
+      title: 'GROWTH',
+      shortDesc: 'SEO, acquisition et accélération de votre chiffre d\'affaires.',
+      details: ['SEO & Référencement payant (SEA)', 'Acquisition de leads B2B/B2C']
     },
     {
       id: 'content',
       icon: <FileText size={40} style={{ color: '#fd8604' }} />,
-      title: 'CONTENT — Créer du contenu qui marque',
-      shortDesc: 'Production audiovisuelle, storytelling captivant, rédaction et social media management engageant.',
-      details: [
-        'Production vidéo & Brand Content',
-        'Shooting photo professionnel',
-        'Gestion des réseaux sociaux (Community Management)',
-        'Rédaction stratégique & Copywriting'
-      ]
+      title: 'CONTENT',
+      shortDesc: 'Production vidéo, photo, copywriting et community management.',
+      details: ['Production vidéo & Brand Content', 'Gestion des réseaux sociaux']
     },
     {
       id: 'advertising',
       icon: <Megaphone size={40} style={{ color: '#fd8604' }} />,
-      title: 'ADVERTISING — Faire connaître les marques',
-      shortDesc: 'Campagnes publicitaires ciblées (Meta, Google, LinkedIn) et stratégie médias traditionnels à fort impact.',
-      details: [
-        'Gestion de campagnes Meta Ads, Google Ads & LinkedIn Ads',
-        'Achat d\'espace média traditionnel (Affichage, Radio, Presse)',
-        'Optimisation du ROI publicitaire',
-        'Reporting & Tableaux de bord de performance'
-      ]
+      title: 'ADVERTISING',
+      shortDesc: 'Campagnes Meta, Google, LinkedIn et médias traditionnels.',
+      details: ['Meta Ads, Google Ads & LinkedIn', 'Affichage, Radio & Presse']
     }
   ];
+
 
   return (
     <div>
@@ -138,7 +109,7 @@ export const Services: React.FC = () => {
                   <div
                     key={service.id}
                     style={{
-                      background: 'rgba(255, 255, 255, 0.88)',
+                      background: 'rgba(255, 255, 255, 0.55)',
                       backdropFilter: 'blur(12px)',
                       border: '1px solid rgba(255,255,255,0.6)',
                       borderRadius: '16px',

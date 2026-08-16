@@ -82,7 +82,7 @@ export const Trust: React.FC = () => {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', marginBottom: '70px' }}>
                 {partners.map((p, idx) => (
                   <div key={idx} style={{
-                    background: 'rgba(255, 255, 255, 0.88)',
+                    background: 'rgba(255, 255, 255, 0.55)',
                     backdropFilter: 'blur(12px)',
                     border: '1px solid rgba(255,255,255,0.6)',
                     borderRadius: '16px',
@@ -105,7 +105,7 @@ export const Trust: React.FC = () => {
               <div className="grid-3" style={{ marginBottom: '80px', gap: '30px' }}>
                 {testimonials.map((t, idx) => (
                   <div key={idx} style={{
-                    background: 'rgba(255, 255, 255, 0.88)',
+                    background: 'rgba(255, 255, 255, 0.55)',
                     backdropFilter: 'blur(12px)',
                     border: '1px solid rgba(255,255,255,0.6)',
                     borderRadius: '20px',

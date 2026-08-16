@@ -107,7 +107,7 @@ export const SocialSection: React.FC = () => {
       <div style={{
         maxWidth: '920px',
         margin: '0 auto',
-        background: 'rgba(255, 255, 255, 0.88)',
+        background: 'rgba(255, 255, 255, 0.55)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         borderRadius: '16px',
