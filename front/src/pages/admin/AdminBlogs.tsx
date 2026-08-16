@@ -267,7 +267,7 @@ export const AdminBlogs: React.FC = () => {
                           style={{ width: '60px', height: '42px', objectFit: 'cover', borderRadius: '6px' }}
                           onError={(e) => { (e.target as HTMLImageElement).src = ''; (e.target as HTMLImageElement).style.display = 'none'; }} />
                       ) : (
-                        <div style={{ width: '60px', height: '42px', background: 'linear-gradient(135deg, #0122bc, #e91e8c)', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <div style={{ width: '60px', height: '42px', background: 'linear-gradient(135deg, #0122bc, #fd8604)', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                           <span style={{ color: '#fff', fontSize: '10px', fontWeight: '700' }}>{b.category.slice(0, 3)}</span>
                         </div>
                       )}

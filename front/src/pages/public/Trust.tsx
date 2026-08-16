@@ -57,9 +57,9 @@ export const Trust: React.FC = () => {
         }}>
           <div style={{ maxWidth: '900px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '14px', marginBottom: '18px' }}>
-              <span style={{ display: 'block', width: '40px', height: '1px', background: '#e91e8c', opacity: 0.9 }} />
-              <span style={{ fontSize: '11px', fontWeight: 700, color: '#e91e8c', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Confiance & Impact</span>
-              <span style={{ display: 'block', width: '40px', height: '1px', background: '#e91e8c', opacity: 0.9 }} />
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
+              <span style={{ fontSize: '11px', fontWeight: 700, color: '#fd8604', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Confiance & Impact</span>
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
             </div>
             <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
               Ils nous font confiance
@@ -82,15 +82,16 @@ export const Trust: React.FC = () => {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', marginBottom: '70px' }}>
                 {partners.map((p, idx) => (
                   <div key={idx} style={{
-                    background: '#ffffff',
-                    border: '1px solid #e8ecf4',
+                    background: 'rgba(255, 255, 255, 0.88)',
+                    backdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(255,255,255,0.6)',
                     borderRadius: '16px',
                     padding: '28px 15px',
                     textAlign: 'center',
-                    boxShadow: '0 6px 18px rgba(0,0,0,0.07)',
+                    boxShadow: '0 6px 18px rgba(0,0,0,0.1)',
                     transition: 'transform 0.3s ease'
                   }}>
-                    <Building2 size={28} style={{ color: '#e91e8c', marginBottom: '12px' }} />
+                    <Building2 size={28} style={{ color: '#fd8604', marginBottom: '12px' }} />
                     <div className="font-artistic" style={{ fontWeight: '700', color: '#004C99', fontSize: '15px' }}>{p}</div>
                   </div>
                 ))}
@@ -104,19 +105,20 @@ export const Trust: React.FC = () => {
               <div className="grid-3" style={{ marginBottom: '80px', gap: '30px' }}>
                 {testimonials.map((t, idx) => (
                   <div key={idx} style={{
-                    background: '#ffffff',
-                    border: '1px solid #e8ecf4',
+                    background: 'rgba(255, 255, 255, 0.88)',
+                    backdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(255,255,255,0.6)',
                     borderRadius: '20px',
                     padding: '38px 28px',
-                    boxShadow: '0 8px 24px rgba(0,0,0,0.09)',
+                    boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
                     position: 'relative',
                     display: 'flex',
                     flexDirection: 'column'
                   }}>
-                    <Quote size={36} style={{ color: 'rgba(233, 30, 140, 0.2)', position: 'absolute', top: '24px', right: '24px' }} />
+                    <Quote size={36} style={{ color: 'rgba(253, 134, 4, 0.2)', position: 'absolute', top: '24px', right: '24px' }} />
                     <div style={{ display: 'flex', gap: '4px', marginBottom: '18px' }}>
                       {[...Array(t.rating)].map((_, i) => (
-                        <Star key={i} size={18} fill="#e91e8c" color="#e91e8c" />
+                        <Star key={i} size={18} fill="#fd8604" color="#fd8604" />
                       ))}
                     </div>
                     <p style={{ color: '#374151', fontStyle: 'italic', fontSize: '15px', marginBottom: '25px', lineHeight: 1.7, flexGrow: 1 }}>
@@ -124,7 +126,7 @@ export const Trust: React.FC = () => {
                     </p>
                     <div>
                       <h4 className="font-artistic" style={{ fontSize: '18px', color: '#004C99', marginBottom: '4px' }}>{t.name}</h4>
-                      <p style={{ color: '#e91e8c', fontSize: '13px', fontWeight: '700', margin: 0 }}>{t.role}</p>
+                      <p style={{ color: '#fd8604', fontSize: '13px', fontWeight: '700', margin: 0 }}>{t.role}</p>
                     </div>
                   </div>
                 ))}

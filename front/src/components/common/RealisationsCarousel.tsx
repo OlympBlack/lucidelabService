@@ -131,7 +131,7 @@ export const RealisationsCarousel: React.FC<RealisationsCarouselProps> = ({
                   {item.title}
                 </h3>
                 {item.client_name && (
-                  <p style={{ color: '#e91e8c', fontWeight: '600', fontSize: '13px', marginBottom: '8px' }}>
+                  <p style={{ color: '#fd8604', fontWeight: '600', fontSize: '13px', marginBottom: '8px' }}>
                     Client : {item.client_name}
                   </p>
                 )}
@@ -226,7 +226,7 @@ export const RealisationsCarousel: React.FC<RealisationsCarouselProps> = ({
               height: '8px',
               borderRadius: '4px',
               border: 'none',
-              background: (offset % items.length) === idx ? '#e91e8c' : 'rgba(1,34,188,0.2)',
+              background: (offset % items.length) === idx ? '#fd8604' : 'rgba(1,34,188,0.2)',
               cursor: 'pointer',
               padding: 0,
               transition: 'all 0.35s ease',

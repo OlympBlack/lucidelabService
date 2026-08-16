@@ -90,7 +90,7 @@ export const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose 
               display: 'inline-flex',
               alignItems: 'center',
               gap: '10px',
-              backgroundColor: '#e91e8c',
+              backgroundColor: '#fd8604',
               color: '#ffffff',
               padding: '14px 28px',
               borderRadius: '30px',
@@ -99,7 +99,7 @@ export const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose 
               fontWeight: 700,
               textDecoration: 'none',
               transition: 'transform 0.2s ease, background-color 0.2s ease',
-              boxShadow: '0 8px 25px rgba(233, 30, 140, 0.35)'
+              boxShadow: '0 8px 25px rgba(253, 134, 4, 0.35)'
             }}
           >
             Prendre un Rendez-vous <ArrowRight size={20} />
@@ -117,13 +117,13 @@ export const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose 
           fontFamily: "'Raleway', sans-serif"
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Phone size={16} color="#e91e8c" /> +225 07 00 00 00 00
+            <Phone size={16} color="#fd8604" /> +225 07 00 00 00 00
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Mail size={16} color="#e91e8c" /> contact@lucidelab.com
+            <Mail size={16} color="#fd8604" /> contact@lucidelab.com
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <MapPin size={16} color="#e91e8c" /> Abidjan, Cotonou
+            <MapPin size={16} color="#fd8604" /> Abidjan, Cotonou
           </div>
         </div>
       </div>

@@ -490,7 +490,7 @@ export const Home: React.FC = () => {
                     fontFamily: "'Amaranth', sans-serif",
                     fontSize: '16px'
                   }}>
-                    Voir l'ensemble du portfolio <ArrowRight size={18} color="#e91e8c" />
+                    Voir l'ensemble du portfolio <ArrowRight size={18} color="#fd8604" />
                   </span>
                 </Link>
               </div>
@@ -652,7 +652,7 @@ export const Home: React.FC = () => {
                 disabled={formLoading}
                 style={{
                   padding: '15px',
-                  background: '#e91e8c',
+                  background: '#fd8604',
                   color: '#ffffff',
                   border: 'none',
                   borderRadius: '4px',

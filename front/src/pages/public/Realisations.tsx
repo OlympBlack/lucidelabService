@@ -51,9 +51,9 @@ export const Realisations: React.FC = () => {
         }}>
           <div style={{ maxWidth: '900px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '14px', marginBottom: '18px' }}>
-              <span style={{ display: 'block', width: '40px', height: '1px', background: '#e91e8c', opacity: 0.9 }} />
-              <span style={{ fontSize: '11px', fontWeight: 700, color: '#e91e8c', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Portfolio & Cas Clients</span>
-              <span style={{ display: 'block', width: '40px', height: '1px', background: '#e91e8c', opacity: 0.9 }} />
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
+              <span style={{ fontSize: '11px', fontWeight: 700, color: '#fd8604', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Portfolio & Cas Clients</span>
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
             </div>
             <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
               Nos Réalisations
@@ -77,7 +77,7 @@ export const Realisations: React.FC = () => {
 
               {loading ? (
                 <div style={{ textAlign: 'center', padding: '80px 0', color: 'rgba(255,255,255,0.7)' }}>
-                  <Loader2 size={36} style={{ animation: 'spin 1s linear infinite', color: '#e91e8c' }} />
+                  <Loader2 size={36} style={{ animation: 'spin 1s linear infinite', color: '#fd8604' }} />
                   <p style={{ marginTop: '16px', fontWeight: '500' }}>Chargement du portfolio en cours...</p>
                 </div>
               ) : (
@@ -92,8 +92,8 @@ export const Realisations: React.FC = () => {
                           style={{
                             padding: '10px 24px',
                             borderRadius: '30px',
-                            border: filter === cat ? '2px solid #e91e8c' : '1px solid rgba(255,255,255,0.25)',
-                            background: filter === cat ? '#e91e8c' : 'rgba(255,255,255,0.08)',
+                            border: filter === cat ? '2px solid #fd8604' : '1px solid rgba(255,255,255,0.25)',
+                            background: filter === cat ? '#fd8604' : 'rgba(255,255,255,0.08)',
                             color: '#ffffff',
                             fontWeight: '700',
                             fontSize: '14px',
@@ -121,11 +121,12 @@ export const Realisations: React.FC = () => {
                           key={p.id}
                           onClick={() => setSelectedProject(p)}
                           style={{
-                            background: '#ffffff',
-                            border: '1px solid #e8ecf4',
+                            background: 'rgba(255, 255, 255, 0.88)',
+                            backdropFilter: 'blur(12px)',
+                            border: '1px solid rgba(255,255,255,0.6)',
                             borderRadius: '16px',
                             overflow: 'hidden',
-                            boxShadow: '0 8px 24px rgba(0,0,0,0.09)',
+                            boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
                             cursor: 'pointer',
                             transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                             display: 'flex',
@@ -142,7 +143,7 @@ export const Realisations: React.FC = () => {
                               }}
                             />
                             <div style={{
-                              position: 'absolute', inset: 0, background: 'rgba(233, 30, 140, 0.35)', opacity: 0, transition: 'opacity 0.3s ease',
+                              position: 'absolute', inset: 0, background: 'rgba(253, 134, 4, 0.35)', opacity: 0, transition: 'opacity 0.3s ease',
                               display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff'
                             }}>
                               <Eye size={32} />
@@ -151,7 +152,7 @@ export const Realisations: React.FC = () => {
 
                           <div style={{ padding: '24px 22px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                              <span style={{ background: 'rgba(233, 30, 140, 0.1)', color: '#e91e8c', padding: '4px 12px', borderRadius: '12px', fontSize: '12px', fontWeight: 700 }}>
+                              <span style={{ background: 'rgba(253, 134, 4, 0.1)', color: '#fd8604', padding: '4px 12px', borderRadius: '12px', fontSize: '12px', fontWeight: 700 }}>
                                 {p.category}
                               </span>
                               {p.year && <span style={{ fontSize: '12px', color: '#9ca3af' }}>{p.year}</span>}
@@ -160,7 +161,7 @@ export const Realisations: React.FC = () => {
                               {p.title}
                             </h3>
                             {p.client_name && (
-                              <p style={{ color: '#e91e8c', fontWeight: 600, fontSize: '13px', marginBottom: '10px' }}>
+                              <p style={{ color: '#fd8604', fontWeight: 600, fontSize: '13px', marginBottom: '10px' }}>
                                 Client : {p.client_name}
                               </p>
                             )}
@@ -239,7 +240,7 @@ export const Realisations: React.FC = () => {
                   {selectedProject.category}
                 </span>
                 {selectedProject.client_name && (
-                  <span style={{ color: '#e91e8c', fontWeight: 600, fontSize: '13px' }}>
+                  <span style={{ color: '#fd8604', fontWeight: 600, fontSize: '13px' }}>
                     Client : {selectedProject.client_name}
                   </span>
                 )}

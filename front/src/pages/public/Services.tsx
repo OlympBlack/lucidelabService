@@ -9,7 +9,7 @@ export const Services: React.FC = () => {
   const servicesList = [
     {
       id: 'strategy',
-      icon: <Compass size={40} style={{ color: '#e91e8c' }} />,
+      icon: <Compass size={40} style={{ color: '#fd8604' }} />,
       title: 'STRATEGY — Définir la bonne direction',
       shortDesc: 'Positionnement stratégique, audit de marque et plan de communication sur-mesure pour dominer votre marché.',
       details: [
@@ -33,7 +33,7 @@ export const Services: React.FC = () => {
     },
     {
       id: 'digital',
-      icon: <Globe size={40} style={{ color: '#e91e8c' }} />,
+      icon: <Globe size={40} style={{ color: '#fd8604' }} />,
       title: 'DIGITAL — Créer des expériences numériques',
       shortDesc: 'Conception web, applications web/mobile et plateformes sur-mesure orientées haute conversion.',
       details: [
@@ -57,7 +57,7 @@ export const Services: React.FC = () => {
     },
     {
       id: 'content',
-      icon: <FileText size={40} style={{ color: '#e91e8c' }} />,
+      icon: <FileText size={40} style={{ color: '#fd8604' }} />,
       title: 'CONTENT — Créer du contenu qui marque',
       shortDesc: 'Production audiovisuelle, storytelling captivant, rédaction et social media management engageant.',
       details: [
@@ -69,7 +69,7 @@ export const Services: React.FC = () => {
     },
     {
       id: 'advertising',
-      icon: <Megaphone size={40} style={{ color: '#e91e8c' }} />,
+      icon: <Megaphone size={40} style={{ color: '#fd8604' }} />,
       title: 'ADVERTISING — Faire connaître les marques',
       shortDesc: 'Campagnes publicitaires ciblées (Meta, Google, LinkedIn) et stratégie médias traditionnels à fort impact.',
       details: [
@@ -109,16 +109,16 @@ export const Services: React.FC = () => {
               gap: '14px',
               marginBottom: '18px'
             }}>
-              <span style={{ display: 'block', width: '40px', height: '1px', background: '#e91e8c', opacity: 0.9 }} />
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
               <span style={{
                 fontSize: '11px',
                 fontWeight: 700,
-                color: '#e91e8c',
+                color: '#fd8604',
                 letterSpacing: '3px',
                 textTransform: 'uppercase',
                 fontFamily: 'Raleway, sans-serif'
               }}>Services LUCIDE LAB</span>
-              <span style={{ display: 'block', width: '40px', height: '1px', background: '#e91e8c', opacity: 0.9 }} />
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
             </div>
             <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
               Nos Domaines d'Expertise
@@ -138,11 +138,12 @@ export const Services: React.FC = () => {
                   <div
                     key={service.id}
                     style={{
-                      background: '#ffffff',
-                      border: '1px solid #e8ecf4',
+                      background: 'rgba(255, 255, 255, 0.88)',
+                      backdropFilter: 'blur(12px)',
+                      border: '1px solid rgba(255,255,255,0.6)',
                       borderRadius: '16px',
                       padding: '32px 28px',
-                      boxShadow: '0 8px 24px rgba(0,0,0,0.09)',
+                      boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
                       display: 'flex',
                       flexDirection: 'column',
                       transition: 'transform 0.3s ease, box-shadow 0.3s ease'
@@ -161,7 +162,7 @@ export const Services: React.FC = () => {
                       {service.icon}
                     </div>
 
-                    <h3 className="font-artistic" style={{ fontSize: '20px', color: '#e91e8c', marginBottom: '12px' }}>
+                    <h3 className="font-artistic" style={{ fontSize: '20px', color: '#fd8604', marginBottom: '12px' }}>
                       {service.title}
                     </h3>
                     <p style={{ color: '#57647c', fontSize: '14px', lineHeight: 1.6, marginBottom: '20px', flexGrow: 1 }}>
@@ -171,7 +172,7 @@ export const Services: React.FC = () => {
                     <ul style={{ marginBottom: '25px', padding: 0 }}>
                       {service.details.map((point, idx) => (
                         <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: '#374151', marginBottom: '8px' }}>
-                          <CheckCircle2 size={16} style={{ color: '#e91e8c', flexShrink: 0 }} />
+                          <CheckCircle2 size={16} style={{ color: '#fd8604', flexShrink: 0 }} />
                           <span>{point}</span>
                         </li>
                       ))}
@@ -237,7 +238,7 @@ export const Services: React.FC = () => {
               <X size={20} />
             </button>
 
-            <span style={{ color: '#e91e8c', fontWeight: 700, fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>
+            <span style={{ color: '#fd8604', fontWeight: 700, fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>
               Demande d'accompagnement
             </span>
             <h3 className="font-artistic" style={{ fontSize: '22px', marginBottom: '8px', color: '#004C99' }}>

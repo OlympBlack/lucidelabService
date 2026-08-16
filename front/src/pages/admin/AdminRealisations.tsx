@@ -193,7 +193,7 @@ export const AdminRealisations: React.FC = () => {
                   checked={form.is_featured}
                   onChange={(e) => setForm({ ...form, is_featured: e.target.checked })}
                   style={{ width: '18px', height: '18px', cursor: 'pointer' }} />
-                <label htmlFor="is_featured" style={{ cursor: 'pointer', fontWeight: '600', color: '#e91e8c', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <label htmlFor="is_featured" style={{ cursor: 'pointer', fontWeight: '600', color: '#fd8604', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <Star size={16} /> Mettre en vedette (Page d'Accueil)
                 </label>
               </div>
@@ -277,7 +277,7 @@ export const AdminRealisations: React.FC = () => {
                     <td>{p.year ?? '—'}</td>
                     <td>
                       {p.is_featured
-                        ? <Star size={18} fill="#e91e8c" color="#e91e8c" />
+                        ? <Star size={18} fill="#fd8604" color="#fd8604" />
                         : <Star size={18} color="#c0c9d8" />}
                     </td>
                     <td>

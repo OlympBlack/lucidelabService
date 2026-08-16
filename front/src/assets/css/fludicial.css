@@ -4,8 +4,8 @@
   --primary-dark: #004C99;
   --primary-blue: #004C99;
   --primary-deep: #003366;
-  --accent-orange: #e91e8c;
-  --accent-red: #e91e8c;
+  --accent-orange: #fd8604;
+  --accent-red: #fd8604;
   --accent-blue: #004C99;
   --text-dark: #004C99;
   --text-body: #1e293b;
@@ -419,7 +419,7 @@ ul {
   content: '';
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(233, 30, 140, 0.25) 0%, transparent 50%);
+  background: radial-gradient(circle at 80% 20%, rgba(253, 134, 4, 0.25) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -1217,7 +1217,7 @@ ul {
   z-index: 3;
 }
 
-.marquee-header .sub-title { color: #e91e8c; }
+.marquee-header .sub-title { color: #fd8604; }
 .marquee-header h2 { color: #ffffff; font-size: 32px; margin-bottom: 10px; }
 .marquee-header p { color: rgba(255,255,255,0.72); font-size: 15px; max-width: 600px; margin: 0 auto; }
 
@@ -1278,7 +1278,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #e91e8c;
+  color: #fd8604;
   flex-shrink: 0;
 }
 
@@ -1322,7 +1322,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #e91e8c;
+  color: #fd8604;
   flex-shrink: 0;
 }
 
@@ -1341,7 +1341,7 @@ ul {
   line-height: 1.5;
 }
 
-.contact-info-item a:hover { color: #e91e8c; }
+.contact-info-item a:hover { color: #fd8604; }
 
 /* Form card */
 .contact-form-card {
@@ -1666,7 +1666,7 @@ ul {
 
 .transparent-navbar .nav-link:hover,
 .transparent-navbar .nav-link.active {
-  color: #e91e8c !important;
+  color: #fd8604 !important;
 }
 
 /* Glassmorphism Navbar when scrolled */
@@ -1851,7 +1851,7 @@ ul {
 
 .section-nav-btn:hover {
   background: #f4f7fc;
-  color: #e91e8c;
+  color: #fd8604;
   transform: scale(1.1);
 }
 
@@ -1931,7 +1931,7 @@ ul {
 }
 
 .fullscreen-menu-link:hover {
-  color: #e91e8c;
+  color: #fd8604;
   transform: translateX(6px);
 }
 
