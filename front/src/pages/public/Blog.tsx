@@ -39,7 +39,7 @@ export const Blog: React.FC = () => {
       <section style={{
         position: 'relative',
         minHeight: '60vh',
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), url(/assets/images/hero3.jpg)',
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), url(/assets/images/blog.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',

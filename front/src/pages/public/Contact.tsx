@@ -33,229 +33,225 @@ export const Contact: React.FC = () => {
 
   return (
     <div>
-      {/* STORYTELLING HEADER */}
-      <section style={{
-        position: 'relative',
-        minHeight: '60vh',
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), url(/assets/images/contact.jpg)',
+      {/* HERO + FORMULAIRE — même image en fond continu */}
+      <div style={{
+        backgroundImage: 'url(/assets/images/contact.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '120px 20px 60px 20px',
-        color: '#ffffff',
-        textAlign: 'center'
       }}>
-        <div style={{ maxWidth: '900px' }}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '14px',
-            marginBottom: '18px'
-          }}>
-            <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
-            <span style={{
-              fontSize: '11px',
-              fontWeight: 700,
-              color: '#fd8604',
-              letterSpacing: '3px',
-              textTransform: 'uppercase',
-              fontFamily: 'Raleway, sans-serif'
-            }}>Contact & Consultation</span>
-            <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
+        {/* ── HERO ── */}
+        <section style={{
+          position: 'relative',
+          minHeight: '60vh',
+          background: 'linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65))',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '120px 20px 60px 20px',
+          color: '#ffffff',
+          textAlign: 'center'
+        }}>
+          <div style={{ maxWidth: '900px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '14px', marginBottom: '18px' }}>
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
+              <span style={{ fontSize: '11px', fontWeight: 700, color: '#fd8604', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Contact & Consultation</span>
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
+            </div>
+            <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
+              Donnons vie à vos projets d'exception
+            </h1>
+            <p className="font-body-art" style={{ fontSize: '18px', color: '#e5e7eb', maxWidth: '750px', margin: '0 auto' }}>
+              Un entretien direct avec notre équipe créative et stratégique dissipera à coup sûr vos doutes.
+            </p>
           </div>
-          <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
-            Donnons vie à vos projets d'exception
-          </h1>
-          <p className="font-body-art" style={{ fontSize: '18px', color: '#e5e7eb', maxWidth: '750px', margin: '0 auto' }}>
-            Un entretien direct avec notre équipe créative et stratégique dissipera à coup sûr vos doutes.
-          </p>
-        </div>
-      </section>
+        </section>
 
-      {/* CONTENT AREA */}
-      <div className="ptb-100" style={{ background: '#f4f7fc' }}>
-        <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.8fr', gap: '35px', alignItems: 'start' }}>
+        {/* ── FORMULAIRE — voile semi-transparent, image visible ── */}
+        <div style={{ background: 'rgba(0, 10, 30, 0.82)', backdropFilter: 'blur(1px)' }}>
+          <div className="ptb-100">
+            <div className="container">
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.8fr', gap: '35px', alignItems: 'start' }}>
 
-            {/* INFO CARD */}
-            <div style={{
-              background: 'linear-gradient(135deg, #00254d 0%, #004C99 100%)',
-              borderRadius: '20px',
-              padding: '40px 30px',
-              color: '#ffffff',
-              boxShadow: '0 15px 35px rgba(0, 76, 153, 0.2)'
-            }}>
-              <h3 className="font-artistic" style={{ fontSize: '26px', color: '#ffffff', marginBottom: '30px', borderBottom: '2px solid rgba(253, 134, 4, 0.4)', paddingBottom: '10px' }}>
-                Nos Coordonnées
-              </h3>
-
-              <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'flex-start' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(253, 134, 4, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
-                  <Phone size={20} />
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Téléphone Direct</h4>
-                  <a href="tel:+2290166285017" style={{ color: '#ffffff', fontWeight: 700, fontSize: '18px', textDecoration: 'none' }}>
-                    +229 01 66 28 50 17
-                  </a>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'flex-start' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(253, 134, 4, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
-                  <Mail size={20} />
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Email Officiel</h4>
-                  <a href="mailto:lucidelabofficiel@gmail.com" style={{ color: '#ffffff', fontWeight: 600, fontSize: '15px', textDecoration: 'none' }}>
-                    lucidelabofficiel@gmail.com
-                  </a>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'flex-start' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(253, 134, 4, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
-                  <MapPin size={20} />
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Adresse & Rayonnement</h4>
-                  <p style={{ color: '#ffffff', fontWeight: 600, fontSize: '16px', margin: '0 0 2px' }}>Cotonou, Bénin</p>
-                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', margin: 0 }}>Afrique de l'Ouest & International</p>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(253, 134, 4, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
-                  <Clock size={20} />
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Horaires d'Ouverture</h4>
-                  <p style={{ color: '#ffffff', fontWeight: 600, fontSize: '15px', margin: 0 }}>Lundi — Vendredi : 08h00 – 18h30</p>
-                </div>
-              </div>
-            </div>
-
-            {/* FORM CARD */}
-            <div style={{
-              background: '#ffffff',
-              borderRadius: '20px',
-              padding: '40px 35px',
-              boxShadow: '0 10px 30px rgba(0, 76, 153, 0.08)',
-              border: '1px solid #e5e9f2'
-            }}>
-              {submitted ? (
-                <div style={{ textAlign: 'center', padding: '40px 20px' }}>
-                  <CheckCircle size={60} style={{ color: '#10b981', marginBottom: '20px' }} />
-                  <h3 className="font-artistic" style={{ fontSize: '26px', color: '#004C99', marginBottom: '10px' }}>
-                    Message transmis avec succès !
-                  </h3>
-                  <p style={{ color: '#57647c', fontSize: '15px', marginBottom: '28px' }}>
-                    Merci d'avoir contacté <strong>LUCIDE LAB</strong>. Notre équipe examinera votre demande et vous recontactera sous 24h.
-                  </p>
-                  <CommonButton variant="orange" onClick={() => setSubmitted(false)}>
-                    Envoyer un autre message
-                  </CommonButton>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} noValidate>
-                  <h3 className="font-artistic" style={{ fontSize: '24px', color: '#004C99', marginBottom: '20px' }}>
-                    Formulaire de Prise de Contact
+                {/* INFO CARD */}
+                <div style={{
+                  background: 'rgba(0, 76, 153, 0.35)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  backdropFilter: 'blur(12px)',
+                  borderRadius: '20px',
+                  padding: '40px 30px',
+                  color: '#ffffff',
+                }}>
+                  <h3 className="font-artistic" style={{ fontSize: '26px', color: '#ffffff', marginBottom: '30px', borderBottom: '2px solid rgba(253, 134, 4, 0.4)', paddingBottom: '10px' }}>
+                    Nos Coordonnées
                   </h3>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '15px' }}>
-                    <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>Nom complet *</label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="Votre nom complet"
-                        value={formData.name}
-                        onChange={handleChange('name')}
-                        style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box' }}
-                      />
+                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'flex-start' }}>
+                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(253, 134, 4, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
+                      <Phone size={20} />
                     </div>
                     <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>Email *</label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="votre@email.com"
-                        value={formData.email}
-                        onChange={handleChange('email')}
-                        style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box' }}
-                      />
+                      <h4 style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Téléphone Direct</h4>
+                      <a href="tel:+2290166285017" style={{ color: '#ffffff', fontWeight: 700, fontSize: '18px', textDecoration: 'none' }}>
+                        +229 01 66 28 50 17
+                      </a>
                     </div>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '15px' }}>
-                    <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>Téléphone *</label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="+229 01 66 28 50 17"
-                        value={formData.phone}
-                        onChange={handleChange('phone')}
-                        style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box' }}
-                      />
+                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'flex-start' }}>
+                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(253, 134, 4, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
+                      <Mail size={20} />
                     </div>
                     <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>Pôle concerné</label>
-                      <select
-                        value={formData.service}
-                        onChange={handleChange('service')}
-                        style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: '#fff' }}
+                      <h4 style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Email Officiel</h4>
+                      <a href="mailto:lucidelabofficiel@gmail.com" style={{ color: '#ffffff', fontWeight: 600, fontSize: '15px', textDecoration: 'none' }}>
+                        lucidelabofficiel@gmail.com
+                      </a>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'flex-start' }}>
+                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(253, 134, 4, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
+                      <MapPin size={20} />
+                    </div>
+                    <div>
+                      <h4 style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Adresse & Rayonnement</h4>
+                      <p style={{ color: '#ffffff', fontWeight: 600, fontSize: '16px', margin: '0 0 2px' }}>Cotonou, Bénin</p>
+                      <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', margin: 0 }}>Afrique de l'Ouest & International</p>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(253, 134, 4, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
+                      <Clock size={20} />
+                    </div>
+                    <div>
+                      <h4 style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Horaires d'Ouverture</h4>
+                      <p style={{ color: '#ffffff', fontWeight: 600, fontSize: '15px', margin: 0 }}>Lundi — Vendredi : 08h00 – 18h30</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* FORM CARD */}
+                <div style={{
+                  background: 'rgba(255, 255, 255, 0.07)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  backdropFilter: 'blur(12px)',
+                  borderRadius: '20px',
+                  padding: '40px 35px',
+                }}>
+                  {submitted ? (
+                    <div style={{ textAlign: 'center', padding: '40px 20px' }}>
+                      <CheckCircle size={60} style={{ color: '#10b981', marginBottom: '20px' }} />
+                      <h3 className="font-artistic" style={{ fontSize: '26px', color: '#ffffff', marginBottom: '10px' }}>
+                        Message transmis avec succès !
+                      </h3>
+                      <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '15px', marginBottom: '28px' }}>
+                        Merci d'avoir contacté <strong>LUCIDE LAB</strong>. Notre équipe examinera votre demande et vous recontactera sous 24h.
+                      </p>
+                      <CommonButton variant="orange" onClick={() => setSubmitted(false)}>
+                        Envoyer un autre message
+                      </CommonButton>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} noValidate>
+                      <h3 className="font-artistic" style={{ fontSize: '24px', color: '#ffffff', marginBottom: '20px' }}>
+                        Formulaire de Prise de Contact
+                      </h3>
+
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '15px' }}>
+                        <div>
+                          <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.8)', marginBottom: '6px' }}>Nom complet *</label>
+                          <input
+                            type="text"
+                            required
+                            placeholder="Votre nom complet"
+                            value={formData.name}
+                            onChange={handleChange('name')}
+                            style={{ width: '100%', padding: '12px 14px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: 'rgba(255,255,255,0.08)', color: '#ffffff' }}
+                          />
+                        </div>
+                        <div>
+                          <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.8)', marginBottom: '6px' }}>Email *</label>
+                          <input
+                            type="email"
+                            required
+                            placeholder="votre@email.com"
+                            value={formData.email}
+                            onChange={handleChange('email')}
+                            style={{ width: '100%', padding: '12px 14px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: 'rgba(255,255,255,0.08)', color: '#ffffff' }}
+                          />
+                        </div>
+                      </div>
+
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '15px' }}>
+                        <div>
+                          <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.8)', marginBottom: '6px' }}>Téléphone *</label>
+                          <input
+                            type="tel"
+                            required
+                            placeholder="+229 01 66 28 50 17"
+                            value={formData.phone}
+                            onChange={handleChange('phone')}
+                            style={{ width: '100%', padding: '12px 14px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: 'rgba(255,255,255,0.08)', color: '#ffffff' }}
+                          />
+                        </div>
+                        <div>
+                          <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.8)', marginBottom: '6px' }}>Pôle concerné</label>
+                          <select
+                            value={formData.service}
+                            onChange={handleChange('service')}
+                            style={{ width: '100%', padding: '12px 14px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: 'rgba(20,30,60,0.9)', color: '#ffffff' }}
+                          >
+                            <option value="STRATEGY">STRATEGY — Direction & Positionnement</option>
+                            <option value="BRAND">BRAND — Identité & Branding</option>
+                            <option value="DIGITAL">DIGITAL — Sites & Apps Web</option>
+                            <option value="GROWTH">GROWTH — Visibilité & SEO</option>
+                            <option value="CONTENT">CONTENT — Contenu & Médias</option>
+                            <option value="ADVERTISING">ADVERTISING — Publicité & Campagnes</option>
+                            <option value="OTHER">Autre — Préciser dans le message</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div style={{ marginBottom: '15px' }}>
+                        <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.8)', marginBottom: '6px' }}>Sujet *</label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="Sujet de votre message"
+                          value={formData.subject}
+                          onChange={handleChange('subject')}
+                          style={{ width: '100%', padding: '12px 14px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: 'rgba(255,255,255,0.08)', color: '#ffffff' }}
+                        />
+                      </div>
+
+                      <div style={{ marginBottom: '22px' }}>
+                        <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.8)', marginBottom: '6px' }}>Message *</label>
+                        <textarea
+                          rows={4}
+                          required
+                          placeholder="Décrivez votre projet ou votre besoin..."
+                          value={formData.message}
+                          onChange={handleChange('message')}
+                          style={{ width: '100%', padding: '12px 14px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '6px', fontSize: '14px', outline: 'none', resize: 'none', boxSizing: 'border-box', background: 'rgba(255,255,255,0.08)', color: '#ffffff' }}
+                        />
+                      </div>
+
+                      <CommonButton
+                        type="submit"
+                        variant="orange"
+                        disabled={loading}
+                        style={{ width: '100%', padding: '14px' }}
                       >
-                        <option value="STRATEGY">STRATEGY — Direction & Positionnement</option>
-                        <option value="BRAND">BRAND — Identité & Branding</option>
-                        <option value="DIGITAL">DIGITAL — Sites & Apps Web</option>
-                        <option value="GROWTH">GROWTH — Visibilité & SEO</option>
-                        <option value="CONTENT">CONTENT — Contenu & Médias</option>
-                        <option value="ADVERTISING">ADVERTISING — Publicité & Campagnes</option>
-                        <option value="OTHER">Autre — Préciser dans le message</option>
-                      </select>
-                    </div>
-                  </div>
+                        {loading ? 'Envoi en cours...' : 'Envoyer mon message'} <Send size={18} />
+                      </CommonButton>
+                    </form>
+                  )}
+                </div>
 
-                  <div style={{ marginBottom: '15px' }}>
-                    <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>Sujet *</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Sujet de votre message"
-                      value={formData.subject}
-                      onChange={handleChange('subject')}
-                      style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box' }}
-                    />
-                  </div>
-
-                  <div style={{ marginBottom: '22px' }}>
-                    <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>Message *</label>
-                    <textarea
-                      rows={4}
-                      required
-                      placeholder="Décrivez votre projet ou votre besoin..."
-                      value={formData.message}
-                      onChange={handleChange('message')}
-                      style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none', resize: 'none', boxSizing: 'border-box' }}
-                    />
-                  </div>
-
-                  <CommonButton
-                    type="submit"
-                    variant="orange"
-                    disabled={loading}
-                    style={{ width: '100%', padding: '14px' }}
-                  >
-                    {loading ? 'Envoi en cours...' : 'Envoyer mon message'} <Send size={18} />
-                  </CommonButton>
-                </form>
-              )}
+              </div>
             </div>
-
           </div>
         </div>
       </div>

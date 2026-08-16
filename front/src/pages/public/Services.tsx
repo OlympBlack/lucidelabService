@@ -69,7 +69,7 @@ export const Services: React.FC = () => {
     },
     {
       id: 'advertising',
-      icon: <Megaphone size={40} style={{ color: '#004C99' }} />,
+      icon: <Megaphone size={40} style={{ color: '#fd8604' }} />,
       title: 'ADVERTISING — Faire connaître les marques',
       shortDesc: 'Campagnes publicitaires ciblées (Meta, Google, LinkedIn) et stratégie médias traditionnels à fort impact.',
       details: [
@@ -83,128 +83,136 @@ export const Services: React.FC = () => {
 
   return (
     <div>
-      {/* HERO STORYTELLING HEADER */}
-      <section style={{
-        position: 'relative',
-        minHeight: '60vh',
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), url(/assets/images/hero_beaute.jpg)',
+      {/* HERO + SECTION SERVICES — même image en fond continu */}
+      <div style={{
+        backgroundImage: 'url(/assets/images/hero_beaute.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '120px 20px 60px 20px',
-        color: '#ffffff',
-        textAlign: 'center'
       }}>
-        <div style={{ maxWidth: '900px' }}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '14px',
-            marginBottom: '18px'
-          }}>
-            <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
-            <span style={{
-              fontSize: '11px',
-              fontWeight: 700,
-              color: '#fd8604',
-              letterSpacing: '3px',
-              textTransform: 'uppercase',
-              fontFamily: 'Raleway, sans-serif'
-            }}>Services LUCIDE LAB</span>
-            <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
-          </div>
-          <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
-            Nos Domaines d'Expertise
-          </h1>
-          <p className="font-body-art" style={{ fontSize: '18px', color: '#e5e7eb', maxWidth: '750px', margin: '0 auto 25px' }}>
-            Un accompagnement 360° sur-mesure pour propulser l'image, la notoriété et la croissance de votre entreprise.
-          </p>
-        </div>
-      </section>
-
-      {/* SERVICES CONTENT GRID */}
-      <div className="ptb-100" style={{ background: '#f4f7fc' }}>
-        <div className="container">
-          <div className="grid-3" style={{ gap: '30px' }}>
-            {servicesList.map((service) => (
-              <div
-                key={service.id}
-                style={{
-                  background: '#ffffff',
-                  borderRadius: '16px',
-                  padding: '32px 28px',
-                  boxShadow: '0 10px 30px rgba(0, 76, 153, 0.08)',
-                  border: '1px solid #e5e9f2',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease'
-                }}
-              >
-                <div style={{
-                  width: '64px',
-                  height: '64px',
-                  borderRadius: '14px',
-                  background: 'rgba(0, 76, 153, 0.06)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '20px'
-                }}>
-                  {service.icon}
-                </div>
-
-                <h3 className="font-artistic" style={{ fontSize: '20px', color: '#004C99', marginBottom: '12px' }}>
-                  {service.title}
-                </h3>
-                <p style={{ color: '#57647c', fontSize: '14px', lineHeight: 1.6, marginBottom: '20px', flexGrow: 1 }}>
-                  {service.shortDesc}
-                </p>
-                
-                <ul style={{ marginBottom: '25px', padding: 0 }}>
-                  {service.details.map((point, idx) => (
-                    <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: '#374151', marginBottom: '8px' }}>
-                      <CheckCircle2 size={16} style={{ color: '#fd8604', flexShrink: 0 }} />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <CommonButton
-                  variant="orange"
-                  onClick={() => setSelectedService(service)}
-                  style={{ width: '100%' }}
-                >
-                  Demander ce service <ArrowRight size={16} />
-                </CommonButton>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA BANNER */}
-          <div style={{
-            marginTop: '80px',
-            background: 'linear-gradient(135deg, #00254d 0%, #004C99 100%)',
-            borderRadius: '20px',
-            padding: '50px 30px',
-            color: '#ffffff',
-            textAlign: 'center',
-            boxShadow: '0 20px 40px rgba(0, 76, 153, 0.25)'
-          }}>
-            <h2 className="font-artistic" style={{ fontSize: '32px', color: '#ffffff', marginBottom: '12px' }}>
-              Besoin d'un accompagnement personnalisé ?
-            </h2>
-            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.85)', maxWidth: '650px', margin: '0 auto 25px' }}>
-              Contactez nos experts pour une analyse gratuite de vos besoins et un devis adapté à votre projet.
+        {/* ── HERO ── */}
+        <section style={{
+          position: 'relative',
+          minHeight: '60vh',
+          background: 'linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65))',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '120px 20px 60px 20px',
+          color: '#ffffff',
+          textAlign: 'center'
+        }}>
+          <div style={{ maxWidth: '900px' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '14px',
+              marginBottom: '18px'
+            }}>
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
+              <span style={{
+                fontSize: '11px',
+                fontWeight: 700,
+                color: '#fd8604',
+                letterSpacing: '3px',
+                textTransform: 'uppercase',
+                fontFamily: 'Raleway, sans-serif'
+              }}>Services LUCIDE LAB</span>
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
+            </div>
+            <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
+              Nos Domaines d'Expertise
+            </h1>
+            <p className="font-body-art" style={{ fontSize: '18px', color: '#e5e7eb', maxWidth: '750px', margin: '0 auto 25px' }}>
+              Un accompagnement 360° sur-mesure pour propulser l'image, la notoriété et la croissance de votre entreprise.
             </p>
-            <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link to="/contact">
-                <CommonButton variant="orange">
-                  <Phone size={18} /> Prendre rendez-vous (+229 01 66 28 50 17)
-                </CommonButton>
-              </Link>
+          </div>
+        </section>
+
+        {/* ── SECTION SERVICES — voile semi-transparent, image du hero visible ── */}
+        <div style={{ background: 'rgba(0, 10, 30, 0.78)', backdropFilter: 'blur(1px)' }}>
+          <div className="ptb-100">
+            <div className="container">
+              <div className="grid-3" style={{ gap: '30px' }}>
+                {servicesList.map((service) => (
+                  <div
+                    key={service.id}
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.06)',
+                      border: '1px solid rgba(255, 255, 255, 0.14)',
+                      borderRadius: '16px',
+                      padding: '32px 28px',
+                      backdropFilter: 'blur(10px)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      transition: 'transform 0.3s ease, background 0.3s ease'
+                    }}
+                  >
+                    <div style={{
+                      width: '64px',
+                      height: '64px',
+                      borderRadius: '14px',
+                      background: 'rgba(253, 134, 4, 0.15)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: '20px'
+                    }}>
+                      {service.icon}
+                    </div>
+
+                    <h3 className="font-artistic" style={{ fontSize: '20px', color: '#fd8604', marginBottom: '12px' }}>
+                      {service.title}
+                    </h3>
+                    <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '14px', lineHeight: 1.6, marginBottom: '20px', flexGrow: 1 }}>
+                      {service.shortDesc}
+                    </p>
+                    
+                    <ul style={{ marginBottom: '25px', padding: 0 }}>
+                      {service.details.map((point, idx) => (
+                        <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: 'rgba(255,255,255,0.85)', marginBottom: '8px' }}>
+                          <CheckCircle2 size={16} style={{ color: '#fd8604', flexShrink: 0 }} />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <CommonButton
+                      variant="orange"
+                      onClick={() => setSelectedService(service)}
+                      style={{ width: '100%' }}
+                    >
+                      Demander ce service <ArrowRight size={16} />
+                    </CommonButton>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA BANNER */}
+              <div style={{
+                marginTop: '80px',
+                background: 'rgba(0, 76, 153, 0.35)',
+                border: '1px solid rgba(255,255,255,0.15)',
+                backdropFilter: 'blur(12px)',
+                borderRadius: '20px',
+                padding: '50px 30px',
+                color: '#ffffff',
+                textAlign: 'center',
+              }}>
+                <h2 className="font-artistic" style={{ fontSize: '32px', color: '#ffffff', marginBottom: '12px' }}>
+                  Besoin d'un accompagnement personnalisé ?
+                </h2>
+                <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.85)', maxWidth: '650px', margin: '0 auto 25px' }}>
+                  Contactez nos experts pour une analyse gratuite de vos besoins et un devis adapté à votre projet.
+                </p>
+                <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                  <Link to="/contact">
+                    <CommonButton variant="orange">
+                      <Phone size={18} /> Prendre rendez-vous (+229 01 66 28 50 17)
+                    </CommonButton>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>

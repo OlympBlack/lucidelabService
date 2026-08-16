@@ -30,182 +30,175 @@ export const Realisations: React.FC = () => {
 
   return (
     <div>
-      {/* STORYTELLING HEADER */}
-      <section style={{
-        position: 'relative',
-        minHeight: '60vh',
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), url(/assets/images/realisation.jpg)',
+      {/* HERO + PORTFOLIO — même image en fond continu */}
+      <div style={{
+        backgroundImage: 'url(/assets/images/realisation.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '120px 20px 60px 20px',
-        color: '#ffffff',
-        textAlign: 'center'
       }}>
-        <div style={{ maxWidth: '900px' }}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '14px',
-            marginBottom: '18px'
-          }}>
-            <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
-            <span style={{
-              fontSize: '11px',
-              fontWeight: 700,
-              color: '#fd8604',
-              letterSpacing: '3px',
-              textTransform: 'uppercase',
-              fontFamily: 'Raleway, sans-serif'
-            }}>Portfolio & Cas Clients</span>
-            <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
+        {/* ── HERO ── */}
+        <section style={{
+          position: 'relative',
+          minHeight: '60vh',
+          background: 'linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65))',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '120px 20px 60px 20px',
+          color: '#ffffff',
+          textAlign: 'center'
+        }}>
+          <div style={{ maxWidth: '900px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '14px', marginBottom: '18px' }}>
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
+              <span style={{ fontSize: '11px', fontWeight: 700, color: '#fd8604', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Portfolio & Cas Clients</span>
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
+            </div>
+            <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
+              Nos Réalisations
+            </h1>
+            <p className="font-body-art" style={{ fontSize: '18px', color: '#e5e7eb', maxWidth: '750px', margin: '0 auto' }}>
+              Une matérialisation concrète de nos stratégies, designs et campagnes d'impact pour nos clients partenaires.
+            </p>
           </div>
-          <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
-            Nos Réalisations
-          </h1>
-          <p className="font-body-art" style={{ fontSize: '18px', color: '#e5e7eb', maxWidth: '750px', margin: '0 auto' }}>
-            Une matérialisation concrète de nos stratégies, designs et campagnes d'impact pour nos clients partenaires.
-          </p>
-        </div>
-      </section>
+        </section>
 
-      {/* PORTFOLIO CONTENT */}
-      <div className="ptb-100" style={{ background: '#f4f7fc' }}>
-        <div className="container">
-          {error && (
-            <div style={{ background: '#fee2e2', border: '1px solid #fca5a5', borderRadius: '12px', padding: '20px', textAlign: 'center', marginBottom: '30px', color: '#991b1b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-              <AlertCircle size={20} />
-              Impossible de charger les réalisations. Vérifiez le serveur backend.
-            </div>
-          )}
-
-          {loading ? (
-            <div style={{ textAlign: 'center', padding: '80px 0', color: '#57647c' }}>
-              <Loader2 size={36} style={{ animation: 'spin 1s linear infinite', color: '#004C99' }} />
-              <p style={{ marginTop: '16px', fontWeight: '500' }}>Chargement du portfolio en cours...</p>
-            </div>
-          ) : (
-            <>
-              {/* FILTER TABS */}
-              {!error && (
-                <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '45px' }}>
-                  {categories.map((cat) => (
-                    <button
-                      key={cat}
-                      onClick={() => setFilter(cat)}
-                      style={{
-                        padding: '10px 24px',
-                        borderRadius: '30px',
-                        border: filter === cat ? '2px solid #004C99' : '1px solid #d1d5db',
-                        background: filter === cat ? '#004C99' : '#ffffff',
-                        color: filter === cat ? '#ffffff' : '#004C99',
-                        fontWeight: '700',
-                        fontSize: '14px',
-                        cursor: 'pointer',
-                        transition: 'all 0.25s ease',
-                        boxShadow: filter === cat ? '0 6px 16px rgba(0, 76, 153, 0.2)' : 'none'
-                      }}
-                    >
-                      {cat === 'ALL' ? 'Tous les projets' : `Pôle ${cat}`}
-                    </button>
-                  ))}
+        {/* ── PORTFOLIO — voile semi-transparent, image visible ── */}
+        <div style={{ background: 'rgba(0, 10, 30, 0.82)', backdropFilter: 'blur(1px)' }}>
+          <div className="ptb-100">
+            <div className="container">
+              {error && (
+                <div style={{ background: 'rgba(254, 226, 226, 0.15)', border: '1px solid rgba(252,165,165,0.4)', borderRadius: '12px', padding: '20px', textAlign: 'center', marginBottom: '30px', color: '#fca5a5', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+                  <AlertCircle size={20} />
+                  Impossible de charger les réalisations. Vérifiez le serveur backend.
                 </div>
               )}
 
-              {/* PROJECTS GRID */}
-              {filtered.length === 0 && !error ? (
-                <div style={{ textAlign: 'center', padding: '60px', color: '#57647c' }}>
-                  <Image size={40} style={{ color: '#c0c9d8', marginBottom: '12px' }} />
-                  <p>Aucun projet disponible dans cette catégorie pour le moment.</p>
+              {loading ? (
+                <div style={{ textAlign: 'center', padding: '80px 0', color: 'rgba(255,255,255,0.7)' }}>
+                  <Loader2 size={36} style={{ animation: 'spin 1s linear infinite', color: '#fd8604' }} />
+                  <p style={{ marginTop: '16px', fontWeight: '500' }}>Chargement du portfolio en cours...</p>
                 </div>
               ) : (
-                <div className="grid-3" style={{ gap: '30px' }}>
-                  {filtered.map((p) => (
-                    <div
-                      key={p.id}
-                      onClick={() => setSelectedProject(p)}
-                      style={{
-                        background: '#ffffff',
-                        borderRadius: '16px',
-                        overflow: 'hidden',
-                        boxShadow: '0 10px 30px rgba(0, 76, 153, 0.08)',
-                        border: '1px solid #e5e9f2',
-                        cursor: 'pointer',
-                        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                        display: 'flex',
-                        flexDirection: 'column'
-                      }}
-                    >
-                      <div style={{ position: 'relative', height: '220px', overflow: 'hidden', background: '#00254d' }}>
-                        <img
-                          src={resolveImageUrl(p.image_url, p.category)}
-                          alt={p.title}
-                          style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = resolveImageUrl('', p.category);
+                <>
+                  {/* FILTER TABS */}
+                  {!error && (
+                    <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '12px', marginBottom: '45px' }}>
+                      {categories.map((cat) => (
+                        <button
+                          key={cat}
+                          onClick={() => setFilter(cat)}
+                          style={{
+                            padding: '10px 24px',
+                            borderRadius: '30px',
+                            border: filter === cat ? '2px solid #fd8604' : '1px solid rgba(255,255,255,0.25)',
+                            background: filter === cat ? '#fd8604' : 'rgba(255,255,255,0.08)',
+                            color: '#ffffff',
+                            fontWeight: '700',
+                            fontSize: '14px',
+                            cursor: 'pointer',
+                            transition: 'all 0.25s ease',
+                            backdropFilter: 'blur(8px)'
                           }}
-                        />
-                        <div style={{
-                          position: 'absolute', inset: 0, background: 'rgba(0, 76, 153, 0.4)', opacity: 0, transition: 'opacity 0.3s ease',
-                          display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff'
-                        }}>
-                          <Eye size={32} />
-                        </div>
-                      </div>
-
-                      <div style={{ padding: '24px 22px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                          <span style={{ background: 'rgba(0, 76, 153, 0.08)', color: '#004C99', padding: '4px 12px', borderRadius: '12px', fontSize: '12px', fontWeight: 700 }}>
-                            {p.category}
-                          </span>
-                          {p.year && <span style={{ fontSize: '12px', color: '#9ca3af' }}>{p.year}</span>}
-                        </div>
-
-                        <h3 className="font-artistic" style={{ fontSize: '18px', color: '#004C99', marginBottom: '8px' }}>
-                          {p.title}
-                        </h3>
-
-                        {p.client_name && (
-                          <p style={{ color: '#fd8604', fontWeight: 600, fontSize: '13px', marginBottom: '10px' }}>
-                            Client : {p.client_name}
-                          </p>
-                        )}
-
-                        <p style={{ color: '#57647c', fontSize: '14px', lineHeight: 1.6, margin: 0, flexGrow: 1 }}>
-                          {p.description}
-                        </p>
-                      </div>
+                        >
+                          {cat === 'ALL' ? 'Tous les projets' : `Pôle ${cat}`}
+                        </button>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              )}
-            </>
-          )}
+                  )}
 
-          {/* CTA BANNER */}
-          <div style={{
-            marginTop: '80px',
-            background: 'linear-gradient(135deg, #00254d 0%, #004C99 100%)',
-            borderRadius: '20px',
-            padding: '50px 30px',
-            color: '#ffffff',
-            textAlign: 'center',
-            boxShadow: '0 20px 40px rgba(0, 76, 153, 0.25)'
-          }}>
-            <h2 className="font-artistic" style={{ fontSize: '32px', color: '#ffffff', marginBottom: '12px' }}>
-              Inspiré par nos réalisations ?
-            </h2>
-            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.85)', maxWidth: '650px', margin: '0 auto 25px' }}>
-              Faites de votre marque la prochaine étude de cas à succès signée LUCIDE LAB.
-            </p>
-            <Link to="/contact">
-              <CommonButton variant="orange">
-                Démarrer votre projet <ArrowRight size={18} />
-              </CommonButton>
-            </Link>
+                  {/* PROJECTS GRID */}
+                  {filtered.length === 0 && !error ? (
+                    <div style={{ textAlign: 'center', padding: '60px', color: 'rgba(255,255,255,0.6)' }}>
+                      <Image size={40} style={{ color: 'rgba(255,255,255,0.3)', marginBottom: '12px' }} />
+                      <p>Aucun projet disponible dans cette catégorie pour le moment.</p>
+                    </div>
+                  ) : (
+                    <div className="grid-3" style={{ gap: '30px' }}>
+                      {filtered.map((p) => (
+                        <div
+                          key={p.id}
+                          onClick={() => setSelectedProject(p)}
+                          style={{
+                            background: 'rgba(255, 255, 255, 0.07)',
+                            border: '1px solid rgba(255, 255, 255, 0.15)',
+                            borderRadius: '16px',
+                            overflow: 'hidden',
+                            backdropFilter: 'blur(10px)',
+                            cursor: 'pointer',
+                            transition: 'transform 0.3s ease, background 0.3s ease',
+                            display: 'flex',
+                            flexDirection: 'column'
+                          }}
+                        >
+                          <div style={{ position: 'relative', height: '220px', overflow: 'hidden', background: '#00254d' }}>
+                            <img
+                              src={resolveImageUrl(p.image_url, p.category)}
+                              alt={p.title}
+                              style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src = resolveImageUrl('', p.category);
+                              }}
+                            />
+                            <div style={{
+                              position: 'absolute', inset: 0, background: 'rgba(253, 134, 4, 0.35)', opacity: 0, transition: 'opacity 0.3s ease',
+                              display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff'
+                            }}>
+                              <Eye size={32} />
+                            </div>
+                          </div>
+
+                          <div style={{ padding: '24px 22px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+                              <span style={{ background: 'rgba(253, 134, 4, 0.2)', color: '#fd8604', padding: '4px 12px', borderRadius: '12px', fontSize: '12px', fontWeight: 700 }}>
+                                {p.category}
+                              </span>
+                              {p.year && <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)' }}>{p.year}</span>}
+                            </div>
+                            <h3 className="font-artistic" style={{ fontSize: '18px', color: '#ffffff', marginBottom: '8px' }}>
+                              {p.title}
+                            </h3>
+                            {p.client_name && (
+                              <p style={{ color: '#fd8604', fontWeight: 600, fontSize: '13px', marginBottom: '10px' }}>
+                                Client : {p.client_name}
+                              </p>
+                            )}
+                            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', lineHeight: 1.6, margin: 0, flexGrow: 1 }}>
+                              {p.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </>
+              )}
+
+              {/* CTA BANNER */}
+              <div style={{
+                marginTop: '80px',
+                background: 'rgba(0, 76, 153, 0.35)',
+                border: '1px solid rgba(255,255,255,0.15)',
+                backdropFilter: 'blur(12px)',
+                borderRadius: '20px',
+                padding: '50px 30px',
+                color: '#ffffff',
+                textAlign: 'center',
+              }}>
+                <h2 className="font-artistic" style={{ fontSize: '32px', color: '#ffffff', marginBottom: '12px' }}>
+                  Inspiré par nos réalisations ?
+                </h2>
+                <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.85)', maxWidth: '650px', margin: '0 auto 25px' }}>
+                  Faites de votre marque la prochaine étude de cas à succès signée LUCIDE LAB.
+                </p>
+                <Link to="/contact">
+                  <CommonButton variant="orange">
+                    Démarrer votre projet <ArrowRight size={18} />
+                  </CommonButton>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
