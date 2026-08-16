@@ -52,21 +52,26 @@ export const Trust: React.FC = () => {
         textAlign: 'center'
       }}>
         <div style={{ maxWidth: '900px' }}>
-          <span style={{
-            display: 'inline-block',
-            background: 'rgba(253, 134, 4, 0.2)',
-            color: '#fd8604',
-            border: '1px solid #fd8604',
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            background: 'rgba(255, 255, 255, 0.12)',
+            backdropFilter: 'blur(12px)',
+            border: '1px solid rgba(255, 255, 255, 0.25)',
             padding: '6px 18px',
-            borderRadius: '20px',
+            borderRadius: '30px',
             fontSize: '13px',
             fontWeight: 700,
-            textTransform: 'uppercase',
+            color: '#ffffff',
             letterSpacing: '1px',
-            marginBottom: '15px'
+            textTransform: 'uppercase',
+            marginBottom: '18px',
+            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
           }}>
-            Confiance & Impact
-          </span>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#fd8604', boxShadow: '0 0 10px #fd8604' }} />
+            <span>Confiance & Impact</span>
+          </div>
           <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
             Ils nous font confiance
           </h1>
