@@ -102,22 +102,19 @@ export const Services: React.FC = () => {
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '8px',
-            background: 'rgba(255, 255, 255, 0.12)',
-            backdropFilter: 'blur(12px)',
-            border: '1px solid rgba(255, 255, 255, 0.25)',
-            padding: '6px 18px',
-            borderRadius: '30px',
-            fontSize: '13px',
-            fontWeight: 700,
-            color: '#ffffff',
-            letterSpacing: '1px',
-            textTransform: 'uppercase',
-            marginBottom: '18px',
-            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
+            gap: '14px',
+            marginBottom: '18px'
           }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#fd8604', boxShadow: '0 0 10px #fd8604' }} />
-            <span>Services LUCIDE LAB</span>
+            <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
+            <span style={{
+              fontSize: '11px',
+              fontWeight: 700,
+              color: '#fd8604',
+              letterSpacing: '3px',
+              textTransform: 'uppercase',
+              fontFamily: 'Raleway, sans-serif'
+            }}>Services LUCIDE LAB</span>
+            <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
           </div>
           <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
             Nos Domaines d'Expertise
