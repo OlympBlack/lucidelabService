@@ -82,16 +82,16 @@ export const Trust: React.FC = () => {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', marginBottom: '70px' }}>
                 {partners.map((p, idx) => (
                   <div key={idx} style={{
-                    background: 'rgba(255, 255, 255, 0.07)',
-                    border: '1px solid rgba(255, 255, 255, 0.14)',
-                    backdropFilter: 'blur(10px)',
+                    background: '#ffffff',
+                    border: '1px solid #e8ecf4',
                     borderRadius: '16px',
                     padding: '28px 15px',
                     textAlign: 'center',
+                    boxShadow: '0 6px 18px rgba(0,0,0,0.07)',
                     transition: 'transform 0.3s ease'
                   }}>
                     <Building2 size={28} style={{ color: '#e91e8c', marginBottom: '12px' }} />
-                    <div className="font-artistic" style={{ fontWeight: '700', color: '#ffffff', fontSize: '15px' }}>{p}</div>
+                    <div className="font-artistic" style={{ fontWeight: '700', color: '#004C99', fontSize: '15px' }}>{p}</div>
                   </div>
                 ))}
               </div>
@@ -104,26 +104,26 @@ export const Trust: React.FC = () => {
               <div className="grid-3" style={{ marginBottom: '80px', gap: '30px' }}>
                 {testimonials.map((t, idx) => (
                   <div key={idx} style={{
-                    background: 'rgba(255, 255, 255, 0.07)',
-                    border: '1px solid rgba(255, 255, 255, 0.14)',
-                    backdropFilter: 'blur(10px)',
+                    background: '#ffffff',
+                    border: '1px solid #e8ecf4',
                     borderRadius: '20px',
                     padding: '38px 28px',
+                    boxShadow: '0 8px 24px rgba(0,0,0,0.09)',
                     position: 'relative',
                     display: 'flex',
                     flexDirection: 'column'
                   }}>
-                    <Quote size={36} style={{ color: 'rgba(253, 134, 4, 0.3)', position: 'absolute', top: '24px', right: '24px' }} />
+                    <Quote size={36} style={{ color: 'rgba(233, 30, 140, 0.2)', position: 'absolute', top: '24px', right: '24px' }} />
                     <div style={{ display: 'flex', gap: '4px', marginBottom: '18px' }}>
                       {[...Array(t.rating)].map((_, i) => (
                         <Star key={i} size={18} fill="#e91e8c" color="#e91e8c" />
                       ))}
                     </div>
-                    <p style={{ color: 'rgba(255,255,255,0.85)', fontStyle: 'italic', fontSize: '15px', marginBottom: '25px', lineHeight: 1.7, flexGrow: 1 }}>
+                    <p style={{ color: '#374151', fontStyle: 'italic', fontSize: '15px', marginBottom: '25px', lineHeight: 1.7, flexGrow: 1 }}>
                       "{t.comment}"
                     </p>
                     <div>
-                      <h4 className="font-artistic" style={{ fontSize: '18px', color: '#ffffff', marginBottom: '4px' }}>{t.name}</h4>
+                      <h4 className="font-artistic" style={{ fontSize: '18px', color: '#004C99', marginBottom: '4px' }}>{t.name}</h4>
                       <p style={{ color: '#e91e8c', fontSize: '13px', fontWeight: '700', margin: 0 }}>{t.role}</p>
                     </div>
                   </div>

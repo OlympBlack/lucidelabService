@@ -55,7 +55,7 @@ export const About: React.FC = () => {
                   borderRadius: '20px',
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
-                    <div style={{ width: '54px', height: '54px', borderRadius: '14px', background: 'rgba(253, 134, 4, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ width: '54px', height: '54px', borderRadius: '14px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <Target size={30} style={{ color: '#e91e8c' }} />
                     </div>
                     <h3 className="font-artistic" style={{ color: '#ffffff', fontSize: '28px', margin: 0 }}>Notre Mission</h3>
@@ -73,7 +73,7 @@ export const About: React.FC = () => {
                   borderRadius: '20px',
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
-                    <div style={{ width: '54px', height: '54px', borderRadius: '14px', background: 'rgba(253, 134, 4, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ width: '54px', height: '54px', borderRadius: '14px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <MapPin size={30} style={{ color: '#e91e8c' }} />
                     </div>
                     <h3 className="font-artistic" style={{ color: '#ffffff', fontSize: '28px', margin: 0 }}>Notre Vision</h3>
@@ -98,12 +98,12 @@ export const About: React.FC = () => {
                     { icon: <Sparkles size={28} style={{ color: '#e91e8c' }} />, title: 'Créativité', accent: '#e91e8c', text: 'Concevoir des identités visuelles et conceptuelles audacieuses, originales et décalées qui captivent l\'attention.' },
                     { icon: <Target size={28} style={{ color: '#e91e8c' }} />, title: 'Performance', accent: '#e91e8c', text: 'Chaque projet doit générer un impact mesurable, renforcer votre notoriété et produire un retour sur investissement concret.' },
                   ].map((v, i) => (
-                    <div key={i} style={{ background: 'rgba(255,255,255,0.07)', padding: '32px 26px', borderRadius: '16px', borderLeft: `5px solid ${v.accent}`, backdropFilter: 'blur(10px)', border: `1px solid rgba(255,255,255,0.12)`, borderLeftColor: v.accent }}>
+                    <div key={i} style={{ background: '#ffffff', padding: '32px 26px', borderRadius: '16px', boxShadow: '0 8px 24px rgba(0,0,0,0.08)', borderLeft: `4px solid ${v.accent}` }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '15px' }}>
                         {v.icon}
-                        <h3 className="font-artistic" style={{ fontSize: '22px', color: '#ffffff', margin: 0 }}>{v.title}</h3>
+                        <h3 className="font-artistic" style={{ fontSize: '22px', color: '#004C99', margin: 0 }}>{v.title}</h3>
                       </div>
-                      <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '15px', lineHeight: 1.65, margin: 0 }}>{v.text}</p>
+                      <p style={{ color: '#57647c', fontSize: '15px', lineHeight: 1.65, margin: 0 }}>{v.text}</p>
                     </div>
                   ))}
                 </div>

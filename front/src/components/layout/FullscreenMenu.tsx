@@ -99,7 +99,7 @@ export const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose 
               fontWeight: 700,
               textDecoration: 'none',
               transition: 'transform 0.2s ease, background-color 0.2s ease',
-              boxShadow: '0 8px 25px rgba(253, 134, 4, 0.35)'
+              boxShadow: '0 8px 25px rgba(233, 30, 140, 0.35)'
             }}
           >
             Prendre un Rendez-vous <ArrowRight size={20} />

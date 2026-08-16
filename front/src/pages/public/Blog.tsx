@@ -116,11 +116,11 @@ export const Blog: React.FC = () => {
                 <div className="grid-3" style={{ gap: '30px' }}>
                   {filtered.map((article) => (
                     <div key={article.id} style={{
-                      background: 'rgba(255, 255, 255, 0.07)',
+                      background: '#ffffff',
                       borderRadius: '16px',
                       overflow: 'hidden',
-                      border: '1px solid rgba(255,255,255,0.14)',
-                      backdropFilter: 'blur(10px)',
+                      border: '1px solid #e8ecf4',
+                      boxShadow: '0 8px 24px rgba(0,0,0,0.09)',
                       display: 'flex',
                       flexDirection: 'column'
                     }}>
@@ -135,7 +135,7 @@ export const Blog: React.FC = () => {
                         </div>
                       ) : (
                         <div style={{ height: '200px', background: PLACEHOLDER_GRADIENT, padding: '20px', display: 'flex', alignItems: 'flex-end' }}>
-                          <span style={{ background: 'rgba(253,134,4,0.2)', color: '#e91e8c', fontWeight: 700, padding: '4px 12px', borderRadius: '12px', fontSize: '12px' }}>
+                          <span style={{ background: 'rgba(233,30,140,0.1)', color: '#e91e8c', fontWeight: 700, padding: '4px 12px', borderRadius: '12px', fontSize: '12px' }}>
                             {article.category}
                           </span>
                         </div>
@@ -143,12 +143,12 @@ export const Blog: React.FC = () => {
 
                       <div style={{ padding: '24px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                         {article.image_url && (
-                          <span style={{ background: 'rgba(253,134,4,0.2)', color: '#e91e8c', fontWeight: 700, padding: '4px 12px', borderRadius: '12px', fontSize: '12px', width: 'fit-content', marginBottom: '12px' }}>
+                          <span style={{ background: 'rgba(233,30,140,0.1)', color: '#e91e8c', fontWeight: 700, padding: '4px 12px', borderRadius: '12px', fontSize: '12px', width: 'fit-content', marginBottom: '12px' }}>
                             {article.category}
                           </span>
                         )}
 
-                        <div style={{ display: 'flex', gap: '15px', color: 'rgba(255,255,255,0.5)', fontSize: '13px', marginBottom: '12px', flexWrap: 'wrap' }}>
+                        <div style={{ display: 'flex', gap: '15px', color: '#9ca3af', fontSize: '13px', marginBottom: '12px', flexWrap: 'wrap' }}>
                           <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                             <Calendar size={14} />
                             {article.created_at ? new Date(article.created_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }) : '—'}
@@ -158,10 +158,10 @@ export const Blog: React.FC = () => {
                           </span>
                         </div>
 
-                        <h3 className="font-artistic" style={{ fontSize: '18px', marginBottom: '12px', color: '#ffffff', lineHeight: 1.4 }}>
+                        <h3 className="font-artistic" style={{ fontSize: '18px', marginBottom: '12px', color: '#004C99', lineHeight: 1.4 }}>
                           {article.title}
                         </h3>
-                        <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', marginBottom: '20px', flexGrow: 1, lineHeight: 1.6 }}>
+                        <p style={{ color: '#57647c', fontSize: '14px', marginBottom: '20px', flexGrow: 1, lineHeight: 1.6 }}>
                           {article.excerpt}
                         </p>
 

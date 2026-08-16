@@ -121,13 +121,13 @@ export const Realisations: React.FC = () => {
                           key={p.id}
                           onClick={() => setSelectedProject(p)}
                           style={{
-                            background: 'rgba(255, 255, 255, 0.07)',
-                            border: '1px solid rgba(255, 255, 255, 0.15)',
+                            background: '#ffffff',
+                            border: '1px solid #e8ecf4',
                             borderRadius: '16px',
                             overflow: 'hidden',
-                            backdropFilter: 'blur(10px)',
+                            boxShadow: '0 8px 24px rgba(0,0,0,0.09)',
                             cursor: 'pointer',
-                            transition: 'transform 0.3s ease, background 0.3s ease',
+                            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                             display: 'flex',
                             flexDirection: 'column'
                           }}
@@ -142,7 +142,7 @@ export const Realisations: React.FC = () => {
                               }}
                             />
                             <div style={{
-                              position: 'absolute', inset: 0, background: 'rgba(253, 134, 4, 0.35)', opacity: 0, transition: 'opacity 0.3s ease',
+                              position: 'absolute', inset: 0, background: 'rgba(233, 30, 140, 0.35)', opacity: 0, transition: 'opacity 0.3s ease',
                               display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff'
                             }}>
                               <Eye size={32} />
@@ -151,12 +151,12 @@ export const Realisations: React.FC = () => {
 
                           <div style={{ padding: '24px 22px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                              <span style={{ background: 'rgba(253, 134, 4, 0.2)', color: '#e91e8c', padding: '4px 12px', borderRadius: '12px', fontSize: '12px', fontWeight: 700 }}>
+                              <span style={{ background: 'rgba(233, 30, 140, 0.1)', color: '#e91e8c', padding: '4px 12px', borderRadius: '12px', fontSize: '12px', fontWeight: 700 }}>
                                 {p.category}
                               </span>
-                              {p.year && <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)' }}>{p.year}</span>}
+                              {p.year && <span style={{ fontSize: '12px', color: '#9ca3af' }}>{p.year}</span>}
                             </div>
-                            <h3 className="font-artistic" style={{ fontSize: '18px', color: '#ffffff', marginBottom: '8px' }}>
+                            <h3 className="font-artistic" style={{ fontSize: '18px', color: '#004C99', marginBottom: '8px' }}>
                               {p.title}
                             </h3>
                             {p.client_name && (
@@ -164,7 +164,7 @@ export const Realisations: React.FC = () => {
                                 Client : {p.client_name}
                               </p>
                             )}
-                            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', lineHeight: 1.6, margin: 0, flexGrow: 1 }}>
+                            <p style={{ color: '#57647c', fontSize: '14px', lineHeight: 1.6, margin: 0, flexGrow: 1 }}>
                               {p.description}
                             </p>
                           </div>

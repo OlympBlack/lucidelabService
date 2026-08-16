@@ -419,7 +419,7 @@ ul {
   content: '';
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(253, 134, 4, 0.25) 0%, transparent 50%);
+  background: radial-gradient(circle at 80% 20%, rgba(233, 30, 140, 0.25) 0%, transparent 50%);
   pointer-events: none;
 }
 
