@@ -212,9 +212,10 @@ export const Home: React.FC = () => {
       {/* Vertical Navigation Controls */}
       <SectionNavigation />
 
-      {/* SECTION 1: HERO STORYTELLING (100vh Full Cover, Instant Viewport Center on Load) */}
-      <section className="storytelling-section" id="hero" style={{ height: '100vh', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'hidden', zIndex: 1 }}>
+      {/* SECTION 1: HERO STORYTELLING (Fixed Parallax Background & Text Scroll-over) */}
+      <section className="storytelling-section" id="hero" style={{ position: 'relative', width: '100%', minHeight: '120vh' }}>
+        {/* Sticky Fixed Background */}
+        <div style={{ position: 'sticky', top: 0, height: '100vh', marginBottom: '-100vh', overflow: 'hidden', zIndex: 1 }}>
           {heroImages.map((src, idx) => (
             <img
               key={idx}
@@ -237,7 +238,8 @@ export const Home: React.FC = () => {
           <div className="storytelling-overlay" style={{ background: 'rgba(0,0,0,0.55)', position: 'absolute', inset: 0, zIndex: 1 }} />
         </div>
 
-        <div className="storytelling-content" style={{ position: 'relative', zIndex: 2, height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '60px 20px 20px 20px', boxSizing: 'border-box' }}>
+        {/* Content scrolling over the fixed background */}
+        <div className="storytelling-content" style={{ position: 'relative', zIndex: 2, minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '60px 20px 60px 20px', boxSizing: 'border-box' }}>
           <div style={{ textAlign: 'center', color: '#ffffff', maxWidth: '900px' }}>
             {/* Logo central */}
             <div style={{ marginBottom: '25px' }}>
