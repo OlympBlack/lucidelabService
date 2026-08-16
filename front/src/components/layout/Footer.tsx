@@ -45,13 +45,13 @@ export const Footer: React.FC = () => {
             color: 'rgba(255,255,255,0.85)'
           }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-              <Phone size={15} style={{ color: '#fd8604' }} /> 0166285017
+              <Phone size={15} style={{ color: '#e91e8c' }} /> 0166285017
             </span>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-              <Mail size={15} style={{ color: '#fd8604' }} /> lucidelabofficiel@gmail.com
+              <Mail size={15} style={{ color: '#e91e8c' }} /> lucidelabofficiel@gmail.com
             </span>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-              <MapPin size={15} style={{ color: '#fd8604' }} /> Cotonou, Bénin & Afrique de l'Ouest
+              <MapPin size={15} style={{ color: '#e91e8c' }} /> Cotonou, Bénin & Afrique de l'Ouest
             </span>
           </div>
 

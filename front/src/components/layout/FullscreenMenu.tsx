@@ -90,7 +90,7 @@ export const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose 
               display: 'inline-flex',
               alignItems: 'center',
               gap: '10px',
-              backgroundColor: '#fd8604',
+              backgroundColor: '#e91e8c',
               color: '#ffffff',
               padding: '14px 28px',
               borderRadius: '30px',
@@ -117,13 +117,13 @@ export const FullscreenMenu: React.FC<FullscreenMenuProps> = ({ isOpen, onClose 
           fontFamily: "'Raleway', sans-serif"
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Phone size={16} color="#fd8604" /> +225 07 00 00 00 00
+            <Phone size={16} color="#e91e8c" /> +225 07 00 00 00 00
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Mail size={16} color="#fd8604" /> contact@lucidelab.com
+            <Mail size={16} color="#e91e8c" /> contact@lucidelab.com
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <MapPin size={16} color="#fd8604" /> Abidjan, Cotonou
+            <MapPin size={16} color="#e91e8c" /> Abidjan, Cotonou
           </div>
         </div>
       </div>

@@ -183,7 +183,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                       borderRadius: '50%',
                       objectFit: 'cover',
                       flexShrink: 0,
-                      border: '2px solid #fd8604',
+                      border: '2px solid #e91e8c',
                     }}
                     onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                   />
@@ -192,7 +192,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                     width: '44px',
                     height: '44px',
                     borderRadius: '50%',
-                    background: 'linear-gradient(135deg, #004C99, #fd8604)',
+                    background: 'linear-gradient(135deg, #004C99, #e91e8c)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -206,7 +206,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                 )}
                 <div>
                   <h4 style={{ fontSize: '15px', color: '#004C99', margin: '0 0 2px' }}>{t.name}</h4>
-                  <p style={{ color: '#fd8604', fontSize: '12px', fontWeight: '600', margin: 0 }}>{t.role}</p>
+                  <p style={{ color: '#e91e8c', fontSize: '12px', fontWeight: '600', margin: 0 }}>{t.role}</p>
                 </div>
               </div>
 
@@ -221,8 +221,8 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
         aria-label="Témoignage précédent"
         style={{ ...btnStyle, left: '-14px' }}
         onMouseEnter={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.background = '#fd8604';
-          (e.currentTarget as HTMLButtonElement).style.borderColor = '#fd8604';
+          (e.currentTarget as HTMLButtonElement).style.background = '#e91e8c';
+          (e.currentTarget as HTMLButtonElement).style.borderColor = '#e91e8c';
         }}
         onMouseLeave={(e) => {
           (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.12)';
@@ -238,8 +238,8 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
         aria-label="Témoignage suivant"
         style={{ ...btnStyle, right: '-14px' }}
         onMouseEnter={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.background = '#fd8604';
-          (e.currentTarget as HTMLButtonElement).style.borderColor = '#fd8604';
+          (e.currentTarget as HTMLButtonElement).style.background = '#e91e8c';
+          (e.currentTarget as HTMLButtonElement).style.borderColor = '#e91e8c';
         }}
         onMouseLeave={(e) => {
           (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.12)';
@@ -261,7 +261,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
               height: '8px',
               borderRadius: '4px',
               border: 'none',
-              background: activeIdx === idx ? '#fd8604' : 'rgba(253,134,4,0.25)',
+              background: activeIdx === idx ? '#e91e8c' : 'rgba(253,134,4,0.25)',
               cursor: 'pointer',
               padding: 0,
               transition: 'all 0.35s ease',

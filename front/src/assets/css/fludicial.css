@@ -4,8 +4,8 @@
   --primary-dark: #004C99;
   --primary-blue: #004C99;
   --primary-deep: #003366;
-  --accent-orange: #fd8604;
-  --accent-red: #fd8604;
+  --accent-orange: #e91e8c;
+  --accent-red: #e91e8c;
   --accent-blue: #004C99;
   --text-dark: #004C99;
   --text-body: #1e293b;
@@ -1217,7 +1217,7 @@ ul {
   z-index: 3;
 }
 
-.marquee-header .sub-title { color: #fd8604; }
+.marquee-header .sub-title { color: #e91e8c; }
 .marquee-header h2 { color: #ffffff; font-size: 32px; margin-bottom: 10px; }
 .marquee-header p { color: rgba(255,255,255,0.72); font-size: 15px; max-width: 600px; margin: 0 auto; }
 
@@ -1278,7 +1278,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fd8604;
+  color: #e91e8c;
   flex-shrink: 0;
 }
 
@@ -1322,7 +1322,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fd8604;
+  color: #e91e8c;
   flex-shrink: 0;
 }
 
@@ -1341,7 +1341,7 @@ ul {
   line-height: 1.5;
 }
 
-.contact-info-item a:hover { color: #fd8604; }
+.contact-info-item a:hover { color: #e91e8c; }
 
 /* Form card */
 .contact-form-card {
@@ -1666,7 +1666,7 @@ ul {
 
 .transparent-navbar .nav-link:hover,
 .transparent-navbar .nav-link.active {
-  color: #fd8604 !important;
+  color: #e91e8c !important;
 }
 
 /* Glassmorphism Navbar when scrolled */
@@ -1851,7 +1851,7 @@ ul {
 
 .section-nav-btn:hover {
   background: #f4f7fc;
-  color: #fd8604;
+  color: #e91e8c;
   transform: scale(1.1);
 }
 
@@ -1931,7 +1931,7 @@ ul {
 }
 
 .fullscreen-menu-link:hover {
-  color: #fd8604;
+  color: #e91e8c;
   transform: translateX(6px);
 }
 

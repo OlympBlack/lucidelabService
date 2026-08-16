@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { api, type Blog as BlogType } from '../../services/api';
 import { CommonButton } from '../../components/common/CommonButton';
 
-const PLACEHOLDER_GRADIENT = 'linear-gradient(135deg, #004C99 0%, #fd8604 100%)';
+const PLACEHOLDER_GRADIENT = 'linear-gradient(135deg, #004C99 0%, #e91e8c 100%)';
 
 // ── Blog List Page ─────────────────────────────────────────────────────────
 export const Blog: React.FC = () => {
@@ -56,9 +56,9 @@ export const Blog: React.FC = () => {
         }}>
           <div style={{ maxWidth: '900px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '14px', marginBottom: '18px' }}>
-              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
-              <span style={{ fontSize: '11px', fontWeight: 700, color: '#fd8604', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Le Mag LUCIDE LAB</span>
-              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#e91e8c', opacity: 0.9 }} />
+              <span style={{ fontSize: '11px', fontWeight: 700, color: '#e91e8c', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Le Mag LUCIDE LAB</span>
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#e91e8c', opacity: 0.9 }} />
             </div>
             <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
               Conseils, Stratégie & Branding
@@ -104,7 +104,7 @@ export const Blog: React.FC = () => {
 
               {loading ? (
                 <div style={{ textAlign: 'center', padding: '80px 0', color: 'rgba(255,255,255,0.7)' }}>
-                  <Loader2 size={36} style={{ animation: 'spin 1s linear infinite', color: '#fd8604' }} />
+                  <Loader2 size={36} style={{ animation: 'spin 1s linear infinite', color: '#e91e8c' }} />
                   <p style={{ marginTop: '16px', fontWeight: '500' }}>Chargement des articles...</p>
                 </div>
               ) : filtered.length === 0 && !error ? (
@@ -135,7 +135,7 @@ export const Blog: React.FC = () => {
                         </div>
                       ) : (
                         <div style={{ height: '200px', background: PLACEHOLDER_GRADIENT, padding: '20px', display: 'flex', alignItems: 'flex-end' }}>
-                          <span style={{ background: 'rgba(253,134,4,0.2)', color: '#fd8604', fontWeight: 700, padding: '4px 12px', borderRadius: '12px', fontSize: '12px' }}>
+                          <span style={{ background: 'rgba(253,134,4,0.2)', color: '#e91e8c', fontWeight: 700, padding: '4px 12px', borderRadius: '12px', fontSize: '12px' }}>
                             {article.category}
                           </span>
                         </div>
@@ -143,7 +143,7 @@ export const Blog: React.FC = () => {
 
                       <div style={{ padding: '24px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                         {article.image_url && (
-                          <span style={{ background: 'rgba(253,134,4,0.2)', color: '#fd8604', fontWeight: 700, padding: '4px 12px', borderRadius: '12px', fontSize: '12px', width: 'fit-content', marginBottom: '12px' }}>
+                          <span style={{ background: 'rgba(253,134,4,0.2)', color: '#e91e8c', fontWeight: 700, padding: '4px 12px', borderRadius: '12px', fontSize: '12px', width: 'fit-content', marginBottom: '12px' }}>
                             {article.category}
                           </span>
                         )}
@@ -167,7 +167,7 @@ export const Blog: React.FC = () => {
 
                         <Link
                           to={`/blog/${article.slug}`}
-                          style={{ color: '#fd8604', fontWeight: 700, fontSize: '14px', display: 'inline-flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
+                          style={{ color: '#e91e8c', fontWeight: 700, fontSize: '14px', display: 'inline-flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
                           Lire l'article complet <ArrowRight size={16} />
                         </Link>
                       </div>
@@ -253,7 +253,7 @@ export const BlogDetail: React.FC = () => {
         <div style={{ maxWidth: '850px' }}>
           <span style={{
             display: 'inline-block',
-            background: '#fd8604',
+            background: '#e91e8c',
             color: '#ffffff',
             padding: '5px 16px',
             borderRadius: '20px',
