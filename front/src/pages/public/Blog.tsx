@@ -60,8 +60,8 @@ export const Blog: React.FC = () => {
               <span style={{ fontSize: '11px', fontWeight: 700, color: '#fd8604', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Le Mag LUCIDE LAB</span>
               <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
             </div>
-            <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#004C99', marginBottom: '15px' }}>
-              Conseils, Stratégie & Branding
+            <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
+              Lucide Lab Insights
             </h1>
             <p className="font-body-art" style={{ fontSize: '18px', color: '#e5e7eb', maxWidth: '750px', margin: '0 auto 25px' }}>
               Explorez nos analyses, décryptages et guides pratiques pour faire rayonner votre marque.

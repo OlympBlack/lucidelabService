@@ -31,7 +31,7 @@ export const About: React.FC = () => {
               <span style={{ fontSize: '11px', fontWeight: 700, color: '#fd8604', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Qui sommes-nous ?</span>
               <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
             </div>
-            <h1 className="font-artistic" style={{ fontSize: '44px', fontWeight: 800, color: '#004C99', marginBottom: '15px' }}>
+            <h1 className="font-artistic" style={{ fontSize: '44px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
               LUCIDE LAB | Cabinet d'Expertise en Communication & Croissance
             </h1>
             <p className="font-body-art" style={{ fontSize: '18px', color: '#e5e7eb', maxWidth: '780px', margin: '0 auto' }}>
