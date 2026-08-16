@@ -10,7 +10,7 @@ export const About: React.FC = () => {
       <section style={{
         position: 'relative',
         minHeight: '60vh',
-        backgroundImage: 'linear-gradient(rgba(0, 37, 77, 0.78), rgba(0, 76, 153, 0.88)), url(/assets/images/painture_popup.jpg)',
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), url(/assets/images/painture_popup.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',

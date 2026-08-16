@@ -39,7 +39,7 @@ export const Blog: React.FC = () => {
       <section style={{
         position: 'relative',
         minHeight: '60vh',
-        backgroundImage: 'linear-gradient(rgba(0, 37, 77, 0.78), rgba(0, 76, 153, 0.88)), url(/assets/images/hero3.jpg)',
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), url(/assets/images/hero3.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
@@ -258,7 +258,7 @@ export const BlogDetail: React.FC = () => {
       <section style={{
         position: 'relative',
         minHeight: '45vh',
-        backgroundImage: 'linear-gradient(rgba(0, 37, 77, 0.85), rgba(0, 76, 153, 0.92)), url(/assets/images/hero3.jpg)',
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), url(/assets/images/hero3.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         display: 'flex',
