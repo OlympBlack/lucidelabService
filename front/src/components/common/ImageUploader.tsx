@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Upload, X, Image, Loader2, Link as LinkIcon } from 'lucide-react';
-import { api } from '../../services/api';
+import { api, resolveImageUrl } from '../../services/api';
 
 interface ImageUploaderProps {
   /** Current image URL value */
@@ -164,10 +164,9 @@ export const ImageUploader: React.FC<ImageUploaderProps> = ({
       {value && (
         <div style={{ marginTop: '12px', position: 'relative', display: 'inline-block', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.12)' }}>
           <img
-            src={value}
+            src={resolveImageUrl(value)}
             alt="aperçu"
             style={{ display: 'block', width: '100%', maxHeight: '160px', objectFit: 'cover' }}
-            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
           />
           <button
             type="button"

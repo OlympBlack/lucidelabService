@@ -3,7 +3,7 @@ import { Search, Calendar, User, ArrowRight, Eye, Loader2, AlertCircle, Image } 
 import { Link, useParams } from 'react-router-dom';
 import { api, type Blog as BlogType } from '../../services/api';
 
-const PLACEHOLDER_GRADIENT = 'linear-gradient(135deg, #0122bc 0%, #fd8604 100%)';
+const PLACEHOLDER_GRADIENT = 'linear-gradient(135deg, #004C99 0%, #fd8604 100%)';
 
 // ── Blog List Page ─────────────────────────────────────────────────────────
 export const Blog: React.FC = () => {
@@ -55,10 +55,10 @@ export const Blog: React.FC = () => {
               borderRadius: '18px',
               height: '36px',
               fontSize: '13px',
-              border: '2px solid #0122bc',
-              boxShadow: '0 2px 12px rgba(1,34,188,0.10)',
+              border: '2px solid #004C99',
+              boxShadow: '0 2px 12px rgba(0,76,153,0.10)',
               background: '#f4f7fc',
-              color: '#011a41',
+              color: '#004C99',
               outline: 'none',
               boxSizing: 'border-box',
             }}
@@ -70,7 +70,7 @@ export const Blog: React.FC = () => {
               left: '13px',
               top: '50%',
               transform: 'translateY(-50%)',
-              color: '#0122bc',
+              color: '#004C99',
               pointerEvents: 'none',
             }}
           />
@@ -89,7 +89,7 @@ export const Blog: React.FC = () => {
         {/* Loading */}
         {loading ? (
           <div style={{ textAlign: 'center', padding: '80px 0', color: '#57647c' }}>
-            <Loader2 size={36} style={{ animation: 'spin 1s linear infinite', color: '#0122bc' }} />
+            <Loader2 size={36} style={{ animation: 'spin 1s linear infinite', color: '#004C99' }} />
             <p style={{ marginTop: '16px', fontWeight: '500' }}>Chargement des articles...</p>
           </div>
         ) : filtered.length === 0 && !error ? (
@@ -120,7 +120,7 @@ export const Blog: React.FC = () => {
                     alignItems: 'flex-end',
                     borderRadius: '12px 12px 0 0'
                   }}>
-                    <span style={{ background: '#fff', color: '#0122bc', fontWeight: 'bold', padding: '4px 12px', borderRadius: '12px', fontSize: '12px' }}>
+                    <span style={{ background: '#fff', color: '#004C99', fontWeight: 'bold', padding: '4px 12px', borderRadius: '12px', fontSize: '12px' }}>
                       {article.category}
                     </span>
                   </div>
@@ -128,7 +128,7 @@ export const Blog: React.FC = () => {
 
                 <div className="portfolio-body" style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                   {article.image_url && (
-                    <span style={{ background: 'rgba(1,34,188,0.08)', color: '#0122bc', fontWeight: 'bold', padding: '3px 10px', borderRadius: '10px', fontSize: '12px', display: 'inline-block', marginBottom: '10px', width: 'fit-content' }}>
+                    <span style={{ background: 'rgba(0,76,153,0.08)', color: '#004C99', fontWeight: 'bold', padding: '3px 10px', borderRadius: '10px', fontSize: '12px', display: 'inline-block', marginBottom: '10px', width: 'fit-content' }}>
                       {article.category}
                     </span>
                   )}
@@ -148,7 +148,7 @@ export const Blog: React.FC = () => {
                     )}
                   </div>
 
-                  <h3 style={{ fontSize: '17px', marginBottom: '12px', color: '#011a41', lineHeight: '1.4' }}>{article.title}</h3>
+                  <h3 style={{ fontSize: '17px', marginBottom: '12px', color: '#004C99', lineHeight: '1.4' }}>{article.title}</h3>
                   <p style={{ color: '#57647c', fontSize: '14px', marginBottom: '20px', flexGrow: 1, lineHeight: '1.6' }}>{article.excerpt}</p>
 
                   <Link

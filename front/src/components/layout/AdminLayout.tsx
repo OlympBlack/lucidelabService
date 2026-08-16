@@ -12,7 +12,8 @@ import {
   Image,
   LogOut,
   UserCheck,
-  Menu
+  Menu,
+  Share2
 } from 'lucide-react';
 import { api } from '../../services/api';
 
@@ -66,6 +67,7 @@ export const AdminLayout: React.FC = () => {
     { path: '/admin/services', label: 'Gestion Services', icon: <Layers size={18} /> },
     { path: '/admin/realisations', label: 'Réalisations', icon: <Briefcase size={18} /> },
     { path: '/admin/partenaires', label: 'Partenaires & Avis', icon: <Users size={18} /> },
+    { path: '/admin/reseaux-sociaux', label: 'Réseaux Sociaux', icon: <Share2 size={18} /> },
     { path: '/admin/messages', label: 'Messages Contact', icon: <MessageSquare size={18} /> },
     { path: '/admin/annonces', label: 'Annonces & Bannières', icon: <Bell size={18} /> },
     { path: '/admin/users', label: 'Utilisateurs & Rôles', icon: <UserCheck size={18} /> },

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { type Realisation } from '../../services/api';
+import { resolveImageUrl, type Realisation } from '../../services/api';
 
 interface RealisationsCarouselProps {
   items: Realisation[];
@@ -118,16 +118,16 @@ export const RealisationsCarousel: React.FC<RealisationsCarouselProps> = ({
             <div className="portfolio-card" style={{ height: '100%' }}>
               <div className="portfolio-img-wrapper">
                 <img
-                  src={item.image_url || PLACEHOLDER(item.category)}
+                  src={resolveImageUrl(item.image_url, item.category)}
                   alt={item.title}
-                  onError={(e) => { (e.target as HTMLImageElement).src = '/assets/images/hero1.jpg'; }}
+                  onError={(e) => { (e.target as HTMLImageElement).src = resolveImageUrl('', item.category); }}
                 />
               </div>
               <div className="portfolio-body">
                 <span className="portfolio-tag">
                   {item.category}{item.year ? ` • ${item.year}` : ''}
                 </span>
-                <h3 style={{ fontSize: '17px', marginBottom: '8px', color: '#0122bc', lineHeight: '1.35' }}>
+                <h3 style={{ fontSize: '17px', marginBottom: '8px', color: '#004C99', lineHeight: '1.35' }}>
                   {item.title}
                 </h3>
                 {item.client_name && (
@@ -156,24 +156,24 @@ export const RealisationsCarousel: React.FC<RealisationsCarouselProps> = ({
           width: '42px',
           height: '42px',
           borderRadius: '50%',
-          border: '1px solid rgba(1,34,188,0.2)',
+          border: '1px solid rgba(0,76,153,0.2)',
           background: '#ffffff',
-          boxShadow: '0 4px 16px rgba(1,34,188,0.15)',
+          boxShadow: '0 4px 16px rgba(0,76,153,0.15)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           cursor: 'pointer',
-          color: '#0122bc',
+          color: '#004C99',
           zIndex: 10,
           transition: 'all 0.25s ease',
         }}
         onMouseEnter={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.background = '#0122bc';
+          (e.currentTarget as HTMLButtonElement).style.background = '#004C99';
           (e.currentTarget as HTMLButtonElement).style.color = '#fff';
         }}
         onMouseLeave={(e) => {
           (e.currentTarget as HTMLButtonElement).style.background = '#ffffff';
-          (e.currentTarget as HTMLButtonElement).style.color = '#0122bc';
+          (e.currentTarget as HTMLButtonElement).style.color = '#004C99';
         }}
       >
         <ChevronLeft size={20} />
@@ -191,24 +191,24 @@ export const RealisationsCarousel: React.FC<RealisationsCarouselProps> = ({
           width: '42px',
           height: '42px',
           borderRadius: '50%',
-          border: '1px solid rgba(1,34,188,0.2)',
+          border: '1px solid rgba(0,76,153,0.2)',
           background: '#ffffff',
-          boxShadow: '0 4px 16px rgba(1,34,188,0.15)',
+          boxShadow: '0 4px 16px rgba(0,76,153,0.15)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           cursor: 'pointer',
-          color: '#0122bc',
+          color: '#004C99',
           zIndex: 10,
           transition: 'all 0.25s ease',
         }}
         onMouseEnter={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.background = '#0122bc';
+          (e.currentTarget as HTMLButtonElement).style.background = '#004C99';
           (e.currentTarget as HTMLButtonElement).style.color = '#fff';
         }}
         onMouseLeave={(e) => {
           (e.currentTarget as HTMLButtonElement).style.background = '#ffffff';
-          (e.currentTarget as HTMLButtonElement).style.color = '#0122bc';
+          (e.currentTarget as HTMLButtonElement).style.color = '#004C99';
         }}
       >
         <ChevronRight size={20} />

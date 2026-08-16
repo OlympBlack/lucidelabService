@@ -152,6 +152,11 @@ export const AdminDashboard: React.FC = () => {
               <ArrowUpRight size={16} />
             </Link>
 
+            <Link to="/admin/reseaux-sociaux" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px', background: '#f4f7fc', borderRadius: '8px', color: '#011a41', fontWeight: '600' }}>
+              <span>Gérer les réseaux sociaux</span>
+              <ArrowUpRight size={16} />
+            </Link>
+
             <Link to="/admin/settings" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px', background: '#f4f7fc', borderRadius: '8px', color: '#011a41', fontWeight: '600' }}>
               <span>Modifier les coordonnées site</span>
               <ArrowUpRight size={16} />

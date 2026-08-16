@@ -52,7 +52,7 @@ export const Contact: React.FC = () => {
               <div className="contact-info-icon"><Phone size={18} /></div>
               <div>
                 <h4>Téléphone</h4>
-                <a href="tel:0166285017">0166285017</a>
+                <a href="tel:+2290166285017">+229 01 66 28 50 17</a>
               </div>
             </div>
 
@@ -87,7 +87,7 @@ export const Contact: React.FC = () => {
             {submitted ? (
               <div style={{ textAlign: 'center', padding: '40px 20px' }}>
                 <CheckCircle size={60} style={{ color: '#22c55e', marginBottom: '20px' }} />
-                <h3 style={{ fontSize: '26px', color: '#011a41', marginBottom: '10px' }}>
+                <h3 style={{ fontSize: '26px', color: '#004C99', marginBottom: '10px' }}>
                   Message envoyé avec succès !
                 </h3>
                 <p style={{ color: '#57647c', fontSize: '15px', marginBottom: '28px' }}>

@@ -1,107 +1,92 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { CommonButton } from '../common/CommonButton';
+import { Phone, Mail, MapPin } from 'lucide-react';
+import { SocialSection } from '../common/SocialSection';
 
 export const Footer: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail('');
-      setTimeout(() => setSubscribed(false), 4000);
-    }
-  };
-
   return (
     <>
-      <footer className="footer-area">
-        <div className="container footer-grid">
-          {/* Col 1: About */}
-          <div className="footer-item">
-            <div className="footer-logo mb-4">
-              <Link to="/">
-                <img
-                  src="/assets/images/logo.png"
-                  alt="LUCIDE LAB Logo"
-                  style={{ maxHeight: '55px', filter: 'brightness(0) invert(1)', objectFit: 'contain' }}
-                />
-              </Link>
-            </div>
-            <p>
-              Cabinet d'expertise en communication et croissance de marque. Nous accompagnons les entreprises ambitieuses à construire une image de marque cohérente, crédible et performante.
-            </p>
-            <ul className="footer-contact-list" style={{ marginTop: '15px' }}>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', color: 'rgba(255,255,255,0.8)' }}>
-                <Phone size={16} style={{ color: '#fd8604' }} />
-                <span>0166285017</span>
-              </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', color: 'rgba(255,255,255,0.8)' }}>
-                <Mail size={16} style={{ color: '#fd8604' }} />
-                <a href="mailto:lucidelabofficiel@gmail.com" style={{ color: 'inherit' }}>lucidelabofficiel@gmail.com</a>
-              </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'rgba(255,255,255,0.8)' }}>
-                <MapPin size={16} style={{ color: '#fd8604' }} />
-                <span>Cotonou, Bénin & Afrique de l'Ouest</span>
-              </li>
-            </ul>
+      {/* SECTION NOS RÉSEAUX SOCIAUX (Suivez-nous sur nos réseaux !) */}
+      <SocialSection />
+
+      {/* FOOTER SIMPLE & ÉPURÉ */}
+      <footer style={{
+        background: '#00254d',
+        color: '#ffffff',
+        padding: '50px 20px 25px 20px',
+        borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+        position: 'relative',
+        zIndex: 4
+      }}>
+        <div className="container" style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '30px'
+        }}>
+          {/* Logo Central */}
+          <Link to="/">
+            <img
+              src="/assets/images/logo.png"
+              alt="LUCIDE LAB Logo"
+              style={{ maxHeight: '55px', filter: 'brightness(0) invert(1)', objectFit: 'contain' }}
+            />
+          </Link>
+
+          {/* Contact Rapide */}
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '25px',
+            fontSize: '14px',
+            color: 'rgba(255,255,255,0.85)'
+          }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              <Phone size={15} style={{ color: '#fd8604' }} /> 0166285017
+            </span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              <Mail size={15} style={{ color: '#fd8604' }} /> lucidelabofficiel@gmail.com
+            </span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              <MapPin size={15} style={{ color: '#fd8604' }} /> Cotonou, Bénin & Afrique de l'Ouest
+            </span>
           </div>
 
-          {/* Col 2: Navigation */}
-          <div className="footer-item">
-            <h3>Navigation</h3>
-            <ul className="footer-links">
-              <li><Link to="/">Accueil</Link></li>
-              <li><Link to="/a-propos">Qui sommes-nous</Link></li>
-              <li><Link to="/services">Nos Services</Link></li>
-              <li><Link to="/realisations">Réalisations</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
-            </ul>
-          </div>
+          {/* Navigation Horizontale Épurée */}
+          <nav style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '24px',
+            fontSize: '14px',
+            fontWeight: 600,
+            borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+            padding: '16px 0',
+            width: '100%'
+          }}>
+            <Link to="/" style={{ color: '#ffffff', textDecoration: 'none' }}>Accueil</Link>
+            <Link to="/services" style={{ color: '#ffffff', textDecoration: 'none' }}>Nos Services</Link>
+            <Link to="/realisations" style={{ color: '#ffffff', textDecoration: 'none' }}>Réalisations</Link>
+            <Link to="/a-propos" style={{ color: '#ffffff', textDecoration: 'none' }}>Qui sommes-nous</Link>
+            <Link to="/blog" style={{ color: '#ffffff', textDecoration: 'none' }}>Blog</Link>
+            <Link to="/contact" style={{ color: '#ffffff', textDecoration: 'none' }}>Contact</Link>
+          </nav>
 
-          {/* Col 3: Nos Expertises */}
-          <div className="footer-item">
-            <h3>Nos Pôles</h3>
-            <ul className="footer-links">
-              <li><Link to="/services">STRATEGY — Direction</Link></li>
-              <li><Link to="/services">BRAND — Identité forte</Link></li>
-              <li><Link to="/services">DIGITAL — Web & Apps</Link></li>
-              <li><Link to="/services">GROWTH — Croissance</Link></li>
-              <li><Link to="/services">CONTENT — Storytelling</Link></li>
-              <li><Link to="/services">ADVERTISING — Publicité</Link></li>
-            </ul>
-          </div>
-
-          {/* Col 4: Newsletter */}
-          <div className="footer-item">
-            <h3>Newsletter</h3>
-            <p>Abonnez-vous pour recevoir nos dernières actualités et conseils en branding.</p>
-            <form onSubmit={handleSubscribe} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Votre adresse email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <CommonButton type="submit" variant="orange">
-                {subscribed ? 'Inscrit avec succès !' : 'S\'abonner'} <Send size={14} />
-              </CommonButton>
-            </form>
-          </div>
+          {/* Copyright */}
+          <p style={{
+            margin: 0,
+            fontSize: '13px',
+            color: 'rgba(255, 255, 255, 0.65)',
+            textAlign: 'center'
+          }}>
+            © {new Date().getFullYear()} LUCIDE LAB. Tous droits réservés. Cabinet d'expertise en communication et croissance de marque.
+          </p>
         </div>
       </footer>
-
-      <div className="copyright-area">
-        <div className="container">
-          <p>© {new Date().getFullYear()} LUCIDE LAB. Tous droits réservés. Cabinet d'expertise en communication et croissance de marque.</p>
-        </div>
-      </div>
     </>
   );
 };

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Image, Loader2, AlertCircle } from 'lucide-react';
-import { api, type Realisation } from '../../services/api';
+import { api, resolveImageUrl, type Realisation } from '../../services/api';
 
 const PLACEHOLDER_IMAGE = (category: string) =>
-  `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="220"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%230122bc"/><stop offset="1" stop-color="%23fd8604"/></linearGradient></defs><rect width="400" height="220" fill="url(%23g)"/><text x="50%25" y="46%25" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="28" font-family="sans-serif" font-weight="bold">${encodeURIComponent(category)}</text><text x="50%25" y="62%25" dominant-baseline="middle" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="14" font-family="sans-serif">LUCIDE LAB</text></svg>`;
+  `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="220"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%23004C99"/><stop offset="1" stop-color="%23fd8604"/></linearGradient></defs><rect width="400" height="220" fill="url(%23g)"/><text x="50%25" y="46%25" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="28" font-family="sans-serif" font-weight="bold">${encodeURIComponent(category)}</text><text x="50%25" y="62%25" dominant-baseline="middle" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="14" font-family="sans-serif">LUCIDE LAB</text></svg>`;
 
 export const Realisations: React.FC = () => {
   const [projects, setProjects] = useState<Realisation[]>([]);
@@ -49,7 +49,7 @@ export const Realisations: React.FC = () => {
         {/* Loading State */}
         {loading ? (
           <div style={{ textAlign: 'center', padding: '80px 0', color: '#57647c' }}>
-            <Loader2 size={36} style={{ animation: 'spin 1s linear infinite', color: '#0122bc' }} />
+            <Loader2 size={36} style={{ animation: 'spin 1s linear infinite', color: '#004C99' }} />
             <p style={{ marginTop: '16px', fontWeight: '500' }}>Chargement du portfolio...</p>
           </div>
         ) : (
@@ -64,9 +64,9 @@ export const Realisations: React.FC = () => {
                     style={{
                       padding: '10px 20px',
                       borderRadius: '20px',
-                      border: '1px solid #0122bc',
-                      background: filter === cat ? '#0122bc' : 'transparent',
-                      color: filter === cat ? '#ffffff' : '#0122bc',
+                      border: '1px solid #004C99',
+                      background: filter === cat ? '#004C99' : 'transparent',
+                      color: filter === cat ? '#ffffff' : '#004C99',
                       fontWeight: '600',
                       fontSize: '13px',
                       cursor: 'pointer',
@@ -90,16 +90,16 @@ export const Realisations: React.FC = () => {
                   <div key={p.id} className="portfolio-card">
                     <div className="portfolio-img-wrapper">
                       <img
-                        src={p.image_url || PLACEHOLDER_IMAGE(p.category)}
+                        src={resolveImageUrl(p.image_url, p.category)}
                         alt={p.title}
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src = PLACEHOLDER_IMAGE(p.category);
+                          (e.target as HTMLImageElement).src = resolveImageUrl('', p.category);
                         }}
                       />
                     </div>
                     <div className="portfolio-body">
                       <span className="portfolio-tag">{p.category}{p.year ? ` • ${p.year}` : ''}</span>
-                      <h3 style={{ fontSize: '18px', marginBottom: '8px', color: '#0122bc' }}>{p.title}</h3>
+                      <h3 style={{ fontSize: '18px', marginBottom: '8px', color: '#004C99' }}>{p.title}</h3>
                       {p.client_name && (
                         <p style={{ color: '#fd8604', fontWeight: '600', fontSize: '13px', marginBottom: '10px' }}>
                           Client : {p.client_name}

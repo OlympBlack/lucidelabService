@@ -322,5 +322,22 @@ class DatabaseSeeder extends Seeder
                 'is_active' => true
             ]
         );
+
+        // 9. Social Links
+        $socialLinks = [
+            ['name' => 'Email', 'platform' => 'email', 'url' => 'mailto:lucidelabofficiel@gmail.com', 'icon' => 'Mail', 'sort_order' => 1],
+            ['name' => 'Facebook', 'platform' => 'facebook', 'url' => 'https://facebook.com/lucidelabofficiel', 'icon' => 'Facebook', 'sort_order' => 2],
+            ['name' => 'LinkedIn', 'platform' => 'linkedin', 'url' => 'https://linkedin.com/company/lucidelabofficiel', 'icon' => 'Linkedin', 'sort_order' => 3],
+            ['name' => 'Twitter', 'platform' => 'twitter', 'url' => 'https://twitter.com/lucidelabofficiel', 'icon' => 'Twitter', 'sort_order' => 4],
+            ['name' => 'Instagram', 'platform' => 'instagram', 'url' => 'https://instagram.com/lucidelabofficiel', 'icon' => 'Instagram', 'sort_order' => 5],
+            ['name' => 'WhatsApp', 'platform' => 'whatsapp', 'url' => 'https://wa.me/2290166285017', 'icon' => 'MessageCircle', 'sort_order' => 6],
+        ];
+
+        foreach ($socialLinks as $sl) {
+            \App\Models\SocialLink::updateOrCreate(
+                ['platform' => $sl['platform']],
+                $sl
+            );
+        }
     }
 }

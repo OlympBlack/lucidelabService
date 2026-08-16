@@ -99,7 +99,7 @@ export const Services: React.FC = () => {
               <ul style={{ marginBottom: '25px' }}>
                 {service.details.map((point, idx) => (
                   <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#57647c', marginBottom: '6px' }}>
-                    <CheckCircle2 size={14} style={{ color: '#e93c05', flexShrink: 0 }} />
+                    <CheckCircle2 size={14} style={{ color: '#fd8604', flexShrink: 0 }} />
                     <span>{point}</span>
                   </li>
                 ))}
@@ -121,8 +121,8 @@ export const Services: React.FC = () => {
           <div style={{
             position: 'fixed',
             top: 0, left: 0, right: 0, bottom: 0,
-            background: 'rgba(1, 26, 65, 0.7)',
-            backdropFilter: 'blur(4px)',
+            background: 'rgba(0, 37, 77, 0.75)',
+            backdropFilter: 'blur(6px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -145,7 +145,7 @@ export const Services: React.FC = () => {
                 <X size={24} />
               </button>
 
-              <h3 style={{ fontSize: '24px', marginBottom: '10px', color: '#011a41' }}>{selectedService.title}</h3>
+              <h3 style={{ fontSize: '24px', marginBottom: '10px', color: '#004C99' }}>{selectedService.title}</h3>
               <p style={{ color: '#57647c', marginBottom: '20px', fontSize: '14px' }}>
                 Remplissez ce formulaire pour planifier une session d'analyse avec notre équipe d'experts.
               </p>

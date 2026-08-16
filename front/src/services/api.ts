@@ -57,7 +57,40 @@ export interface Announcement {
   is_active?: boolean;
 }
 
+export interface SocialLink {
+  id: number;
+  name: string;
+  platform: string;
+  url: string;
+  icon?: string;
+  is_active?: boolean;
+  sort_order?: number;
+}
+
 // ── Helpers ────────────────────────────────────────────────────────────────
+export const resolveImageUrl = (url?: string, category: string = 'LUCIDE LAB'): string => {
+  if (!url || !url.trim()) {
+    return `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="220"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%23004C99"/><stop offset="1" stop-color="%23fd8604"/></linearGradient></defs><rect width="400" height="220" fill="url(%23g)"/><text x="50%25" y="46%25" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="28" font-family="sans-serif" font-weight="bold">${encodeURIComponent(category)}</text><text x="50%25" y="62%25" dominant-baseline="middle" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="14" font-family="sans-serif">LUCIDE LAB</text></svg>`;
+  }
+  const clean = url.trim();
+  if (clean.startsWith('http://') || clean.startsWith('https://') || clean.startsWith('data:')) {
+    return clean;
+  }
+  if (clean.startsWith('/storage') || clean.startsWith('storage')) {
+    return `http://localhost:8000/${clean.replace(/^\//, '')}`;
+  }
+  if (clean.startsWith('/uploads') || clean.startsWith('uploads')) {
+    return `http://localhost:8000/${clean.replace(/^\//, '')}`;
+  }
+  if (clean.startsWith('/assets/')) {
+    return clean;
+  }
+  if (clean.startsWith('/')) {
+    return `http://localhost:8000${clean}`;
+  }
+  return `/assets/images/${clean}`;
+};
+
 const jsonHeaders = { 'Content-Type': 'application/json', 'Accept': 'application/json' };
 
 async function get<T>(url: string): Promise<T | null> {
@@ -212,6 +245,27 @@ export const api = {
   // ── Admin — Announcements CRUD ──────────────────────────────────────────
   async getAnnouncements(): Promise<Announcement[] | null> {
     return get<Announcement[]>(`${API_BASE_URL}/announcements`);
+  },
+
+  // ── Social Links API ───────────────────────────────────────────────────
+  async getSocialLinks(): Promise<SocialLink[] | null> {
+    return get<SocialLink[]>(`${API_BASE_URL}/social-links`);
+  },
+
+  async adminGetSocialLinks(): Promise<SocialLink[] | null> {
+    return get<SocialLink[]>(`${API_BASE_URL}/admin/social-links`);
+  },
+
+  async createSocialLink(data: Partial<SocialLink>) {
+    return post<SocialLink>(`${API_BASE_URL}/admin/social-links`, data);
+  },
+
+  async updateSocialLink(id: number, data: Partial<SocialLink>) {
+    return put<SocialLink>(`${API_BASE_URL}/admin/social-links/${id}`, data);
+  },
+
+  async deleteSocialLink(id: number) {
+    return del(`${API_BASE_URL}/admin/social-links/${id}`);
   },
 
   async adminGetAnnouncements(): Promise<Announcement[] | null> {

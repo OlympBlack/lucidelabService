@@ -19,6 +19,7 @@ Route::prefix('v1')->group(function () {
     Route::get('/blogs/{slug}', [BlogController::class, 'show']);
     Route::get('/partners', [PartnerController::class, 'index']);
     Route::get('/announcements', [AnnouncementController::class, 'index']);
+    Route::get('/social-links', [\App\Http\Controllers\Api\SocialLinkController::class, 'index']);
     Route::post('/contact', [ContactController::class, 'store']);
     Route::get('/settings', [SettingController::class, 'index']);
 
@@ -32,6 +33,7 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('blogs', BlogController::class);
         Route::apiResource('partners', PartnerController::class);
         Route::apiResource('announcements', AnnouncementController::class);
+        Route::apiResource('social-links', \App\Http\Controllers\Api\SocialLinkController::class);
         Route::get('/blogs/{blog}', [BlogController::class, 'show']);
         Route::apiResource('messages', ContactController::class)->only(['index', 'destroy']);
         Route::post('/messages/{id}/read', [ContactController::class, 'markAsRead']);

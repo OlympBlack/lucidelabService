@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { CommonButton } from '../common/CommonButton';
+import { DigitalClock } from '../common/DigitalClock';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,17 +25,18 @@ export const Navbar: React.FC = () => {
   const closeMobileMenu = () => setIsOpen(false);
 
   return (
-    <div className="navbar-area">
+    <header className="navbar-area-white">
       <div className="container navbar-container">
+        {/* Brand Logo */}
         <Link to="/" className="navbar-brand" onClick={closeMobileMenu}>
           <img
             src="/assets/images/logo.png"
             alt="LUCIDE LAB Logo"
-            style={{ maxHeight: '52px', width: 'auto', objectFit: 'contain', display: 'block' }}
+            style={{ maxHeight: '38px', width: 'auto', objectFit: 'contain', display: 'block' }}
           />
         </Link>
 
-        {/* Desktop Menu */}
+        {/* Desktop Navigation Links */}
         <nav className="nav-menu">
           {navLinks.map((link) => (
             <Link
@@ -47,8 +49,14 @@ export const Navbar: React.FC = () => {
           ))}
         </nav>
 
-        {/* Action Button */}
+        {/* Right Side Actions: Clock + CTA Button + Mobile Toggle */}
         <div className="nav-actions">
+          {/* Digital Clock directly inside Navbar */}
+          <div className="nav-clock-wrapper">
+            <DigitalClock />
+          </div>
+
+          {/* Desktop CTA Button */}
           <Link to="/contact" className="desktop-nav-cta">
             <CommonButton variant="orange">
               Projet et Dévis <ArrowRight size={16} />
@@ -70,6 +78,9 @@ export const Navbar: React.FC = () => {
       {isOpen && (
         <div className="mobile-drawer-menu">
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            <div style={{ marginBottom: '5px', display: 'flex', justifyContent: 'center' }}>
+              <DigitalClock />
+            </div>
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -90,6 +101,6 @@ export const Navbar: React.FC = () => {
           </nav>
         </div>
       )}
-    </div>
+    </header>
   );
 };

@@ -5,6 +5,8 @@ import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { ScrollToTop } from '../components/common/ScrollToTop';
 
+import { WelcomePopup } from '../components/common/WelcomePopup';
+
 // Public Pages
 import { Home } from '../pages/public/Home';
 import { Services } from '../pages/public/Services';
@@ -24,12 +26,13 @@ import { AdminRealisations } from '../pages/admin/AdminRealisations';
 import { AdminPartners, AdminMessages } from '../pages/admin/AdminPartners';
 import { AdminAnnonces, AdminUsers, AdminMedia } from '../pages/admin/AdminAnnonces';
 import { AdminSettings } from '../pages/admin/AdminSettings';
+import { AdminSocials } from '../pages/admin/AdminSocials';
 
 const MainLayout: React.FC = () => {
   return (
     <>
+      <WelcomePopup />
       <ScrollToTop />
-      <HeaderTopbar />
       <Navbar />
       <main>
         <Outlet />
@@ -65,6 +68,7 @@ export const AppRouter: React.FC = () => {
         <Route path="services" element={<AdminServices />} />
         <Route path="realisations" element={<AdminRealisations />} />
         <Route path="partenaires" element={<AdminPartners />} />
+        <Route path="reseaux-sociaux" element={<AdminSocials />} />
         <Route path="messages" element={<AdminMessages />} />
         <Route path="annonces" element={<AdminAnnonces />} />
         <Route path="users" element={<AdminUsers />} />

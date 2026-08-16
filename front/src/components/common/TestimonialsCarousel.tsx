@@ -192,7 +192,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                     width: '44px',
                     height: '44px',
                     borderRadius: '50%',
-                    background: 'linear-gradient(135deg, #0122bc, #fd8604)',
+                    background: 'linear-gradient(135deg, #004C99, #fd8604)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -205,7 +205,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
                   </div>
                 )}
                 <div>
-                  <h4 style={{ fontSize: '15px', color: '#0122bc', margin: '0 0 2px' }}>{t.name}</h4>
+                  <h4 style={{ fontSize: '15px', color: '#004C99', margin: '0 0 2px' }}>{t.name}</h4>
                   <p style={{ color: '#fd8604', fontSize: '12px', fontWeight: '600', margin: 0 }}>{t.role}</p>
                 </div>
               </div>
