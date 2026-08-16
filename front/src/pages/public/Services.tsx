@@ -136,13 +136,13 @@ export const Services: React.FC = () => {
                     <h3 className="font-artistic" style={{ fontSize: '20px', color: '#fd8604', marginBottom: '12px' }}>
                       {service.title}
                     </h3>
-                    <p style={{ color: '#57647c', fontSize: '14px', lineHeight: 1.6, marginBottom: '20px', flexGrow: 1 }}>
+                    <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '14px', lineHeight: 1.6, marginBottom: '20px', flexGrow: 1 }}>
                       {service.shortDesc}
                     </p>
                     
                     <ul style={{ marginBottom: '25px', padding: 0 }}>
                       {service.details.map((point, idx) => (
-                        <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: '#374151', marginBottom: '8px' }}>
+                        <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: 'rgba(255,255,255,0.9)', marginBottom: '8px' }}>
                           <CheckCircle2 size={16} style={{ color: '#fd8604', flexShrink: 0 }} />
                           <span>{point}</span>
                         </li>
@@ -215,28 +215,28 @@ export const Services: React.FC = () => {
             <h3 className="font-artistic" style={{ fontSize: '22px', marginBottom: '8px', color: '#004C99' }}>
               {selectedService.title}
             </h3>
-            <p style={{ color: '#57647c', marginBottom: '22px', fontSize: '14px' }}>
+            <p style={{ color: 'rgba(255,255,255,0.85)', marginBottom: '22px', fontSize: '14px' }}>
               Remplissez ce formulaire pour fixer un entretien direct avec l'un de nos directeurs de pôle.
             </p>
 
             <form onSubmit={(e) => { e.preventDefault(); alert('Votre demande a bien été transmise à notre équipe !'); setSelectedService(null); }}>
               <div style={{ marginBottom: '14px' }}>
-                <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>Nom complet *</label>
+                <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.9)', marginBottom: '6px' }}>Nom complet *</label>
                 <input type="text" required placeholder="Votre nom" style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none' }} />
               </div>
 
               <div style={{ marginBottom: '14px' }}>
-                <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>Email professionnel *</label>
+                <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.9)', marginBottom: '6px' }}>Email professionnel *</label>
                 <input type="email" required placeholder="votre@entreprise.com" style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none' }} />
               </div>
 
               <div style={{ marginBottom: '14px' }}>
-                <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>Téléphone *</label>
+                <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.9)', marginBottom: '6px' }}>Téléphone *</label>
                 <input type="tel" required placeholder="+229 01 66 28 50 17" style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none' }} />
               </div>
 
               <div style={{ marginBottom: '20px' }}>
-                <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>Détails de votre projet</label>
+                <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.9)', marginBottom: '6px' }}>Détails de votre projet</label>
                 <textarea rows={3} placeholder="Expliquez-nous brièvement vos objectifs..." style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none', resize: 'none' }}></textarea>
               </div>
 

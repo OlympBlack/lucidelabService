@@ -121,11 +121,11 @@ export const Trust: React.FC = () => {
                         <Star key={i} size={18} fill="#fd8604" color="#fd8604" />
                       ))}
                     </div>
-                    <p style={{ color: '#374151', fontStyle: 'italic', fontSize: '15px', marginBottom: '25px', lineHeight: 1.7, flexGrow: 1 }}>
+                    <p style={{ color: 'rgba(255,255,255,0.9)', fontStyle: 'italic', fontSize: '15px', marginBottom: '25px', lineHeight: 1.7, flexGrow: 1 }}>
                       "{t.comment}"
                     </p>
                     <div>
-                      <h4 className="font-artistic" style={{ fontSize: '18px', color: '#004C99', marginBottom: '4px' }}>{t.name}</h4>
+                      <h4 className="font-artistic" style={{ fontSize: '18px', color: '#ffffff', marginBottom: '4px' }}>{t.name}</h4>
                       <p style={{ color: '#fd8604', fontSize: '13px', fontWeight: '700', margin: 0 }}>{t.role}</p>
                     </div>
                   </div>

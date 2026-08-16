@@ -149,7 +149,7 @@ export const Blog: React.FC = () => {
                           </span>
                         )}
 
-                        <div style={{ display: 'flex', gap: '15px', color: '#9ca3af', fontSize: '13px', marginBottom: '12px', flexWrap: 'wrap' }}>
+                        <div style={{ display: 'flex', gap: '15px', color: 'rgba(255,255,255,0.55)', fontSize: '13px', marginBottom: '12px', flexWrap: 'wrap' }}>
                           <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                             <Calendar size={14} />
                             {article.created_at ? new Date(article.created_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }) : '—'}
@@ -159,10 +159,10 @@ export const Blog: React.FC = () => {
                           </span>
                         </div>
 
-                        <h3 className="font-artistic" style={{ fontSize: '18px', marginBottom: '12px', color: '#004C99', lineHeight: 1.4 }}>
+                        <h3 className="font-artistic" style={{ fontSize: '18px', marginBottom: '12px', color: '#ffffff', lineHeight: 1.4 }}>
                           {article.title}
                         </h3>
-                        <p style={{ color: '#57647c', fontSize: '14px', marginBottom: '20px', flexGrow: 1, lineHeight: 1.6 }}>
+                        <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '14px', marginBottom: '20px', flexGrow: 1, lineHeight: 1.6 }}>
                           {article.excerpt}
                         </p>
 
@@ -212,7 +212,7 @@ export const BlogDetail: React.FC = () => {
       <div className="ptb-100" style={{ background: '#f4f7fc' }}>
         <div className="container" style={{ textAlign: 'center', padding: '80px 0' }}>
           <Loader2 size={36} style={{ animation: 'spin 1s linear infinite', color: '#004C99' }} />
-          <p style={{ marginTop: '16px', color: '#57647c' }}>Chargement de l'article...</p>
+          <p style={{ marginTop: '16px', color: 'rgba(255,255,255,0.85)' }}>Chargement de l'article...</p>
         </div>
       </div>
     );
@@ -224,7 +224,7 @@ export const BlogDetail: React.FC = () => {
         <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
           <AlertCircle size={48} style={{ color: '#fca5a5', marginBottom: '16px' }} />
           <h2 className="font-artistic" style={{ color: '#004C99' }}>Article introuvable</h2>
-          <p style={{ color: '#57647c', marginBottom: '24px' }}>Cet article n'existe pas ou a été déplacé.</p>
+          <p style={{ color: 'rgba(255,255,255,0.85)', marginBottom: '24px' }}>Cet article n'existe pas ou a été déplacé.</p>
           <Link to="/blog">
             <CommonButton variant="orange">
               <ArrowLeft size={16} /> Retour au blog
@@ -296,7 +296,7 @@ export const BlogDetail: React.FC = () => {
               </div>
             )}
 
-            <div style={{ fontSize: '17px', lineHeight: 1.85, color: '#374151' }}>
+            <div style={{ fontSize: '17px', lineHeight: 1.85, color: 'rgba(255,255,255,0.9)' }}>
               {article.content.split('\n').map((para, i) =>
                 para.trim() ? (
                   <p key={i} style={{ marginBottom: '20px' }}>{para}</p>

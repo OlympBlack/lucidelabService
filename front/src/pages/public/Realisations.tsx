@@ -155,9 +155,9 @@ export const Realisations: React.FC = () => {
                               <span style={{ background: 'rgba(253, 134, 4, 0.1)', color: '#fd8604', padding: '4px 12px', borderRadius: '12px', fontSize: '12px', fontWeight: 700 }}>
                                 {p.category}
                               </span>
-                              {p.year && <span style={{ fontSize: '12px', color: '#9ca3af' }}>{p.year}</span>}
+                              {p.year && <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.55)' }}>{p.year}</span>}
                             </div>
-                            <h3 className="font-artistic" style={{ fontSize: '18px', color: '#004C99', marginBottom: '8px' }}>
+                            <h3 className="font-artistic" style={{ fontSize: '18px', color: '#ffffff', marginBottom: '8px' }}>
                               {p.title}
                             </h3>
                             {p.client_name && (
@@ -165,7 +165,7 @@ export const Realisations: React.FC = () => {
                                 Client : {p.client_name}
                               </p>
                             )}
-                            <p style={{ color: '#57647c', fontSize: '14px', lineHeight: 1.6, margin: 0, flexGrow: 1 }}>
+                            <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '14px', lineHeight: 1.6, margin: 0, flexGrow: 1 }}>
                               {p.description}
                             </p>
                           </div>
@@ -246,11 +246,11 @@ export const Realisations: React.FC = () => {
                 )}
               </div>
 
-              <h2 className="font-artistic" style={{ fontSize: '26px', color: '#004C99', marginBottom: '14px' }}>
+              <h2 className="font-artistic" style={{ fontSize: '26px', color: '#ffffff', marginBottom: '14px' }}>
                 {selectedProject.title}
               </h2>
 
-              <p style={{ color: '#374151', fontSize: '15px', lineHeight: 1.7, marginBottom: '25px' }}>
+              <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '15px', lineHeight: 1.7, marginBottom: '25px' }}>
                 {selectedProject.description}
               </p>
 

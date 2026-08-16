@@ -101,9 +101,9 @@ export const About: React.FC = () => {
                     <div key={i} style={{ background: 'rgba(255, 255, 255, 0.55)', backdropFilter: 'blur(12px)', padding: '32px 26px', borderRadius: '16px', boxShadow: '0 8px 24px rgba(0,0,0,0.12)', borderLeft: `4px solid ${v.accent}` }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '15px' }}>
                         {v.icon}
-                        <h3 className="font-artistic" style={{ fontSize: '22px', color: '#004C99', margin: 0 }}>{v.title}</h3>
+                        <h3 className="font-artistic" style={{ fontSize: '22px', color: '#ffffff', margin: 0 }}>{v.title}</h3>
                       </div>
-                      <p style={{ color: '#57647c', fontSize: '15px', lineHeight: 1.65, margin: 0 }}>{v.text}</p>
+                      <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '15px', lineHeight: 1.65, margin: 0 }}>{v.text}</p>
                     </div>
                   ))}
                 </div>
