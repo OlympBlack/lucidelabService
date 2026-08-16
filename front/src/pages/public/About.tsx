@@ -59,7 +59,7 @@ export const About: React.FC = () => {
                     </div>
                     <h3 className="font-artistic" style={{ color: '#ffffff', fontSize: '28px', margin: 0 }}>Notre Mission</h3>
                   </div>
-                  <p style={{ fontSize: '17px', lineHeight: '1.7', color: '#374151', margin: 0 }}>
+                  <p style={{ fontSize: '17px', lineHeight: '1.7', color: 'rgba(255,255,255,0.9)', margin: 0 }}>
                     Vous aider à rêver, rendre viables vos rêves et faire d'eux des échos ! Nous accompagnons les entreprises ambitieuses dans la construction d'une image de marque cohérente, crédible et hautement performante.
                   </p>
                 </div>
