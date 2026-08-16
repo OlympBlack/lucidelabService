@@ -76,8 +76,7 @@ export const Trust: React.FC = () => {
             <div className="container">
               {/* PARTNERS CATEGORIES */}
               <div className="section-title">
-                <span className="sub-title" style={{ color: '#fd8604' }}>Secteurs d'Intervention</span>
-                <h2 className="font-artistic" style={{ fontSize: '32px', color: '#ffffff' }}>Nos Domaines d'Accompagnement</h2>
+                <h2 className="font-artistic" style={{ fontSize: '30px', color: '#ffffff' }}>Secteurs d'intervention</h2>
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', marginBottom: '70px' }}>
@@ -99,8 +98,7 @@ export const Trust: React.FC = () => {
 
               {/* TESTIMONIALS */}
               <div className="section-title" style={{ marginTop: '40px' }}>
-                <span className="sub-title" style={{ color: '#fd8604' }}>Témoignages Clients</span>
-                <h2 className="font-artistic" style={{ fontSize: '32px', color: '#ffffff' }}>Ce que disent nos partenaires</h2>
+                <h2 className="font-artistic" style={{ fontSize: '30px', color: '#ffffff' }}>Ce que disent nos partenaires</h2>
               </div>
 
               <div className="grid-3" style={{ marginBottom: '80px', gap: '30px' }}>
@@ -132,28 +130,7 @@ export const Trust: React.FC = () => {
                 ))}
               </div>
 
-              {/* CTA BANNER */}
-              <div style={{
-                textAlign: 'center',
-                background: 'rgba(0, 76, 153, 0.35)',
-                border: '1px solid rgba(255,255,255,0.15)',
-                backdropFilter: 'blur(12px)',
-                padding: '50px 30px',
-                borderRadius: '20px',
-                color: '#ffffff',
-              }}>
-                <h2 className="font-artistic" style={{ color: '#ffffff', fontSize: '32px', marginBottom: '15px' }}>
-                  Prêt à transformer votre marque avec nous ?
-                </h2>
-                <p style={{ color: 'rgba(255,255,255,0.85)', marginBottom: '25px', maxWidth: '600px', margin: '0 auto 25px', fontSize: '16px' }}>
-                  Rejoignez nos clients partenaires et bâtissons ensemble une image de marque forte et performante.
-                </p>
-                <Link to="/contact">
-                  <CommonButton variant="orange">
-                    Discuter de votre projet <ArrowRight size={18} />
-                  </CommonButton>
-                </Link>
-              </div>
+
             </div>
           </div>
         </div>

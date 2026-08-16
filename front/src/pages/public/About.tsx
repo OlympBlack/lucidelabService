@@ -85,13 +85,10 @@ export const About: React.FC = () => {
               </div>
 
               {/* VALEURS & PILIERS */}
-              <div style={{ marginBottom: '80px' }}>
+              <div style={{ marginBottom: '40px' }}>
                 <div className="section-title">
-                  <span className="sub-title" style={{ color: '#fd8604' }}>ADN & Piliers Operationnels</span>
-                  <h2 className="font-artistic" style={{ fontSize: '36px', color: '#ffffff' }}>Nos Valeurs Fondamentales</h2>
-                  <p style={{ maxWidth: '650px', margin: '0 auto', color: 'rgba(255,255,255,0.7)' }}>
-                    Les 4 piliers moraux et méthodologiques qui guident chacune de nos interventions.
-                  </p>
+                  <span className="sub-title" style={{ color: '#fd8604' }}>ADN & Piliers</span>
+                  <h2 className="font-artistic" style={{ fontSize: '32px', color: '#ffffff' }}>Nos Valeurs</h2>
                 </div>
 
                 <div className="grid-3" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '25px' }}>
@@ -112,28 +109,7 @@ export const About: React.FC = () => {
                 </div>
               </div>
 
-              {/* CTA BANNER */}
-              <div style={{
-                textAlign: 'center',
-                background: 'rgba(0, 76, 153, 0.35)',
-                border: '1px solid rgba(255,255,255,0.15)',
-                backdropFilter: 'blur(12px)',
-                color: '#ffffff',
-                padding: '50px 30px',
-                borderRadius: '20px',
-              }}>
-                <h2 className="font-artistic" style={{ color: '#ffffff', fontSize: '32px', marginBottom: '15px' }}>
-                  Vous souhaitez faire passer votre marque au niveau supérieur ?
-                </h2>
-                <p style={{ color: 'rgba(255,255,255,0.85)', marginBottom: '25px', maxWidth: '600px', margin: '0 auto 25px', fontSize: '16px' }}>
-                  Rencontrez nos experts en stratégie et branding à Cotonou ou organisez une visio dès aujourd'hui.
-                </p>
-                <Link to="/contact">
-                  <CommonButton variant="orange">
-                    Prendre rendez-vous (+229 01 66 28 50 17) <ArrowRight size={18} />
-                  </CommonButton>
-                </Link>
-              </div>
+
             </div>
           </div>
         </div>

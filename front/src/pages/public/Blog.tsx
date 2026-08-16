@@ -35,174 +35,154 @@ export const Blog: React.FC = () => {
 
   return (
     <div>
-      {/* STORYTELLING HEADER */}
-      <section style={{
-        position: 'relative',
-        minHeight: '60vh',
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), url(/assets/images/blog.jpg)',
+      {/* HERO + ARTICLES — même image en fond continu */}
+      <div style={{
+        backgroundImage: 'url(/assets/images/blog.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '120px 20px 60px 20px',
-        color: '#ffffff',
-        textAlign: 'center'
       }}>
-        <div style={{ maxWidth: '900px' }}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '14px',
-            marginBottom: '18px'
-          }}>
-            <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
-            <span style={{
-              fontSize: '11px',
-              fontWeight: 700,
-              color: '#fd8604',
-              letterSpacing: '3px',
-              textTransform: 'uppercase',
-              fontFamily: 'Raleway, sans-serif'
-            }}>Le Mag LUCIDE LAB</span>
-            <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
+        {/* ── HERO ── */}
+        <section style={{
+          position: 'relative',
+          minHeight: '60vh',
+          background: 'linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65))',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '120px 20px 60px 20px',
+          color: '#ffffff',
+          textAlign: 'center'
+        }}>
+          <div style={{ maxWidth: '900px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '14px', marginBottom: '18px' }}>
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
+              <span style={{ fontSize: '11px', fontWeight: 700, color: '#fd8604', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Le Mag LUCIDE LAB</span>
+              <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
+            </div>
+            <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
+              Conseils, Stratégie & Branding
+            </h1>
+            <p className="font-body-art" style={{ fontSize: '18px', color: '#e5e7eb', maxWidth: '750px', margin: '0 auto 25px' }}>
+              Explorez nos analyses, décryptages et guides pratiques pour faire rayonner votre marque.
+            </p>
+
+            {/* Search bar */}
+            <div style={{ maxWidth: '420px', margin: '0 auto', position: 'relative' }}>
+              <input
+                type="text"
+                placeholder="Rechercher un article..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                style={{
+                  width: '100%',
+                  padding: '14px 20px 14px 44px',
+                  borderRadius: '30px',
+                  fontSize: '14px',
+                  border: 'none',
+                  background: 'rgba(255, 255, 255, 0.95)',
+                  color: '#004C99',
+                  outline: 'none',
+                  boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
+                  boxSizing: 'border-box'
+                }}
+              />
+              <Search size={18} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: '#004C99', pointerEvents: 'none' }} />
+            </div>
           </div>
-          <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
-            Conseils, Stratégie & Branding
-          </h1>
-          <p className="font-body-art" style={{ fontSize: '18px', color: '#e5e7eb', maxWidth: '750px', margin: '0 auto 25px' }}>
-            Explorez nos analyses, décryptages et guides pratiques pour faire rayonner votre marque.
-          </p>
+        </section>
 
-          {/* Search bar centered in header */}
-          <div style={{ maxWidth: '420px', margin: '0 auto', position: 'relative' }}>
-            <input
-              type="text"
-              placeholder="Rechercher un article..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              style={{
-                width: '100%',
-                padding: '14px 20px 14px 44px',
-                borderRadius: '30px',
-                fontSize: '14px',
-                border: 'none',
-                background: 'rgba(255, 255, 255, 0.95)',
-                color: '#004C99',
-                outline: 'none',
-                boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
-                boxSizing: 'border-box'
-              }}
-            />
-            <Search
-              size={18}
-              style={{
-                position: 'absolute',
-                left: '16px',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                color: '#004C99',
-                pointerEvents: 'none'
-              }}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* CONTENT AREA */}
-      <div className="ptb-100" style={{ background: '#f4f7fc' }}>
-        <div className="container">
-          {error && (
-            <div style={{ background: '#fee2e2', border: '1px solid #fca5a5', borderRadius: '12px', padding: '20px', textAlign: 'center', marginBottom: '30px', color: '#991b1b', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-              <AlertCircle size={20} /> Impossible de charger les articles du blog. Vérifiez le serveur backend.
-            </div>
-          )}
-
-          {loading ? (
-            <div style={{ textAlign: 'center', padding: '80px 0', color: '#57647c' }}>
-              <Loader2 size={36} style={{ animation: 'spin 1s linear infinite', color: '#004C99' }} />
-              <p style={{ marginTop: '16px', fontWeight: '500' }}>Chargement des articles...</p>
-            </div>
-          ) : filtered.length === 0 && !error ? (
-            <div style={{ textAlign: 'center', padding: '60px', color: '#57647c' }}>
-              <Image size={40} style={{ color: '#c0c9d8', marginBottom: '12px' }} />
-              <p>{searchTerm ? 'Aucun article ne correspond à votre recherche.' : 'Aucun article publié pour l\'instant.'}</p>
-            </div>
-          ) : (
-            <div className="grid-3" style={{ gap: '30px' }}>
-              {filtered.map((article) => (
-                <div key={article.id} style={{
-                  background: '#ffffff',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
-                  boxShadow: '0 10px 30px rgba(0, 76, 153, 0.08)',
-                  border: '1px solid #e5e9f2',
-                  display: 'flex',
-                  flexDirection: 'column'
-                }}>
-                  {article.image_url ? (
-                    <div style={{ height: '200px', overflow: 'hidden', background: '#00254d' }}>
-                      <img src={article.image_url} alt={article.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                        onError={(e) => {
-                          const wrapper = (e.target as HTMLImageElement).parentElement;
-                          if (wrapper) wrapper.style.background = PLACEHOLDER_GRADIENT;
-                          (e.target as HTMLImageElement).style.display = 'none';
-                        }} />
-                    </div>
-                  ) : (
-                    <div style={{
-                      height: '200px',
-                      background: PLACEHOLDER_GRADIENT,
-                      padding: '20px',
-                      display: 'flex',
-                      alignItems: 'flex-end'
-                    }}>
-                      <span style={{ background: '#ffffff', color: '#004C99', fontWeight: 700, padding: '4px 12px', borderRadius: '12px', fontSize: '12px' }}>
-                        {article.category}
-                      </span>
-                    </div>
-                  )}
-
-                  <div style={{ padding: '24px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                    {article.image_url && (
-                      <span style={{ background: 'rgba(0, 76, 153, 0.08)', color: '#004C99', fontWeight: 700, padding: '4px 12px', borderRadius: '12px', fontSize: '12px', width: 'fit-content', marginBottom: '12px' }}>
-                        {article.category}
-                      </span>
-                    )}
-
-                    <div style={{ display: 'flex', gap: '15px', color: '#6b7280', fontSize: '13px', marginBottom: '12px', flexWrap: 'wrap' }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                        <Calendar size={14} />
-                        {article.created_at ? new Date(article.created_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }) : '—'}
-                      </span>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                        <User size={14} /> {article.author ?? 'LUCIDE LAB'}
-                      </span>
-                    </div>
-
-                    <h3 className="font-artistic" style={{ fontSize: '18px', marginBottom: '12px', color: '#004C99', lineHeight: 1.4 }}>
-                      {article.title}
-                    </h3>
-                    <p style={{ color: '#57647c', fontSize: '14px', marginBottom: '20px', flexGrow: 1, lineHeight: 1.6 }}>
-                      {article.excerpt}
-                    </p>
-
-                    <Link
-                      to={`/blog/${article.slug}`}
-                      style={{ color: '#fd8604', fontWeight: 700, fontSize: '14px', display: 'inline-flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
-                      Lire l'article complet <ArrowRight size={16} />
-                    </Link>
-                  </div>
+        {/* ── ARTICLES — voile semi-transparent, image visible ── */}
+        <div style={{ background: 'rgba(0, 10, 30, 0.82)', backdropFilter: 'blur(1px)' }}>
+          <div className="ptb-100">
+            <div className="container">
+              {error && (
+                <div style={{ background: 'rgba(254, 226, 226, 0.15)', border: '1px solid rgba(252,165,165,0.4)', borderRadius: '12px', padding: '20px', textAlign: 'center', marginBottom: '30px', color: '#fca5a5', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+                  <AlertCircle size={20} /> Impossible de charger les articles du blog. Vérifiez le serveur backend.
                 </div>
-              ))}
+              )}
+
+              {loading ? (
+                <div style={{ textAlign: 'center', padding: '80px 0', color: 'rgba(255,255,255,0.7)' }}>
+                  <Loader2 size={36} style={{ animation: 'spin 1s linear infinite', color: '#fd8604' }} />
+                  <p style={{ marginTop: '16px', fontWeight: '500' }}>Chargement des articles...</p>
+                </div>
+              ) : filtered.length === 0 && !error ? (
+                <div style={{ textAlign: 'center', padding: '60px', color: 'rgba(255,255,255,0.6)' }}>
+                  <Image size={40} style={{ color: 'rgba(255,255,255,0.3)', marginBottom: '12px' }} />
+                  <p>{searchTerm ? 'Aucun article ne correspond à votre recherche.' : "Aucun article publié pour l'instant."}</p>
+                </div>
+              ) : (
+                <div className="grid-3" style={{ gap: '30px' }}>
+                  {filtered.map((article) => (
+                    <div key={article.id} style={{
+                      background: 'rgba(255, 255, 255, 0.07)',
+                      borderRadius: '16px',
+                      overflow: 'hidden',
+                      border: '1px solid rgba(255,255,255,0.14)',
+                      backdropFilter: 'blur(10px)',
+                      display: 'flex',
+                      flexDirection: 'column'
+                    }}>
+                      {article.image_url ? (
+                        <div style={{ height: '200px', overflow: 'hidden', background: '#00254d' }}>
+                          <img src={article.image_url} alt={article.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            onError={(e) => {
+                              const wrapper = (e.target as HTMLImageElement).parentElement;
+                              if (wrapper) wrapper.style.background = PLACEHOLDER_GRADIENT;
+                              (e.target as HTMLImageElement).style.display = 'none';
+                            }} />
+                        </div>
+                      ) : (
+                        <div style={{ height: '200px', background: PLACEHOLDER_GRADIENT, padding: '20px', display: 'flex', alignItems: 'flex-end' }}>
+                          <span style={{ background: 'rgba(253,134,4,0.2)', color: '#fd8604', fontWeight: 700, padding: '4px 12px', borderRadius: '12px', fontSize: '12px' }}>
+                            {article.category}
+                          </span>
+                        </div>
+                      )}
+
+                      <div style={{ padding: '24px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                        {article.image_url && (
+                          <span style={{ background: 'rgba(253,134,4,0.2)', color: '#fd8604', fontWeight: 700, padding: '4px 12px', borderRadius: '12px', fontSize: '12px', width: 'fit-content', marginBottom: '12px' }}>
+                            {article.category}
+                          </span>
+                        )}
+
+                        <div style={{ display: 'flex', gap: '15px', color: 'rgba(255,255,255,0.5)', fontSize: '13px', marginBottom: '12px', flexWrap: 'wrap' }}>
+                          <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                            <Calendar size={14} />
+                            {article.created_at ? new Date(article.created_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }) : '—'}
+                          </span>
+                          <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                            <User size={14} /> {article.author ?? 'LUCIDE LAB'}
+                          </span>
+                        </div>
+
+                        <h3 className="font-artistic" style={{ fontSize: '18px', marginBottom: '12px', color: '#ffffff', lineHeight: 1.4 }}>
+                          {article.title}
+                        </h3>
+                        <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', marginBottom: '20px', flexGrow: 1, lineHeight: 1.6 }}>
+                          {article.excerpt}
+                        </p>
+
+                        <Link
+                          to={`/blog/${article.slug}`}
+                          style={{ color: '#fd8604', fontWeight: 700, fontSize: '14px', display: 'inline-flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
+                          Lire l'article complet <ArrowRight size={16} />
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>
   );
 };
+
 
 // ── Blog Detail Page ────────────────────────────────────────────────────────
 export const BlogDetail: React.FC = () => {

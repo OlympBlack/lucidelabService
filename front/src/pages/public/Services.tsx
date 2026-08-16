@@ -188,31 +188,7 @@ export const Services: React.FC = () => {
                 ))}
               </div>
 
-              {/* CTA BANNER */}
-              <div style={{
-                marginTop: '80px',
-                background: 'rgba(0, 76, 153, 0.35)',
-                border: '1px solid rgba(255,255,255,0.15)',
-                backdropFilter: 'blur(12px)',
-                borderRadius: '20px',
-                padding: '50px 30px',
-                color: '#ffffff',
-                textAlign: 'center',
-              }}>
-                <h2 className="font-artistic" style={{ fontSize: '32px', color: '#ffffff', marginBottom: '12px' }}>
-                  Besoin d'un accompagnement personnalisé ?
-                </h2>
-                <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.85)', maxWidth: '650px', margin: '0 auto 25px' }}>
-                  Contactez nos experts pour une analyse gratuite de vos besoins et un devis adapté à votre projet.
-                </p>
-                <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                  <Link to="/contact">
-                    <CommonButton variant="orange">
-                      <Phone size={18} /> Prendre rendez-vous (+229 01 66 28 50 17)
-                    </CommonButton>
-                  </Link>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>

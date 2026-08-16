@@ -175,29 +175,7 @@ export const Realisations: React.FC = () => {
                 </>
               )}
 
-              {/* CTA BANNER */}
-              <div style={{
-                marginTop: '80px',
-                background: 'rgba(0, 76, 153, 0.35)',
-                border: '1px solid rgba(255,255,255,0.15)',
-                backdropFilter: 'blur(12px)',
-                borderRadius: '20px',
-                padding: '50px 30px',
-                color: '#ffffff',
-                textAlign: 'center',
-              }}>
-                <h2 className="font-artistic" style={{ fontSize: '32px', color: '#ffffff', marginBottom: '12px' }}>
-                  Inspiré par nos réalisations ?
-                </h2>
-                <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.85)', maxWidth: '650px', margin: '0 auto 25px' }}>
-                  Faites de votre marque la prochaine étude de cas à succès signée LUCIDE LAB.
-                </p>
-                <Link to="/contact">
-                  <CommonButton variant="orange">
-                    Démarrer votre projet <ArrowRight size={18} />
-                  </CommonButton>
-                </Link>
-              </div>
+
             </div>
           </div>
         </div>
