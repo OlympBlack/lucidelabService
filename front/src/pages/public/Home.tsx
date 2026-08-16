@@ -470,7 +470,7 @@ export const Home: React.FC = () => {
                             (e.target as HTMLImageElement).src = resolveImageUrl('');
                           }}
                         />
-                        <div style={{ padding: '10px 12px', textAlign: 'center', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.9)', fontFamily: "'Amaranth', sans-serif" }}>
+                        <div style={{ padding: '10px 12px', textAlign: 'center', fontSize: '13px', fontWeight: 600, color: '#374151', fontFamily: "'Amaranth', sans-serif" }}>
                           {m.title}
                         </div>
                       </div>
@@ -540,7 +540,7 @@ export const Home: React.FC = () => {
           color: '#ffffff',
           textAlign: 'center'
         }}>
-          <h2 className="font-artistic" style={{ fontSize: '36px', color: '#ffffff', marginBottom: '10px' }}>
+          <h2 className="font-artistic" style={{ fontSize: '36px', color: '#004C99', marginBottom: '10px' }}>
             Donnons vie à vos projets d'exception.
           </h2>
           <p className="font-body-art" style={{ fontSize: '16px', color: '#a1a1aa', marginBottom: '35px' }}>

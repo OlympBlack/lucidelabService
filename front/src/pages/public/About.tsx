@@ -31,7 +31,7 @@ export const About: React.FC = () => {
               <span style={{ fontSize: '11px', fontWeight: 700, color: '#fd8604', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Qui sommes-nous ?</span>
               <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
             </div>
-            <h1 className="font-artistic" style={{ fontSize: '44px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
+            <h1 className="font-artistic" style={{ fontSize: '44px', fontWeight: 800, color: '#004C99', marginBottom: '15px' }}>
               LUCIDE LAB | Cabinet d'Expertise en Communication & Croissance
             </h1>
             <p className="font-body-art" style={{ fontSize: '18px', color: '#e5e7eb', maxWidth: '780px', margin: '0 auto' }}>
@@ -49,7 +49,6 @@ export const About: React.FC = () => {
                 <div style={{
                   background: 'rgba(0, 76, 153, 0.35)',
                   border: '1px solid rgba(255,255,255,0.15)',
-                  backdropFilter: 'blur(12px)',
                   color: '#ffffff',
                   padding: '45px',
                   borderRadius: '20px',
@@ -60,7 +59,7 @@ export const About: React.FC = () => {
                     </div>
                     <h3 className="font-artistic" style={{ color: '#ffffff', fontSize: '28px', margin: 0 }}>Notre Mission</h3>
                   </div>
-                  <p style={{ fontSize: '17px', lineHeight: '1.7', color: 'rgba(255,255,255,0.9)', margin: 0 }}>
+                  <p style={{ fontSize: '17px', lineHeight: '1.7', color: '#374151', margin: 0 }}>
                     Vous aider à rêver, rendre viables vos rêves et faire d'eux des échos ! Nous accompagnons les entreprises ambitieuses dans la construction d'une image de marque cohérente, crédible et hautement performante.
                   </p>
                 </div>
@@ -68,7 +67,6 @@ export const About: React.FC = () => {
                 <div style={{
                   background: 'rgba(255, 255, 255, 0.07)',
                   border: '1px solid rgba(255,255,255,0.15)',
-                  backdropFilter: 'blur(12px)',
                   padding: '45px',
                   borderRadius: '20px',
                 }}>
@@ -98,12 +96,12 @@ export const About: React.FC = () => {
                     { icon: <Sparkles size={28} style={{ color: '#fd8604' }} />, title: 'Créativité', accent: '#fd8604', text: 'Concevoir des identités visuelles et conceptuelles audacieuses, originales et décalées qui captivent l\'attention.' },
                     { icon: <Target size={28} style={{ color: '#fd8604' }} />, title: 'Performance', accent: '#fd8604', text: 'Chaque projet doit générer un impact mesurable, renforcer votre notoriété et produire un retour sur investissement concret.' },
                   ].map((v, i) => (
-                    <div key={i} style={{ background: 'rgba(255, 255, 255, 0.55)', backdropFilter: 'blur(12px)', padding: '32px 26px', borderRadius: '16px', boxShadow: '0 8px 24px rgba(0,0,0,0.12)', borderLeft: `4px solid ${v.accent}` }}>
+                    <div key={i} style={{ background: '#ffffff', padding: '32px 26px', borderRadius: '16px', boxShadow: '0 8px 24px rgba(0,0,0,0.12)', borderLeft: `4px solid ${v.accent}` }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '15px' }}>
                         {v.icon}
-                        <h3 className="font-artistic" style={{ fontSize: '22px', color: '#ffffff', margin: 0 }}>{v.title}</h3>
+                        <h3 className="font-artistic" style={{ fontSize: '22px', color: '#004C99', margin: 0 }}>{v.title}</h3>
                       </div>
-                      <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '15px', lineHeight: 1.65, margin: 0 }}>{v.text}</p>
+                      <p style={{ color: '#57647c', fontSize: '15px', lineHeight: 1.65, margin: 0 }}>{v.text}</p>
                     </div>
                   ))}
                 </div>

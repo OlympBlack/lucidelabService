@@ -58,7 +58,7 @@ export const Contact: React.FC = () => {
               <span style={{ fontSize: '11px', fontWeight: 700, color: '#fd8604', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Contact & Consultation</span>
               <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
             </div>
-            <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
+            <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#004C99', marginBottom: '15px' }}>
               Donnons vie à vos projets d'exception
             </h1>
             <p className="font-body-art" style={{ fontSize: '18px', color: '#e5e7eb', maxWidth: '750px', margin: '0 auto' }}>
@@ -77,12 +77,11 @@ export const Contact: React.FC = () => {
                 <div style={{
                   background: 'rgba(0, 76, 153, 0.35)',
                   border: '1px solid rgba(255,255,255,0.15)',
-                  backdropFilter: 'blur(12px)',
                   borderRadius: '20px',
                   padding: '40px 30px',
                   color: '#ffffff',
                 }}>
-                  <h3 className="font-artistic" style={{ fontSize: '26px', color: '#ffffff', marginBottom: '30px', borderBottom: '2px solid rgba(253, 134, 4, 0.4)', paddingBottom: '10px' }}>
+                  <h3 className="font-artistic" style={{ fontSize: '26px', color: '#004C99', marginBottom: '30px', borderBottom: '2px solid rgba(253, 134, 4, 0.4)', paddingBottom: '10px' }}>
                     Nos Coordonnées
                   </h3>
 
@@ -136,14 +135,13 @@ export const Contact: React.FC = () => {
                 <div style={{
                   background: 'rgba(255, 255, 255, 0.07)',
                   border: '1px solid rgba(255,255,255,0.15)',
-                  backdropFilter: 'blur(12px)',
                   borderRadius: '20px',
                   padding: '40px 35px',
                 }}>
                   {submitted ? (
                     <div style={{ textAlign: 'center', padding: '40px 20px' }}>
                       <CheckCircle size={60} style={{ color: '#10b981', marginBottom: '20px' }} />
-                      <h3 className="font-artistic" style={{ fontSize: '26px', color: '#ffffff', marginBottom: '10px' }}>
+                      <h3 className="font-artistic" style={{ fontSize: '26px', color: '#004C99', marginBottom: '10px' }}>
                         Message transmis avec succès !
                       </h3>
                       <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '15px', marginBottom: '28px' }}>
@@ -155,7 +153,7 @@ export const Contact: React.FC = () => {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} noValidate>
-                      <h3 className="font-artistic" style={{ fontSize: '24px', color: '#ffffff', marginBottom: '20px' }}>
+                      <h3 className="font-artistic" style={{ fontSize: '24px', color: '#004C99', marginBottom: '20px' }}>
                         Formulaire de Prise de Contact
                       </h3>
 

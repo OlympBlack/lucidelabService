@@ -61,7 +61,7 @@ export const Trust: React.FC = () => {
               <span style={{ fontSize: '11px', fontWeight: 700, color: '#fd8604', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Confiance & Impact</span>
               <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
             </div>
-            <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#ffffff', marginBottom: '15px' }}>
+            <h1 className="font-artistic" style={{ fontSize: '46px', fontWeight: 800, color: '#004C99', marginBottom: '15px' }}>
               Ils nous font confiance
             </h1>
             <p className="font-body-art" style={{ fontSize: '18px', color: '#e5e7eb', maxWidth: '750px', margin: '0 auto' }}>
@@ -82,8 +82,7 @@ export const Trust: React.FC = () => {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', marginBottom: '70px' }}>
                 {partners.map((p, idx) => (
                   <div key={idx} style={{
-                    background: 'rgba(255, 255, 255, 0.55)',
-                    backdropFilter: 'blur(12px)',
+                    background: '#ffffff',
                     border: '1px solid rgba(255,255,255,0.6)',
                     borderRadius: '16px',
                     padding: '28px 15px',
@@ -105,8 +104,7 @@ export const Trust: React.FC = () => {
               <div className="grid-3" style={{ marginBottom: '80px', gap: '30px' }}>
                 {testimonials.map((t, idx) => (
                   <div key={idx} style={{
-                    background: 'rgba(255, 255, 255, 0.55)',
-                    backdropFilter: 'blur(12px)',
+                    background: '#ffffff',
                     border: '1px solid rgba(255,255,255,0.6)',
                     borderRadius: '20px',
                     padding: '38px 28px',
@@ -121,11 +119,11 @@ export const Trust: React.FC = () => {
                         <Star key={i} size={18} fill="#fd8604" color="#fd8604" />
                       ))}
                     </div>
-                    <p style={{ color: 'rgba(255,255,255,0.9)', fontStyle: 'italic', fontSize: '15px', marginBottom: '25px', lineHeight: 1.7, flexGrow: 1 }}>
+                    <p style={{ color: '#374151', fontStyle: 'italic', fontSize: '15px', marginBottom: '25px', lineHeight: 1.7, flexGrow: 1 }}>
                       "{t.comment}"
                     </p>
                     <div>
-                      <h4 className="font-artistic" style={{ fontSize: '18px', color: '#ffffff', marginBottom: '4px' }}>{t.name}</h4>
+                      <h4 className="font-artistic" style={{ fontSize: '18px', color: '#004C99', marginBottom: '4px' }}>{t.name}</h4>
                       <p style={{ color: '#fd8604', fontSize: '13px', fontWeight: '700', margin: 0 }}>{t.role}</p>
                     </div>
                   </div>
