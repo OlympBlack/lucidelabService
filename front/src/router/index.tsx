@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
-import { HeaderTopbar } from '../components/layout/HeaderTopbar';
 import { Navbar } from '../components/layout/Navbar';
 import { Footer } from '../components/layout/Footer';
 import { ScrollToTop } from '../components/common/ScrollToTop';

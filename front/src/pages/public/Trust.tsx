@@ -1,7 +1,5 @@
 import React from 'react';
-import { Star, Building2, Quote, ArrowRight } from 'lucide-react';
-import { CommonButton } from '../../components/common/CommonButton';
-import { Link } from 'react-router-dom';
+import { Star, Building2, Quote } from 'lucide-react';
 
 export const Trust: React.FC = () => {
   const testimonials = [

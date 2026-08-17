@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Calendar, User, ArrowRight, Eye, Loader2, AlertCircle, Image, ArrowLeft } from 'lucide-react';
+import { Search, Calendar, User, ArrowRight, Loader2, AlertCircle, Image, ArrowLeft } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { api, type Blog as BlogType } from '../../services/api';
 import { CommonButton } from '../../components/common/CommonButton';

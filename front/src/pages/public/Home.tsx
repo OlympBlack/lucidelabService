@@ -99,10 +99,10 @@ export const Home: React.FC = () => {
       });
 
       const fallbackMockups = [
-        { title: "Stratégie & Direction", image: "/assets/images/hero1.jpg" },
-        { title: "Packaging & Identité", image: "/assets/images/hero2.png" },
-        { title: "Campagnes & Visuals", image: "/assets/images/hero3.jpg" },
-        { title: "Création & Design Art", image: "/assets/images/painture_popup.jpg" },
+        { title: "Stratégie & Direction", image: "/assets/images/hero1.jpg", client: "" },
+        { title: "Packaging & Identité", image: "/assets/images/hero2.png", client: "" },
+        { title: "Campagnes & Visuals", image: "/assets/images/hero3.jpg", client: "" },
+        { title: "Création & Design Art", image: "/assets/images/painture_popup.jpg", client: "" },
       ];
 
       return Object.keys(grouped).map((catName) => {
@@ -540,7 +540,7 @@ export const Home: React.FC = () => {
           color: '#ffffff',
           textAlign: 'center'
         }}>
-          <h2 className="font-artistic" style={{ fontSize: '36px', color: '#004C99', marginBottom: '10px' }}>
+          <h2 className="font-artistic" style={{ fontSize: '36px', color: '#f0f2f3ff', marginBottom: '10px' }}>
             Donnons vie à vos projets d'exception.
           </h2>
           <p className="font-body-art" style={{ fontSize: '16px', color: '#a1a1aa', marginBottom: '35px' }}>

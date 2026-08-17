@@ -1,7 +1,5 @@
 import React from 'react';
-import { Target, Eye, Award, Sparkles, MapPin, ArrowRight, ShieldCheck, HeartHandshake } from 'lucide-react';
-import { CommonButton } from '../../components/common/CommonButton';
-import { Link } from 'react-router-dom';
+import { Target, Eye, Award, Sparkles, MapPin } from 'lucide-react';
 
 export const About: React.FC = () => {
   return (

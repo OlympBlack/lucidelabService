@@ -7,8 +7,7 @@ interface RealisationsCarouselProps {
   autoPlayMs?: number;
 }
 
-const PLACEHOLDER = (cat: string) =>
-  `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="220"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="%230122bc"/><stop offset="1" stop-color="%23fd8604"/></linearGradient></defs><rect width="400" height="220" fill="url(%23g)"/><text x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="22" font-family="sans-serif" font-weight="bold">${encodeURIComponent(cat)}</text></svg>`;
+
 
 export const RealisationsCarousel: React.FC<RealisationsCarouselProps> = ({
   items,

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Compass, Palette, Globe, TrendingUp, FileText, Megaphone, CheckCircle2, ArrowRight, X, Phone, Mail } from 'lucide-react';
+import { Compass, Palette, Globe, TrendingUp, FileText, Megaphone, CheckCircle2, ArrowRight, X, Mail } from 'lucide-react';
 import { CommonButton } from '../../components/common/CommonButton';
-import { Link } from 'react-router-dom';
 
 export const Services: React.FC = () => {
   const [selectedService, setSelectedService] = useState<any>(null);

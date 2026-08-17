@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Share2, Plus, Edit2, Trash2, CheckCircle, Loader2 } from 'lucide-react';
+import { Plus, Edit2, Trash2, CheckCircle, Loader2 } from 'lucide-react';
 import { api } from '../../services/api';
 import type { SocialLink } from '../../services/api';
 

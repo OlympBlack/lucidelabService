@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Image, Loader2, AlertCircle, Eye, X, ArrowRight, CheckCircle } from 'lucide-react';
+import { Image, Loader2, AlertCircle, Eye, X, ArrowRight } from 'lucide-react';
 import { api, resolveImageUrl, type Realisation } from '../../services/api';
 import { CommonButton } from '../../components/common/CommonButton';
 import { Link } from 'react-router-dom';
