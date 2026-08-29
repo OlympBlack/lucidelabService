@@ -249,26 +249,6 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
         <ChevronRight size={20} />
       </button>
 
-      {/* Dot Indicators */}
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '28px' }}>
-        {items.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => goTo(idx)}
-            aria-label={`Témoignage ${idx + 1}`}
-            style={{
-              width: activeIdx === idx ? '28px' : '8px',
-              height: '8px',
-              borderRadius: '4px',
-              border: 'none',
-              background: activeIdx === idx ? '#fd8604' : 'rgba(253,134,4,0.25)',
-              cursor: 'pointer',
-              padding: 0,
-              transition: 'all 0.35s ease',
-            }}
-          />
-        ))}
-      </div>
     </div>
   );
 };
