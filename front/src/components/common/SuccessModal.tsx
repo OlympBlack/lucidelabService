@@ -26,7 +26,7 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
       document.body.style.overflow = 'hidden';
     } else {
       setShow(false);
-      setTimeout(() => setRender(false), 400); // match transition duration
+      setTimeout(() => setRender(false), 450); // wait slightly longer than transition
       document.body.style.overflow = '';
     }
   }, [isOpen]);
@@ -61,9 +61,11 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
           width: '100%',
           textAlign: 'center',
           position: 'relative',
-          transform: show ? 'scale(1)' : 'scale(0.4)',
+          transform: show ? 'scale(1)' : 'scale(0.5)',
           opacity: show ? 1 : 0,
-          transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+          transition: show 
+            ? 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)' 
+            : 'all 0.4s cubic-bezier(0.36, 0, 0.66, -0.56)', // ease-in-back for closing
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
         }}
         onClick={(e) => e.stopPropagation()}
