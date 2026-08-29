@@ -61,9 +61,9 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
           width: '100%',
           textAlign: 'center',
           position: 'relative',
-          transform: show ? 'scale(1) translateY(0)' : 'scale(0.9) translateY(20px)',
+          transform: show ? 'scale(1)' : 'scale(0.4)',
           opacity: show ? 1 : 0,
-          transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+          transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
         }}
         onClick={(e) => e.stopPropagation()}
