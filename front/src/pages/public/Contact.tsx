@@ -76,8 +76,8 @@ export const Contact: React.FC = () => {
           </div>
         </section>
 
-        {/* ── FORMULAIRE — voile blanc pour la clarté ── */}
-        <div style={{ background: 'rgba(255, 255, 255, 0.25)', backdropFilter: 'blur(12px)' }}>
+        {/* ── FORMULAIRE — voile cendre légère ── */}
+        <div style={{ background: 'rgba(180, 185, 195, 0.25)', backdropFilter: 'blur(12px)' }}>
           <div className="ptb-100">
             <div className="container">
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.8fr', gap: '35px', alignItems: 'start' }}>
@@ -141,7 +141,7 @@ export const Contact: React.FC = () => {
                 </div>
 
                 {/* FORM CARD */}
-                <div style={{ background: 'rgba(255, 255, 255, 0.65)', borderRadius: '20px', padding: '45px', border: '1px solid rgba(255,255,255,0.4)', boxShadow: '0 10px 40px rgba(0,0,0,0.08)' }}>
+                <div style={{ background: 'rgba(245, 246, 248, 0.65)', borderRadius: '20px', padding: '45px', border: '1px solid rgba(255,255,255,0.4)', boxShadow: '0 10px 40px rgba(0,0,0,0.08)' }}>
                   <SuccessModal 
                     isOpen={submitted} 
                     onClose={() => setSubmitted(false)}
