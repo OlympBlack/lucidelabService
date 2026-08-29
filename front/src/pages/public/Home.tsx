@@ -14,7 +14,11 @@ import {
   User,
   Mail,
   Phone,
-  MessageSquare
+  MessageSquare,
+  Target,
+  Palette,
+  MonitorSmartphone,
+  Rocket
 } from 'lucide-react';
 import { api, resolveImageUrl, type Realisation } from '../../services/api';
 import { SectionNavigation } from '../../components/layout/SectionNavigation';
@@ -343,36 +347,29 @@ export const Home: React.FC = () => {
               Idées lumineuses, résultats brillants
             </p>
 
-            {/* 6 Grid items matching reference styling */}
-            <div className="artistic-services-grid">
-              <Link to="/services" className="artistic-service-item">
-                <Globe className="artistic-service-icon" />
-                <span className="artistic-service-label">wOb</span>
+            <div className="home-premium-services-grid">
+              <Link to="/services" className="home-premium-service-card">
+                <div className="home-premium-icon"><Target size={32} /></div>
+                <h3 className="home-premium-title">STRATEGY</h3>
+                <p className="home-premium-desc">Positionnement, audit de marque et plan de communication sur-mesure.</p>
               </Link>
 
-              <Link to="/services" className="artistic-service-item">
-                <PenTool className="artistic-service-icon" />
-                <span className="artistic-service-label">éditiOn</span>
+              <Link to="/services" className="home-premium-service-card">
+                <div className="home-premium-icon"><Palette size={32} /></div>
+                <h3 className="home-premium-title">BRAND</h3>
+                <p className="home-premium-desc">Naming, logo, charte graphique et identité visuelle forte.</p>
               </Link>
 
-              <Link to="/services" className="artistic-service-item">
-                <TrendingUp className="artistic-service-icon" />
-                <span className="artistic-service-label">marcOting</span>
+              <Link to="/services" className="home-premium-service-card">
+                <div className="home-premium-icon"><MonitorSmartphone size={32} /></div>
+                <h3 className="home-premium-title">DIGITAL</h3>
+                <p className="home-premium-desc">Sites web, applications mobiles et plateformes sur-mesure.</p>
               </Link>
 
-              <Link to="/services" className="artistic-service-item">
-                <Megaphone className="artistic-service-icon" />
-                <span className="artistic-service-label">cOmmunication digitale</span>
-              </Link>
-
-              <Link to="/services" className="artistic-service-item">
-                <Brain className="artistic-service-icon" />
-                <span className="artistic-service-label">cOncepciTé</span>
-              </Link>
-
-              <Link to="/services" className="artistic-service-item">
-                <Printer className="artistic-service-icon" />
-                <span className="artistic-service-label">impressiOn</span>
+              <Link to="/services" className="home-premium-service-card">
+                <div className="home-premium-icon"><Rocket size={32} /></div>
+                <h3 className="home-premium-title">GROWTH</h3>
+                <p className="home-premium-desc">SEO, acquisition et accélération de votre chiffre d'affaires.</p>
               </Link>
             </div>
           </div>
