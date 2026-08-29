@@ -1078,6 +1078,24 @@ ul {
 
 
 @media (max-width: 767px) {
+  .navbar-area-white {
+    width: 100% !important;
+    max-width: 100% !important;
+    top: 0 !important;
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    padding: 0 10px !important;
+  }
+  .mobile-drawer-menu {
+    border-radius: 0 !important;
+    top: 100% !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05) !important;
+  }
   .topbar-hide-mobile {
     display: none !important;
   }
