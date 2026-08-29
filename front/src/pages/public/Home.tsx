@@ -12,7 +12,9 @@ import {
   Target,
   Palette,
   MonitorSmartphone,
-  Rocket
+  Rocket,
+  PenTool,
+  Megaphone
 } from 'lucide-react';
 import { api, resolveImageUrl, type Realisation } from '../../services/api';
 import { SectionNavigation } from '../../components/layout/SectionNavigation';
@@ -342,28 +344,40 @@ export const Home: React.FC = () => {
             </p>
 
             <div className="home-premium-services-grid">
-              <Link to="/services" className="home-premium-service-card">
+              <Link to="/services" className="home-premium-service-card" style={{ animationDelay: '0s' }}>
                 <div className="home-premium-icon"><Target size={32} /></div>
                 <h3 className="home-premium-title">STRATEGY</h3>
                 <p className="home-premium-desc">Positionnement, audit de marque et plan de communication sur-mesure.</p>
               </Link>
 
-              <Link to="/services" className="home-premium-service-card">
+              <Link to="/services" className="home-premium-service-card" style={{ animationDelay: '0.15s' }}>
                 <div className="home-premium-icon"><Palette size={32} /></div>
                 <h3 className="home-premium-title">BRAND</h3>
                 <p className="home-premium-desc">Naming, logo, charte graphique et identité visuelle forte.</p>
               </Link>
 
-              <Link to="/services" className="home-premium-service-card">
+              <Link to="/services" className="home-premium-service-card" style={{ animationDelay: '0.3s' }}>
                 <div className="home-premium-icon"><MonitorSmartphone size={32} /></div>
                 <h3 className="home-premium-title">DIGITAL</h3>
                 <p className="home-premium-desc">Sites web, applications mobiles et plateformes sur-mesure.</p>
               </Link>
 
-              <Link to="/services" className="home-premium-service-card">
+              <Link to="/services" className="home-premium-service-card" style={{ animationDelay: '0.45s' }}>
                 <div className="home-premium-icon"><Rocket size={32} /></div>
                 <h3 className="home-premium-title">GROWTH</h3>
                 <p className="home-premium-desc">SEO, acquisition et accélération de votre chiffre d'affaires.</p>
+              </Link>
+              
+              <Link to="/services" className="home-premium-service-card" style={{ animationDelay: '0.6s' }}>
+                <div className="home-premium-icon"><PenTool size={32} /></div>
+                <h3 className="home-premium-title">CONTENT</h3>
+                <p className="home-premium-desc">Création de contenus impactants, rédaction web et copywriting.</p>
+              </Link>
+              
+              <Link to="/services" className="home-premium-service-card" style={{ animationDelay: '0.75s' }}>
+                <div className="home-premium-icon"><Megaphone size={32} /></div>
+                <h3 className="home-premium-title">ADVERTISING</h3>
+                <p className="home-premium-desc">Campagnes publicitaires, Ads et gestion de l'e-réputation.</p>
               </Link>
             </div>
           </div>
