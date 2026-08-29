@@ -104,9 +104,10 @@ export const Services: React.FC = () => {
           <div className="ptb-100">
             <div className="container">
               <div className="grid-3" style={{ gap: '30px' }}>
-                {servicesList.map((service) => (
+                {servicesList.map((service, idx) => (
                   <div
                     key={service.id}
+                    className="service-card-anim"
                     style={{
                       background: '#ffffff',
                       border: '1px solid rgba(255,255,255,0.6)',
@@ -115,10 +116,10 @@ export const Services: React.FC = () => {
                       boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
                       display: 'flex',
                       flexDirection: 'column',
-                      transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                      animationDelay: `${idx * 0.15}s`
                     }}
                   >
-                    <div style={{
+                    <div className="service-icon-wrapper" style={{
                       width: '64px',
                       height: '64px',
                       borderRadius: '14px',
@@ -126,7 +127,8 @@ export const Services: React.FC = () => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      marginBottom: '20px'
+                      marginBottom: '20px',
+                      transition: 'all 0.3s ease'
                     }}>
                       {service.icon}
                     </div>
