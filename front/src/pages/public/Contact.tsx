@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Send, Clock, CheckCircle } from 'lucide-react';
 import { CommonButton } from '../../components/common/CommonButton';
+import { SuccessModal } from '../../components/common/SuccessModal';
 import { api } from '../../services/api';
 
 export const Contact: React.FC = () => {
@@ -138,24 +139,15 @@ export const Contact: React.FC = () => {
                   borderRadius: '20px',
                   padding: '40px 35px',
                 }}>
-                  {submitted ? (
-                    <div style={{ textAlign: 'center', padding: '40px 20px' }}>
-                      <CheckCircle size={60} style={{ color: '#10b981', marginBottom: '20px' }} />
-                      <h3 className="font-artistic" style={{ fontSize: '26px', color: '#ffffff', marginBottom: '10px' }}>
-                        Message transmis avec succès !
-                      </h3>
-                      <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '15px', marginBottom: '28px' }}>
-                        Merci d'avoir contacté <strong>LUCIDE LAB</strong>. Notre équipe examinera votre demande et vous recontactera sous 24h.
-                      </p>
-                      <CommonButton variant="orange" onClick={() => setSubmitted(false)}>
-                        Envoyer un autre message
-                      </CommonButton>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmit} noValidate>
-                      <h3 className="font-artistic" style={{ fontSize: '24px', color: '#ffffff', marginBottom: '20px' }}>
-                        Formulaire de Prise de Contact
-                      </h3>
+                  <SuccessModal 
+                    isOpen={submitted} 
+                    onClose={() => setSubmitted(false)}
+                  />
+                  
+                  <form onSubmit={handleSubmit} noValidate style={{ display: submitted ? 'none' : 'block' }}>
+                    <h3 className="font-artistic" style={{ fontSize: '24px', color: '#ffffff', marginBottom: '20px' }}>
+                      Formulaire de Prise de Contact
+                    </h3>
 
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '15px' }}>
                         <div>

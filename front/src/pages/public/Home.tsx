@@ -21,6 +21,7 @@ import { api, resolveImageUrl, type Realisation } from '../../services/api';
 import { SectionNavigation } from '../../components/layout/SectionNavigation';
 import { TestimonialsCarousel } from '../../components/common/TestimonialsCarousel';
 import { CommonButton } from '../../components/common/CommonButton';
+import { SuccessModal } from '../../components/common/SuccessModal';
 
 export const Home: React.FC = () => {
   const [apiRealisations, setApiRealisations] = useState<Realisation[]>([]);
@@ -592,45 +593,13 @@ export const Home: React.FC = () => {
             Un entretien avec notre équipe créative dissipera à coup sûr vos doutes.
           </p>
 
-          {formSent ? (
-            <div style={{
-              background: 'rgba(16, 185, 129, 0.15)',
-              border: '1px solid #10b981',
-              padding: '25px',
-              borderRadius: '6px',
-              color: '#ffffff',
-              fontSize: '18px',
-              fontWeight: 600,
-              fontFamily: "'Amaranth', sans-serif",
-              position: 'relative'
-            }}>
-              <button 
-                onClick={() => setFormSent(false)}
-                aria-label="Fermer le message"
-                style={{
-                  position: 'absolute',
-                  top: '12px',
-                  right: '12px',
-                  background: 'transparent',
-                  border: 'none',
-                  color: '#ffffff',
-                  cursor: 'pointer',
-                  padding: '4px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderRadius: '50%',
-                  transition: 'background 0.2s'
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)')}
-                onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
-              >
-                <X size={20} strokeWidth={2} />
-              </button>
-              Merci ! Votre message a été transmis avec succès. Nous vous recontacterons très rapidement.
-            </div>
-          ) : (
-            <form onSubmit={handleContactSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+          <SuccessModal 
+            isOpen={formSent} 
+            onClose={() => setFormSent(false)}
+            message="Merci ! Votre message a été transmis avec succès. Nous vous recontacterons très rapidement."
+          />
+          
+          <form onSubmit={handleContactSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
                 <div style={{ position: 'relative' }}>
                   <User size={18} style={{ position: 'absolute', left: '14px', top: '15px', color: '#6b7280' }} />
@@ -740,7 +709,6 @@ export const Home: React.FC = () => {
                 {!formLoading && <Send size={18} />}
               </button>
             </form>
-          )}
         </div>
       </section>
     </div>
