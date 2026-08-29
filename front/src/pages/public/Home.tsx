@@ -1,12 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Globe,
-  PenTool,
-  TrendingUp,
-  Megaphone,
-  Brain,
-  Printer,
   ChevronLeft,
   ChevronRight,
   ArrowRight,
