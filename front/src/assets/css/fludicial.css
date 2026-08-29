@@ -853,6 +853,10 @@ ul {
 }
 
 .admin-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-shrink: 0;
   height: 75px;
   background-color: #ffffff;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
