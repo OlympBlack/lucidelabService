@@ -109,7 +109,7 @@ export const Contact: React.FC = () => {
                     <div>
                       <h4 style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Téléphone Direct</h4>
                       <a href="tel:+2290166285017" style={{ color: '#ffffff', fontWeight: 700, fontSize: '18px', textDecoration: 'none' }}>
-                        +229 01 00 00 00 00
+                        +229 01 66 28 50 17
                       </a>
                     </div>
                   </div>
