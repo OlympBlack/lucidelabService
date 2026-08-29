@@ -14,8 +14,7 @@ import {
   TrendingUp,
   Megaphone,
   Brain,
-  Printer,
-  X
+  Printer
 } from 'lucide-react';
 import { api, resolveImageUrl, type Realisation } from '../../services/api';
 import { SectionNavigation } from '../../components/layout/SectionNavigation';

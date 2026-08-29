@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Send, Clock, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Clock } from 'lucide-react';
 import { CommonButton } from '../../components/common/CommonButton';
 import { SuccessModal } from '../../components/common/SuccessModal';
 import { api } from '../../services/api';
