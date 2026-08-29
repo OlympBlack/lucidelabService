@@ -237,7 +237,6 @@ export const Contact: React.FC = () => {
                         {loading ? 'Envoi en cours...' : 'Envoyer mon message'} <Send size={18} />
                       </CommonButton>
                     </form>
-                  )}
                 </div>
 
               </div>
