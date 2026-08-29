@@ -49,7 +49,7 @@ export const Realisations: React.FC = () => {
           color: '#ffffff',
           textAlign: 'center'
         }}>
-          <div style={{ maxWidth: '900px' }}>
+          <div style={{ maxWidth: '900px' }} className="fade-in-up">
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '14px', marginBottom: '18px' }}>
               <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
               <span style={{ fontSize: '11px', fontWeight: 700, color: '#fd8604', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Portfolio & Cas Clients</span>
@@ -116,9 +116,10 @@ export const Realisations: React.FC = () => {
                     </div>
                   ) : (
                     <div className="grid-3" style={{ gap: '30px' }}>
-                      {filtered.map((p) => (
+                      {filtered.map((p, idx) => (
                         <div
                           key={p.id}
+                          className="fade-in-up"
                           onClick={() => setSelectedProject(p)}
                           style={{
                             background: '#ffffff',
@@ -129,10 +130,11 @@ export const Realisations: React.FC = () => {
                             cursor: 'pointer',
                             transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                             display: 'flex',
-                            flexDirection: 'column'
+                            flexDirection: 'column',
+                            animationDelay: `${idx * 0.1}s`
                           }}
                         >
-                          <div style={{ position: 'relative', height: '220px', overflow: 'hidden', background: '#00254d' }}>
+                          <div style={{ position: 'relative', height: '170px', overflow: 'hidden', background: '#00254d' }}>
                             <img
                               src={resolveImageUrl(p.image_url, p.category)}
                               alt={p.title}
@@ -149,22 +151,22 @@ export const Realisations: React.FC = () => {
                             </div>
                           </div>
 
-                          <div style={{ padding: '24px 22px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                              <span style={{ background: 'rgba(253, 134, 4, 0.1)', color: '#fd8604', padding: '4px 12px', borderRadius: '12px', fontSize: '12px', fontWeight: 700 }}>
+                          <div style={{ padding: '16px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                              <span style={{ background: 'rgba(253, 134, 4, 0.1)', color: '#fd8604', padding: '4px 10px', borderRadius: '12px', fontSize: '11px', fontWeight: 700 }}>
                                 {p.category}
                               </span>
-                              {p.year && <span style={{ fontSize: '12px', color: '#9ca3af' }}>{p.year}</span>}
+                              {p.year && <span style={{ fontSize: '11px', color: '#9ca3af' }}>{p.year}</span>}
                             </div>
-                            <h3 className="font-artistic" style={{ fontSize: '18px', color: '#004C99', marginBottom: '8px' }}>
+                            <h3 className="font-artistic" style={{ fontSize: '16px', color: '#004C99', marginBottom: '6px' }}>
                               {p.title}
                             </h3>
                             {p.client_name && (
-                              <p style={{ color: '#fd8604', fontWeight: 600, fontSize: '13px', marginBottom: '10px' }}>
+                              <p style={{ color: '#fd8604', fontWeight: 600, fontSize: '12px', marginBottom: '8px' }}>
                                 Client : {p.client_name}
                               </p>
                             )}
-                            <p style={{ color: '#57647c', fontSize: '14px', lineHeight: 1.6, margin: 0, flexGrow: 1 }}>
+                            <p style={{ color: '#57647c', fontSize: '13px', lineHeight: 1.5, margin: 0, flexGrow: 1 }}>
                               {p.description}
                             </p>
                           </div>
