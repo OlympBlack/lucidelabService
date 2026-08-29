@@ -14,7 +14,8 @@ import {
   TrendingUp,
   Megaphone,
   Brain,
-  Printer
+  Printer,
+  X
 } from 'lucide-react';
 import { api, resolveImageUrl, type Realisation } from '../../services/api';
 import { SectionNavigation } from '../../components/layout/SectionNavigation';
@@ -171,7 +172,6 @@ export const Home: React.FC = () => {
         message: contactMessage
       });
       setFormSent(true);
-      setTimeout(() => setFormSent(false), 3500);
       setContactName('');
       setContactEmail('');
       setContactPhone('');
@@ -598,11 +598,35 @@ export const Home: React.FC = () => {
               border: '1px solid #10b981',
               padding: '25px',
               borderRadius: '6px',
-              color: '#10b981',
+              color: '#ffffff',
               fontSize: '18px',
               fontWeight: 600,
-              fontFamily: "'Amaranth', sans-serif"
+              fontFamily: "'Amaranth', sans-serif",
+              position: 'relative'
             }}>
+              <button 
+                onClick={() => setFormSent(false)}
+                aria-label="Fermer le message"
+                style={{
+                  position: 'absolute',
+                  top: '12px',
+                  right: '12px',
+                  background: 'transparent',
+                  border: 'none',
+                  color: '#ffffff',
+                  cursor: 'pointer',
+                  padding: '4px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: '50%',
+                  transition: 'background 0.2s'
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)')}
+                onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+              >
+                <X size={20} strokeWidth={2} />
+              </button>
               Merci ! Votre message a été transmis avec succès. Nous vous recontacterons très rapidement.
             </div>
           ) : (
