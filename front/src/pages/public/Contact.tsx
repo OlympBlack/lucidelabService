@@ -81,11 +81,11 @@ export const Contact: React.FC = () => {
                   padding: '40px 30px',
                   color: '#ffffff',
                 }}>
-                  <h3 className="font-artistic" style={{ fontSize: '26px', color: '#004C99', marginBottom: '30px', borderBottom: '2px solid rgba(253, 134, 4, 0.4)', paddingBottom: '10px' }}>
+                  <h3 className="font-artistic" style={{ fontSize: '26px', color: '#ffffff', marginBottom: '30px', borderBottom: '2px solid rgba(253, 134, 4, 0.4)', paddingBottom: '10px' }}>
                     Nos Coordonnées
                   </h3>
 
-                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'flex-start' }}>
+                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'center' }}>
                     <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
                       <Phone size={20} />
                     </div>
@@ -97,7 +97,7 @@ export const Contact: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'flex-start' }}>
+                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'center' }}>
                     <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
                       <Mail size={20} />
                     </div>
@@ -109,7 +109,7 @@ export const Contact: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'flex-start' }}>
+                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'center' }}>
                     <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
                       <MapPin size={20} />
                     </div>
@@ -120,7 +120,7 @@ export const Contact: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                  <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
                     <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
                       <Clock size={20} />
                     </div>
@@ -153,7 +153,7 @@ export const Contact: React.FC = () => {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} noValidate>
-                      <h3 className="font-artistic" style={{ fontSize: '24px', color: '#004C99', marginBottom: '20px' }}>
+                      <h3 className="font-artistic" style={{ fontSize: '24px', color: '#ffffff', marginBottom: '20px' }}>
                         Formulaire de Prise de Contact
                       </h3>
 

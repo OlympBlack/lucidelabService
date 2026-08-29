@@ -23,6 +23,19 @@ export const SocialSection: React.FC = () => {
     });
   }, []);
 
+  const getPlatformColor = (platform: string) => {
+    const p = platform.toLowerCase();
+    if (p.includes('face')) return '#1877F2';
+    if (p.includes('link')) return '#0A66C2';
+    if (p.includes('twit') || p.includes('x')) return '#000000';
+    if (p.includes('insta')) return '#E1306C';
+    if (p.includes('what')) return '#25D366';
+    if (p.includes('you')) return '#FF0000';
+    if (p.includes('tik')) return '#000000';
+    if (p.includes('mail')) return '#D44638';
+    return '#004C99';
+  };
+
   const renderPlatformSvg = (platform: string) => {
     const p = platform.toLowerCase();
 
@@ -152,26 +165,26 @@ export const SocialSection: React.FC = () => {
                 e.currentTarget.style.transform = 'translateY(-6px)';
                 const circle = e.currentTarget.querySelector('.social-circle-btn') as HTMLElement;
                 if (circle) {
-                  circle.style.backgroundColor = '#004C99';
                   circle.style.transform = 'scale(1.08)';
+                  circle.style.boxShadow = '0 12px 25px rgba(0, 0, 0, 0.3)';
                 }
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
                 const circle = e.currentTarget.querySelector('.social-circle-btn') as HTMLElement;
                 if (circle) {
-                  circle.style.backgroundColor = '#000000';
                   circle.style.transform = 'scale(1)';
+                  circle.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
                 }
               }}
             >
               <div
                 className="social-circle-btn"
                 style={{
-                  width: '56px',
-                  height: '56px',
+                  width: '46px',
+                  height: '46px',
                   borderRadius: '50%',
-                  backgroundColor: '#000000',
+                  backgroundColor: getPlatformColor(item.platform),
                   color: '#ffffff',
                   display: 'flex',
                   alignItems: 'center',
