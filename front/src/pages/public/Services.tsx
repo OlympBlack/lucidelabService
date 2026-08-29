@@ -8,42 +8,42 @@ export const Services: React.FC = () => {
   const servicesList = [
     {
       id: 'strategy',
-      icon: <Compass size={40} style={{ color: '#fd8604' }} />,
+      icon: <Compass size={28} style={{ color: '#fd8604' }} />,
       title: 'STRATEGY',
       shortDesc: 'Positionnement, audit de marque et plan de communication sur-mesure.',
       details: ['Audit & Diagnostic de marque', 'Plan stratégique & Positionnement']
     },
     {
       id: 'brand',
-      icon: <Palette size={40} style={{ color: '#004C99' }} />,
+      icon: <Palette size={28} style={{ color: '#004C99' }} />,
       title: 'BRAND',
       shortDesc: 'Naming, logo, charte graphique et identité visuelle forte.',
       details: ['Conception de logo & Univers visuel', 'Charte graphique & Brand Guidelines']
     },
     {
       id: 'digital',
-      icon: <Globe size={40} style={{ color: '#fd8604' }} />,
+      icon: <Globe size={28} style={{ color: '#fd8604' }} />,
       title: 'DIGITAL',
       shortDesc: 'Sites web, applications mobiles et plateformes sur-mesure.',
       details: ['Création de sites & applications', 'UI/UX Design & Prototypage']
     },
     {
       id: 'growth',
-      icon: <TrendingUp size={40} style={{ color: '#004C99' }} />,
+      icon: <TrendingUp size={28} style={{ color: '#004C99' }} />,
       title: 'GROWTH',
       shortDesc: 'SEO, acquisition et accélération de votre chiffre d\'affaires.',
       details: ['SEO & Référencement payant (SEA)', 'Acquisition de leads B2B/B2C']
     },
     {
       id: 'content',
-      icon: <FileText size={40} style={{ color: '#fd8604' }} />,
+      icon: <FileText size={28} style={{ color: '#fd8604' }} />,
       title: 'CONTENT',
       shortDesc: 'Production vidéo, photo, copywriting et community management.',
       details: ['Production vidéo & Brand Content', 'Gestion des réseaux sociaux']
     },
     {
       id: 'advertising',
-      icon: <Megaphone size={40} style={{ color: '#fd8604' }} />,
+      icon: <Megaphone size={28} style={{ color: '#fd8604' }} />,
       title: 'ADVERTISING',
       shortDesc: 'Campagnes Meta, Google, LinkedIn et médias traditionnels.',
       details: ['Meta Ads, Google Ads & LinkedIn', 'Affichage, Radio & Presse']
@@ -130,7 +130,7 @@ export const Services: React.FC = () => {
                       marginBottom: '10px',
                       transition: 'all 0.3s ease'
                     }}>
-                      {React.cloneElement(service.icon as React.ReactElement, { size: 28 })}
+                      {service.icon}
                     </div>
 
                     <h3 className="font-artistic" style={{ fontSize: '16px', color: '#fd8604', marginBottom: '6px' }}>
