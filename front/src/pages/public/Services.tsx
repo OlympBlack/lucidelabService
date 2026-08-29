@@ -112,7 +112,7 @@ export const Services: React.FC = () => {
                       background: '#ffffff',
                       border: '1px solid rgba(255,255,255,0.6)',
                       borderRadius: '16px',
-                      padding: '32px 28px',
+                      padding: '24px 20px',
                       boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
                       display: 'flex',
                       flexDirection: 'column',
@@ -127,23 +127,23 @@ export const Services: React.FC = () => {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      marginBottom: '20px',
+                      marginBottom: '15px',
                       transition: 'all 0.3s ease'
                     }}>
                       {service.icon}
                     </div>
 
-                    <h3 className="font-artistic" style={{ fontSize: '20px', color: '#fd8604', marginBottom: '12px' }}>
+                    <h3 className="font-artistic" style={{ fontSize: '18px', color: '#fd8604', marginBottom: '10px' }}>
                       {service.title}
                     </h3>
-                    <p style={{ color: '#57647c', fontSize: '14px', lineHeight: 1.6, marginBottom: '20px', flexGrow: 1 }}>
+                    <p style={{ color: '#57647c', fontSize: '13px', lineHeight: 1.5, marginBottom: '15px', flexGrow: 1 }}>
                       {service.shortDesc}
                     </p>
                     
-                    <ul style={{ marginBottom: '25px', padding: 0 }}>
+                    <ul style={{ marginBottom: '20px', padding: 0 }}>
                       {service.details.map((point, idx) => (
-                        <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13px', color: '#374151', marginBottom: '8px' }}>
-                          <CheckCircle2 size={16} style={{ color: '#fd8604', flexShrink: 0 }} />
+                        <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '13px', color: '#374151', marginBottom: '6px' }}>
+                          <CheckCircle2 size={16} style={{ color: '#fd8604', flexShrink: 0, marginTop: '2px' }} />
                           <span>{point}</span>
                         </li>
                       ))}
