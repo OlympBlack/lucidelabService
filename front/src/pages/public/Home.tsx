@@ -303,7 +303,7 @@ export const Home: React.FC = () => {
         </div>
 
         <div className="storytelling-content">
-          <div className="frosted-glass-card" style={{ minHeight: '450px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div className="frosted-glass-card">
             <h2 className="frosted-card-title">Qui sommes-nous ?</h2>
 
             <div style={{ margin: '20px 0 15px' }}>
