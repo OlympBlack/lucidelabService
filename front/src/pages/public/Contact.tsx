@@ -141,10 +141,6 @@ export const Contact: React.FC = () => {
                 </div>
 
                 {/* FORM CARD */}
-                <div style={{
-                  background: 'rgba(255, 255, 255, 0.07)',
-                  border: '1px solid rgba(255,255,255,0.15)',
-                  borderRadius: '20px',
                 <div style={{ background: '#ffffff', borderRadius: '20px', padding: '45px', border: '1px solid #e5e9f2', boxShadow: '0 10px 40px rgba(0,0,0,0.08)' }}>
                   <SuccessModal 
                     isOpen={submitted} 
