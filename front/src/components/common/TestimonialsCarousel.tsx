@@ -67,11 +67,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
     timerRef.current = setInterval(advance, autoPlayMs);
   };
 
-  const goTo = (idx: number) => {
-    resetTimer();
-    setTransitioning(true);
-    setOffset(idx);
-  };
+
 
   const goPrev = () => {
     resetTimer();
@@ -86,7 +82,7 @@ export const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({
 
   const translateX = -(offset * cardWidthPct);
 
-  const activeIdx = offset % items.length;
+
 
   const btnStyle: React.CSSProperties = {
     width: '42px',
