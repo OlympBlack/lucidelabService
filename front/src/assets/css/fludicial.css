@@ -1151,23 +1151,75 @@ ul {
     padding: 22px 18px;
   }
 
-/* Hover Animations for Services Page */
+/* "Wahou" Animations for Services Page */
+@keyframes wahouEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 .service-card-anim {
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease;
-  will-change: transform;
+  animation: wahouEntrance 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards; /* backwards ensures opacity 0 before delay */
+  position: relative;
+  overflow: hidden; /* For the shine effect */
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+  will-change: transform, opacity, filter;
   cursor: pointer;
+  background: linear-gradient(145deg, #ffffff, #fafafa) !important;
+}
+
+/* Premium shine effect */
+.service-card-anim::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card-anim:hover::before {
+  animation: shineWahou 1.2s ease-out;
+  opacity: 1;
+}
+
+@keyframes shineWahou {
+  0% { left: -150%; }
+  100% { left: 200%; }
 }
 
 .service-card-anim:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
-  border-color: rgba(253, 134, 4, 0.4) !important;
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), 0 0 25px rgba(253, 134, 4, 0.2) !important;
+  border-color: #fd8604 !important;
+  z-index: 2;
 }
 
 .service-card-anim:hover .service-icon-wrapper {
-  transform: scale(1.1) rotate(3deg);
-  background: #fdf5eb !important;
-  box-shadow: 0 4px 15px rgba(253, 134, 4, 0.1);
+  transform: scale(1.2) rotate(8deg);
+  background: linear-gradient(135deg, #fd8604, #ffb347) !important;
+  box-shadow: 0 10px 25px rgba(253, 134, 4, 0.4);
+}
+
+.service-card-anim .service-icon-wrapper svg {
+  transition: color 0.4s ease;
+}
+
+.service-card-anim:hover .service-icon-wrapper svg {
+  color: #ffffff !important;
 }
   /* About section — full stack on mobile */
   .about-heading {
