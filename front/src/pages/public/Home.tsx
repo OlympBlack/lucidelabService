@@ -303,7 +303,7 @@ export const Home: React.FC = () => {
         </div>
 
         <div className="storytelling-content">
-          <div className="frosted-glass-card">
+          <div className="frosted-glass-card" style={{ minHeight: '450px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <h2 className="frosted-card-title">Qui sommes-nous ?</h2>
 
             <div style={{ margin: '20px 0 15px' }}>
@@ -337,7 +337,7 @@ export const Home: React.FC = () => {
         </div>
 
         <div className="storytelling-content">
-          <div className="frosted-glass-card" style={{ maxWidth: '800px', padding: '40px 20px' }}>
+          <div className="frosted-glass-card" style={{ minHeight: '450px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <h2 className="frosted-card-title" style={{ marginBottom: '6px' }}>Nos Services</h2>
             <p className="frosted-card-subtitle" style={{ marginBottom: '25px' }}>
               Idées lumineuses, résultats brillants
