@@ -22,13 +22,21 @@ export const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Regex email stricte (Frontend)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      alert("Format de l'adresse email invalide.");
+      return;
+    }
+
     setLoading(true);
     const result = await api.sendContact(formData);
     setLoading(false);
     if (result && (result.success || result.data)) {
       setSubmitted(true);
     } else {
-      setSubmitted(true);
+      setSubmitted(true); // Ou afficher une erreur
     }
   };
 
@@ -68,15 +76,15 @@ export const Contact: React.FC = () => {
           </div>
         </section>
 
-        {/* ── FORMULAIRE — voile semi-transparent, image visible ── */}
-        <div style={{ background: 'rgba(0, 10, 30, 0.82)', backdropFilter: 'blur(1px)' }}>
+        {/* ── FORMULAIRE — voile blanc pour la clarté ── */}
+        <div style={{ background: 'rgba(255, 255, 255, 0.95)', backdropFilter: 'blur(5px)' }}>
           <div className="ptb-100">
             <div className="container">
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.8fr', gap: '35px', alignItems: 'start' }}>
 
                 {/* INFO CARD */}
                 <div style={{
-                  background: 'rgba(0, 76, 153, 0.35)',
+                  background: 'rgba(0, 76, 153, 0.9)',
                   border: '1px solid rgba(255,255,255,0.15)',
                   borderRadius: '20px',
                   padding: '40px 30px',
@@ -137,61 +145,60 @@ export const Contact: React.FC = () => {
                   background: 'rgba(255, 255, 255, 0.07)',
                   border: '1px solid rgba(255,255,255,0.15)',
                   borderRadius: '20px',
-                  padding: '40px 35px',
-                }}>
+                <div style={{ background: '#ffffff', borderRadius: '20px', padding: '45px', border: '1px solid #e5e9f2', boxShadow: '0 10px 40px rgba(0,0,0,0.08)' }}>
                   <SuccessModal 
                     isOpen={submitted} 
                     onClose={() => setSubmitted(false)}
                   />
                   
                   <form onSubmit={handleSubmit} noValidate style={{ display: submitted ? 'none' : 'block' }}>
-                    <h3 className="font-artistic" style={{ fontSize: '24px', color: '#ffffff', marginBottom: '20px' }}>
+                    <h3 className="font-artistic" style={{ fontSize: '26px', color: '#004C99', marginBottom: '25px' }}>
                       Formulaire de Prise de Contact
                     </h3>
 
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '15px' }}>
                         <div>
-                          <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.8)', marginBottom: '6px' }}>Nom complet *</label>
+                          <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#4b5563', marginBottom: '6px' }}>Nom complet *</label>
                           <input
                             type="text"
                             required
                             placeholder="Votre nom complet"
                             value={formData.name}
                             onChange={handleChange('name')}
-                            style={{ width: '100%', padding: '12px 14px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: 'rgba(255,255,255,0.08)', color: '#ffffff' }}
+                            style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: '#f9fafb', color: '#111827' }}
                           />
                         </div>
                         <div>
-                          <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.8)', marginBottom: '6px' }}>Email *</label>
+                          <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#4b5563', marginBottom: '6px' }}>Email *</label>
                           <input
                             type="email"
                             required
                             placeholder="votre@email.com"
                             value={formData.email}
                             onChange={handleChange('email')}
-                            style={{ width: '100%', padding: '12px 14px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: 'rgba(255,255,255,0.08)', color: '#ffffff' }}
+                            style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: '#f9fafb', color: '#111827' }}
                           />
                         </div>
                       </div>
 
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '15px' }}>
                         <div>
-                          <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.8)', marginBottom: '6px' }}>Téléphone *</label>
+                          <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#4b5563', marginBottom: '6px' }}>Téléphone *</label>
                           <input
                             type="tel"
                             required
                             placeholder="+229 01 66 28 50 17"
                             value={formData.phone}
                             onChange={handleChange('phone')}
-                            style={{ width: '100%', padding: '12px 14px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: 'rgba(255,255,255,0.08)', color: '#ffffff' }}
+                            style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: '#f9fafb', color: '#111827' }}
                           />
                         </div>
                         <div>
-                          <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.8)', marginBottom: '6px' }}>Pôle concerné</label>
+                          <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#4b5563', marginBottom: '6px' }}>Pôle concerné</label>
                           <select
                             value={formData.service}
                             onChange={handleChange('service')}
-                            style={{ width: '100%', padding: '12px 14px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: 'rgba(20,30,60,0.9)', color: '#ffffff' }}
+                            style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: '#f9fafb', color: '#111827' }}
                           >
                             <option value="STRATEGY">STRATEGY — Direction & Positionnement</option>
                             <option value="BRAND">BRAND — Identité & Branding</option>
@@ -205,26 +212,26 @@ export const Contact: React.FC = () => {
                       </div>
 
                       <div style={{ marginBottom: '15px' }}>
-                        <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.8)', marginBottom: '6px' }}>Sujet *</label>
+                        <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#4b5563', marginBottom: '6px' }}>Sujet *</label>
                         <input
                           type="text"
                           required
                           placeholder="Sujet de votre message"
                           value={formData.subject}
                           onChange={handleChange('subject')}
-                          style={{ width: '100%', padding: '12px 14px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: 'rgba(255,255,255,0.08)', color: '#ffffff' }}
+                          style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: '#f9fafb', color: '#111827' }}
                         />
                       </div>
 
                       <div style={{ marginBottom: '22px' }}>
-                        <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'rgba(255,255,255,0.8)', marginBottom: '6px' }}>Message *</label>
+                        <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#4b5563', marginBottom: '6px' }}>Message *</label>
                         <textarea
                           rows={4}
                           required
                           placeholder="Décrivez votre projet ou votre besoin..."
                           value={formData.message}
                           onChange={handleChange('message')}
-                          style={{ width: '100%', padding: '12px 14px', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '6px', fontSize: '14px', outline: 'none', resize: 'none', boxSizing: 'border-box', background: 'rgba(255,255,255,0.08)', color: '#ffffff' }}
+                          style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none', resize: 'none', boxSizing: 'border-box', background: '#f9fafb', color: '#111827' }}
                         />
                       </div>
 
