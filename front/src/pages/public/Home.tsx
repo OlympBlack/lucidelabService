@@ -230,8 +230,8 @@ export const Home: React.FC = () => {
                 height: '100%',
                 objectFit: 'cover',
                 opacity: idx === heroIndex ? 1 : 0,
-                transition: 'opacity 1.4s ease-in-out, transform 7s ease-out',
-                transform: idx === heroIndex ? 'scale(1.05)' : 'scale(1.0)'
+                transition: 'opacity 2.5s ease-in-out',
+                zIndex: idx === heroIndex ? 0 : -1
               }}
             />
           ))}
