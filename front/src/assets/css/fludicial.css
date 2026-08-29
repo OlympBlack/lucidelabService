@@ -1490,7 +1490,9 @@ ul {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.72);
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1513,8 +1515,8 @@ ul {
 
 .welcome-popup-close-btn {
   position: absolute;
-  top: -38px;
-  right: 0px;
+  top: 15px;
+  right: 15px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -1532,6 +1534,7 @@ ul {
 }
 
 .welcome-popup-card {
+  position: relative;
   background: #ffffff;
   border-radius: 4px;
   overflow: hidden;

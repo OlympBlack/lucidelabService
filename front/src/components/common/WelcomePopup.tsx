@@ -72,12 +72,12 @@ export const WelcomePopup: React.FC = () => {
   return (
     <div className="welcome-popup-overlay" onClick={handleClose}>
       <div className="welcome-popup-container" onClick={(e) => e.stopPropagation()}>
-        {/* Close Button 'X' */}
-        <button className="welcome-popup-close-btn" onClick={handleClose} aria-label="Fermer">
-          <X size={26} color="#ffffff" />
-        </button>
-
         <div className="welcome-popup-card">
+          {/* Close Button 'X' (Inside the card) */}
+          <button className="welcome-popup-close-btn" onClick={handleClose} aria-label="Fermer">
+            <X size={26} color="#4b5563" />
+          </button>
+
           {/* Left Side Image */}
           <div className="welcome-popup-image-col">
             <img
