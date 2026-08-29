@@ -141,7 +141,7 @@ export const Contact: React.FC = () => {
                   {submitted ? (
                     <div style={{ textAlign: 'center', padding: '40px 20px' }}>
                       <CheckCircle size={60} style={{ color: '#10b981', marginBottom: '20px' }} />
-                      <h3 className="font-artistic" style={{ fontSize: '26px', color: '#004C99', marginBottom: '10px' }}>
+                      <h3 className="font-artistic" style={{ fontSize: '26px', color: '#ffffff', marginBottom: '10px' }}>
                         Message transmis avec succès !
                       </h3>
                       <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '15px', marginBottom: '28px' }}>
