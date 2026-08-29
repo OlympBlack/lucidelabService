@@ -72,7 +72,7 @@ export const Services: React.FC = () => {
           color: '#ffffff',
           textAlign: 'center'
         }}>
-          <div style={{ maxWidth: '900px' }}>
+          <div style={{ maxWidth: '900px' }} className="fade-in-up">
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -105,42 +105,42 @@ export const Services: React.FC = () => {
             <div className="container">
               <div className="grid-3" style={{ gap: '30px' }}>
                 {servicesList.map((service, idx) => (
-                  <div
-                    key={service.id}
-                    className="service-card-anim"
-                    style={{
-                      background: '#ffffff',
-                      border: '1px solid rgba(255,255,255,0.6)',
-                      borderRadius: '16px',
-                      padding: '24px 20px',
-                      boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      animationDelay: `${idx * 0.15}s`
-                    }}
-                  >
-                    <div className="service-icon-wrapper" style={{
-                      width: '64px',
-                      height: '64px',
+                    <div
+                      key={service.id}
+                      className="fade-in-up"
+                      style={{
+                        background: '#ffffff',
+                        border: '1px solid rgba(255,255,255,0.6)',
+                        borderRadius: '16px',
+                        padding: '16px 14px',
+                        boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        animationDelay: `${idx * 0.15}s`
+                      }}
+                    >
+                      <div className="service-icon-wrapper" style={{
+                        width: '48px',
+                        height: '48px',
                       borderRadius: '14px',
                       background: '#ffffff',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      marginBottom: '15px',
+                      marginBottom: '10px',
                       transition: 'all 0.3s ease'
                     }}>
-                      {service.icon}
+                      {React.cloneElement(service.icon as React.ReactElement, { size: 28 })}
                     </div>
 
-                    <h3 className="font-artistic" style={{ fontSize: '18px', color: '#fd8604', marginBottom: '10px' }}>
+                    <h3 className="font-artistic" style={{ fontSize: '16px', color: '#fd8604', marginBottom: '6px' }}>
                       {service.title}
                     </h3>
-                    <p style={{ color: '#57647c', fontSize: '13px', lineHeight: 1.5, marginBottom: '15px', flexGrow: 1 }}>
+                    <p style={{ color: '#57647c', fontSize: '12px', lineHeight: 1.4, marginBottom: '10px', flexGrow: 1 }}>
                       {service.shortDesc}
                     </p>
                     
-                    <ul style={{ marginBottom: '20px', padding: 0 }}>
+                    <ul style={{ marginBottom: '14px', padding: 0 }}>
                       {service.details.map((point, idx) => (
                         <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '13px', color: '#374151', marginBottom: '6px' }}>
                           <CheckCircle2 size={16} style={{ color: '#fd8604', flexShrink: 0, marginTop: '2px' }} />

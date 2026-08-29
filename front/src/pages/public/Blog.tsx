@@ -54,7 +54,7 @@ export const Blog: React.FC = () => {
           color: '#ffffff',
           textAlign: 'center'
         }}>
-          <div style={{ maxWidth: '900px' }}>
+          <div style={{ maxWidth: '900px' }} className="fade-in-up">
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '14px', marginBottom: '18px' }}>
               <span style={{ display: 'block', width: '40px', height: '1px', background: '#fd8604', opacity: 0.9 }} />
               <span style={{ fontSize: '11px', fontWeight: 700, color: '#fd8604', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: 'Raleway, sans-serif' }}>Le Mag LUCIDE LAB</span>
@@ -114,18 +114,19 @@ export const Blog: React.FC = () => {
                 </div>
               ) : (
                 <div className="grid-3" style={{ gap: '30px' }}>
-                  {filtered.map((article) => (
-                    <div key={article.id} style={{
+                  {filtered.map((article, idx) => (
+                    <div key={article.id} className="fade-in-up" style={{
                       background: '#ffffff',
                       borderRadius: '16px',
                       overflow: 'hidden',
                       border: '1px solid rgba(255,255,255,0.6)',
                       boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
                       display: 'flex',
-                      flexDirection: 'column'
+                      flexDirection: 'column',
+                      animationDelay: `${idx * 0.1}s`
                     }}>
                       {article.image_url ? (
-                        <div style={{ height: '200px', overflow: 'hidden', background: '#00254d' }}>
+                        <div style={{ height: '160px', overflow: 'hidden', background: '#00254d' }}>
                           <img src={article.image_url} alt={article.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             onError={(e) => {
                               const wrapper = (e.target as HTMLImageElement).parentElement;
@@ -134,41 +135,41 @@ export const Blog: React.FC = () => {
                             }} />
                         </div>
                       ) : (
-                        <div style={{ height: '200px', background: PLACEHOLDER_GRADIENT, padding: '20px', display: 'flex', alignItems: 'flex-end' }}>
-                          <span style={{ background: 'rgba(233,30,140,0.1)', color: '#fd8604', fontWeight: 700, padding: '4px 12px', borderRadius: '12px', fontSize: '12px' }}>
+                        <div style={{ height: '160px', background: PLACEHOLDER_GRADIENT, padding: '16px', display: 'flex', alignItems: 'flex-end' }}>
+                          <span style={{ background: 'rgba(233,30,140,0.1)', color: '#fd8604', fontWeight: 700, padding: '4px 12px', borderRadius: '12px', fontSize: '11px' }}>
                             {article.category}
                           </span>
                         </div>
                       )}
 
-                      <div style={{ padding: '24px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+                      <div style={{ padding: '16px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                         {article.image_url && (
-                          <span style={{ background: 'rgba(233,30,140,0.1)', color: '#fd8604', fontWeight: 700, padding: '4px 12px', borderRadius: '12px', fontSize: '12px', width: 'fit-content', marginBottom: '12px' }}>
+                          <span style={{ background: 'rgba(233,30,140,0.1)', color: '#fd8604', fontWeight: 700, padding: '4px 10px', borderRadius: '12px', fontSize: '11px', width: 'fit-content', marginBottom: '10px' }}>
                             {article.category}
                           </span>
                         )}
 
-                        <div style={{ display: 'flex', gap: '15px', color: '#9ca3af', fontSize: '13px', marginBottom: '12px', flexWrap: 'wrap' }}>
-                          <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                            <Calendar size={14} />
+                        <div style={{ display: 'flex', gap: '15px', color: '#9ca3af', fontSize: '12px', marginBottom: '8px', flexWrap: 'wrap' }}>
+                          <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            <Calendar size={13} />
                             {article.created_at ? new Date(article.created_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }) : '—'}
                           </span>
-                          <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                            <User size={14} /> {article.author ?? 'LUCIDE LAB'}
+                          <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                            <User size={13} /> {article.author ?? 'LUCIDE LAB'}
                           </span>
                         </div>
 
-                        <h3 className="font-artistic" style={{ fontSize: '18px', marginBottom: '12px', color: '#004C99', lineHeight: 1.4 }}>
+                        <h3 className="font-artistic" style={{ fontSize: '16px', marginBottom: '8px', color: '#004C99', lineHeight: 1.3 }}>
                           {article.title}
                         </h3>
-                        <p style={{ color: '#57647c', fontSize: '14px', marginBottom: '20px', flexGrow: 1, lineHeight: 1.6 }}>
+                        <p style={{ color: '#57647c', fontSize: '13px', marginBottom: '14px', flexGrow: 1, lineHeight: 1.5 }}>
                           {article.excerpt}
                         </p>
 
                         <Link
                           to={`/blog/${article.slug}`}
-                          style={{ color: '#fd8604', fontWeight: 700, fontSize: '14px', display: 'inline-flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
-                          Lire l'article complet <ArrowRight size={16} />
+                          style={{ color: '#fd8604', fontWeight: 700, fontSize: '13px', display: 'inline-flex', alignItems: 'center', gap: '6px', textDecoration: 'none' }}>
+                          Lire l'article <ArrowRight size={14} />
                         </Link>
                       </div>
                     </div>
