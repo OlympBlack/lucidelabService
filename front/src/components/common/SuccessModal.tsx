@@ -54,10 +54,7 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
     >
       <div 
         style={{
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03))',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          border: '1px solid rgba(255,255,255,0.2)',
+          background: '#ffffff',
           borderRadius: '24px',
           padding: '50px 40px',
           maxWidth: '500px',
@@ -67,7 +64,7 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
           transform: show ? 'scale(1) translateY(0)' : 'scale(0.9) translateY(20px)',
           opacity: show ? 1 : 0,
           transition: 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -78,9 +75,9 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
             position: 'absolute',
             top: '20px',
             right: '20px',
-            background: 'rgba(255,255,255,0.1)',
-            border: '1px solid rgba(255,255,255,0.2)',
-            color: '#ffffff',
+            background: '#f1f5f9',
+            border: 'none',
+            color: '#64748b',
             cursor: 'pointer',
             padding: '8px',
             display: 'flex',
@@ -90,13 +87,13 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
             transition: 'all 0.3s ease'
           }}
           onMouseEnter={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = '#fd8604';
-            (e.currentTarget as HTMLButtonElement).style.borderColor = '#fd8604';
+            (e.currentTarget as HTMLButtonElement).style.background = '#e2e8f0';
+            (e.currentTarget as HTMLButtonElement).style.color = '#0f172a';
             (e.currentTarget as HTMLButtonElement).style.transform = 'rotate(90deg)';
           }}
           onMouseLeave={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.1)';
-            (e.currentTarget as HTMLButtonElement).style.borderColor = 'rgba(255,255,255,0.2)';
+            (e.currentTarget as HTMLButtonElement).style.background = '#f1f5f9';
+            (e.currentTarget as HTMLButtonElement).style.color = '#64748b';
             (e.currentTarget as HTMLButtonElement).style.transform = 'rotate(0deg)';
           }}
         >
@@ -112,11 +109,11 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({
           <CheckCircle size={80} style={{ color: '#10b981', filter: 'drop-shadow(0 0 15px rgba(16,185,129,0.4))' }} />
         </div>
 
-        <h3 className="font-artistic" style={{ fontSize: '28px', color: '#ffffff', marginBottom: '15px' }}>
+        <h3 className="font-artistic" style={{ fontSize: '28px', color: '#0f172a', marginBottom: '15px' }}>
           {title}
         </h3>
         
-        <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '16px', lineHeight: 1.6, marginBottom: '30px' }}>
+        <p style={{ color: '#475569', fontSize: '16px', lineHeight: 1.6, marginBottom: '30px' }}>
           {message}
         </p>
 
