@@ -232,7 +232,7 @@ export const Services: React.FC = () => {
 
               <div style={{ marginBottom: '14px' }}>
                 <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>Téléphone *</label>
-                <input type="tel" required placeholder="+229 01 66 28 50 17" style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none' }} />
+                <input type="tel" required placeholder="+229 01 00 00 00 00" style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none' }} />
               </div>
 
               <div style={{ marginBottom: '20px' }}>

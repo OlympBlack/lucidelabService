@@ -94,20 +94,20 @@ export const Contact: React.FC = () => {
                     Nos Coordonnées
                   </h3>
 
-                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'flex-start' }}>
-                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0, marginTop: '2px' }}>
+                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'center' }}>
+                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
                       <Phone size={20} />
                     </div>
                     <div>
                       <h4 style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Téléphone Direct</h4>
                       <a href="tel:+2290166285017" style={{ color: '#ffffff', fontWeight: 700, fontSize: '18px', textDecoration: 'none' }}>
-                        +229 01 66 28 50 17
+                        +229 01 00 00 00 00
                       </a>
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'flex-start' }}>
-                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0, marginTop: '2px' }}>
+                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'center' }}>
+                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
                       <Mail size={20} />
                     </div>
                     <div>
@@ -118,8 +118,8 @@ export const Contact: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'flex-start' }}>
-                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0, marginTop: '2px' }}>
+                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'center' }}>
+                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
                       <MapPin size={20} />
                     </div>
                     <div>
@@ -129,8 +129,8 @@ export const Contact: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0, marginTop: '2px' }}>
+                  <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
                       <Clock size={20} />
                     </div>
                     <div>
@@ -183,7 +183,7 @@ export const Contact: React.FC = () => {
                           <input
                             type="tel"
                             required
-                            placeholder="+229 01 66 28 50 17"
+                            placeholder="+229 01 00 00 00 00"
                             value={formData.phone}
                             onChange={handleChange('phone')}
                             style={{ width: '100%', padding: '12px 14px', border: '1px solid #d1d5db', borderRadius: '6px', fontSize: '14px', outline: 'none', boxSizing: 'border-box', background: '#f9fafb', color: '#111827' }}
