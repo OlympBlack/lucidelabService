@@ -2001,83 +2001,89 @@ ul {
   letter-spacing: 1px;
 }
 
-.home-premium-services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  margin-top: 40px;
-}
-.home-premium-service-card {
-  animation: wahouEntrance 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.4);
-  border-radius: 20px;
-  padding: 35px 20px;
-  text-align: center;
-  text-decoration: none;
-  color: #000;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
+/* Minimalist Marquee Services */
+.services-marquee-container {
+  width: 100%;
   overflow: hidden;
+  margin-top: 50px;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  padding: 20px 0;
+}
+
+.services-marquee-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: scrollMarquee 35s linear infinite;
+}
+
+.services-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 15px)); } /* 50% of the total width minus half the gap */
+}
+
+.marquee-service-card {
+  width: 260px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  color: #111;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  will-change: transform;
+}
+
+.marquee-service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  color: #111;
+}
+
+.marquee-icon {
+  width: 56px;
+  height: 56px;
+  background: #f4f4f4;
+  border-radius: 50%; /* pure round shape as requested */
+  display: flex;
   align-items: center;
+  justify-content: center;
+  color: #111; /* black icon as requested */
+  margin-bottom: 24px;
+  transition: all 0.4s ease;
 }
-.home-premium-service-card::before {
-  content: '';
-  position: absolute;
-  top: -50%; left: -50%; width: 200%; height: 200%;
-  background: radial-gradient(circle, rgba(253, 134, 4, 0.15) 0%, transparent 60%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 0;
-  pointer-events: none;
-}
-.home-premium-service-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  background: #ffffff;
-  border-color: rgba(253, 134, 4, 0.6);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 25px rgba(253, 134, 4, 0.3);
-}
-.home-premium-service-card:hover::before {
-  opacity: 1;
-}
-.home-premium-icon {
-  width: 75px; height: 75px;
-  background: linear-gradient(135deg, rgba(253,134,4,0.15), rgba(253,134,4,0.3));
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  display: flex; align-items: center; justify-content: center;
-  color: #fd8604;
-  margin-bottom: 22px;
-  transition: all 0.5s ease;
-  z-index: 1;
-}
-.home-premium-service-card:hover .home-premium-icon {
-  background: linear-gradient(135deg, #fd8604, #ffb347);
+
+.marquee-service-card:hover .marquee-icon {
+  background: #fd8604;
   color: #fff;
-  border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
-  transform: rotateZ(15deg) scale(1.1);
-  box-shadow: 0 10px 25px rgba(253, 134, 4, 0.4);
+  transform: scale(1.1) rotate(-10deg);
 }
-.home-premium-title {
+
+.marquee-title {
   font-family: 'Syne', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 800;
-  color: #004C99;
-  margin-bottom: 12px;
-  z-index: 1;
+  margin: 0 0 10px 0;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
-.home-premium-desc {
+
+.marquee-desc {
   font-size: 14px;
+  color: #555; /* dark text, readable */
+  margin: 0;
   font-weight: 500;
-  color: #000000;
-  z-index: 1;
-  transition: color 0.4s ease;
   line-height: 1.5;
-}
-.home-premium-service-card:hover .home-premium-desc {
-  color: #000000;
 }
 
 .fullscreen-menu-link:hover {

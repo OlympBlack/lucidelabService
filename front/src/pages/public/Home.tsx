@@ -9,12 +9,12 @@ import {
   Mail,
   Phone,
   MessageSquare,
-  Target,
-  Palette,
-  MonitorSmartphone,
-  Rocket,
+  Globe,
   PenTool,
-  Megaphone
+  TrendingUp,
+  Megaphone,
+  Brain,
+  Printer
 } from 'lucide-react';
 import { api, resolveImageUrl, type Realisation } from '../../services/api';
 import { SectionNavigation } from '../../components/layout/SectionNavigation';
@@ -343,42 +343,82 @@ export const Home: React.FC = () => {
               Idées lumineuses, résultats brillants
             </p>
 
-            <div className="home-premium-services-grid">
-              <Link to="/services" className="home-premium-service-card" style={{ animationDelay: '0s' }}>
-                <div className="home-premium-icon"><Target size={32} /></div>
-                <h3 className="home-premium-title">STRATEGY</h3>
-                <p className="home-premium-desc">Positionnement, audit de marque et plan de communication sur-mesure.</p>
-              </Link>
+            <div className="services-marquee-container">
+              <div className="services-marquee-track">
+                {/* First set of items */}
+                <Link to="/services" className="marquee-service-card">
+                  <div className="marquee-icon"><Brain size={28} strokeWidth={1.5} /></div>
+                  <h3 className="marquee-title">STRATEGY</h3>
+                  <p className="marquee-desc">Positionnement & audit de marque</p>
+                </Link>
 
-              <Link to="/services" className="home-premium-service-card" style={{ animationDelay: '0.15s' }}>
-                <div className="home-premium-icon"><Palette size={32} /></div>
-                <h3 className="home-premium-title">BRAND</h3>
-                <p className="home-premium-desc">Naming, logo, charte graphique et identité visuelle forte.</p>
-              </Link>
+                <Link to="/services" className="marquee-service-card">
+                  <div className="marquee-icon"><PenTool size={28} strokeWidth={1.5} /></div>
+                  <h3 className="marquee-title">BRAND</h3>
+                  <p className="marquee-desc">Identité visuelle & Naming</p>
+                </Link>
 
-              <Link to="/services" className="home-premium-service-card" style={{ animationDelay: '0.3s' }}>
-                <div className="home-premium-icon"><MonitorSmartphone size={32} /></div>
-                <h3 className="home-premium-title">DIGITAL</h3>
-                <p className="home-premium-desc">Sites web, applications mobiles et plateformes sur-mesure.</p>
-              </Link>
+                <Link to="/services" className="marquee-service-card">
+                  <div className="marquee-icon"><Globe size={28} strokeWidth={1.5} /></div>
+                  <h3 className="marquee-title">DIGITAL</h3>
+                  <p className="marquee-desc">Plateformes & sites web</p>
+                </Link>
 
-              <Link to="/services" className="home-premium-service-card" style={{ animationDelay: '0.45s' }}>
-                <div className="home-premium-icon"><Rocket size={32} /></div>
-                <h3 className="home-premium-title">GROWTH</h3>
-                <p className="home-premium-desc">SEO, acquisition et accélération de votre chiffre d'affaires.</p>
-              </Link>
-              
-              <Link to="/services" className="home-premium-service-card" style={{ animationDelay: '0.6s' }}>
-                <div className="home-premium-icon"><PenTool size={32} /></div>
-                <h3 className="home-premium-title">CONTENT</h3>
-                <p className="home-premium-desc">Création de contenus impactants, rédaction web et copywriting.</p>
-              </Link>
-              
-              <Link to="/services" className="home-premium-service-card" style={{ animationDelay: '0.75s' }}>
-                <div className="home-premium-icon"><Megaphone size={32} /></div>
-                <h3 className="home-premium-title">ADVERTISING</h3>
-                <p className="home-premium-desc">Campagnes publicitaires, Ads et gestion de l'e-réputation.</p>
-              </Link>
+                <Link to="/services" className="marquee-service-card">
+                  <div className="marquee-icon"><TrendingUp size={28} strokeWidth={1.5} /></div>
+                  <h3 className="marquee-title">GROWTH</h3>
+                  <p className="marquee-desc">SEO & acquisition clients</p>
+                </Link>
+
+                <Link to="/services" className="marquee-service-card">
+                  <div className="marquee-icon"><Megaphone size={28} strokeWidth={1.5} /></div>
+                  <h3 className="marquee-title">CONTENT</h3>
+                  <p className="marquee-desc">Création de contenus & copy</p>
+                </Link>
+
+                <Link to="/services" className="marquee-service-card">
+                  <div className="marquee-icon"><Printer size={28} strokeWidth={1.5} /></div>
+                  <h3 className="marquee-title">ADVERTISING</h3>
+                  <p className="marquee-desc">Campagnes Ads & e-réputation</p>
+                </Link>
+
+                {/* Duplicated set for infinite loop */}
+                <Link to="/services" className="marquee-service-card">
+                  <div className="marquee-icon"><Brain size={28} strokeWidth={1.5} /></div>
+                  <h3 className="marquee-title">STRATEGY</h3>
+                  <p className="marquee-desc">Positionnement & audit de marque</p>
+                </Link>
+
+                <Link to="/services" className="marquee-service-card">
+                  <div className="marquee-icon"><PenTool size={28} strokeWidth={1.5} /></div>
+                  <h3 className="marquee-title">BRAND</h3>
+                  <p className="marquee-desc">Identité visuelle & Naming</p>
+                </Link>
+
+                <Link to="/services" className="marquee-service-card">
+                  <div className="marquee-icon"><Globe size={28} strokeWidth={1.5} /></div>
+                  <h3 className="marquee-title">DIGITAL</h3>
+                  <p className="marquee-desc">Plateformes & sites web</p>
+                </Link>
+
+                <Link to="/services" className="marquee-service-card">
+                  <div className="marquee-icon"><TrendingUp size={28} strokeWidth={1.5} /></div>
+                  <h3 className="marquee-title">GROWTH</h3>
+                  <p className="marquee-desc">SEO & acquisition clients</p>
+                </Link>
+
+                <Link to="/services" className="marquee-service-card">
+                  <div className="marquee-icon"><Megaphone size={28} strokeWidth={1.5} /></div>
+                  <h3 className="marquee-title">CONTENT</h3>
+                  <p className="marquee-desc">Création de contenus & copy</p>
+                </Link>
+
+                <Link to="/services" className="marquee-service-card">
+                  <div className="marquee-icon"><Printer size={28} strokeWidth={1.5} /></div>
+                  <h3 className="marquee-title">ADVERTISING</h3>
+                  <p className="marquee-desc">Campagnes Ads & e-réputation</p>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
