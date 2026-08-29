@@ -337,7 +337,7 @@ export const Home: React.FC = () => {
         </div>
 
         <div className="storytelling-content">
-          <div className="frosted-glass-card" style={{ maxWidth: '980px' }}>
+          <div className="frosted-glass-card" style={{ maxWidth: '800px', padding: '40px 20px' }}>
             <h2 className="frosted-card-title" style={{ marginBottom: '6px' }}>Nos Services</h2>
             <p className="frosted-card-subtitle" style={{ marginBottom: '25px' }}>
               Idées lumineuses, résultats brillants
@@ -347,74 +347,74 @@ export const Home: React.FC = () => {
               <div className="services-marquee-track">
                 {/* First set of items */}
                 <Link to="/services" className="marquee-service-card">
-                  <div className="marquee-icon"><Brain size={28} strokeWidth={1.5} /></div>
+                  <div className="marquee-icon"><Brain size={22} strokeWidth={1.5} /></div>
                   <h3 className="marquee-title">STRATEGY</h3>
                   <p className="marquee-desc">Positionnement & audit de marque</p>
                 </Link>
 
                 <Link to="/services" className="marquee-service-card">
-                  <div className="marquee-icon"><PenTool size={28} strokeWidth={1.5} /></div>
+                  <div className="marquee-icon"><PenTool size={22} strokeWidth={1.5} /></div>
                   <h3 className="marquee-title">BRAND</h3>
                   <p className="marquee-desc">Identité visuelle & Naming</p>
                 </Link>
 
                 <Link to="/services" className="marquee-service-card">
-                  <div className="marquee-icon"><Globe size={28} strokeWidth={1.5} /></div>
+                  <div className="marquee-icon"><Globe size={22} strokeWidth={1.5} /></div>
                   <h3 className="marquee-title">DIGITAL</h3>
                   <p className="marquee-desc">Plateformes & sites web</p>
                 </Link>
 
                 <Link to="/services" className="marquee-service-card">
-                  <div className="marquee-icon"><TrendingUp size={28} strokeWidth={1.5} /></div>
+                  <div className="marquee-icon"><TrendingUp size={22} strokeWidth={1.5} /></div>
                   <h3 className="marquee-title">GROWTH</h3>
                   <p className="marquee-desc">SEO & acquisition clients</p>
                 </Link>
 
                 <Link to="/services" className="marquee-service-card">
-                  <div className="marquee-icon"><Megaphone size={28} strokeWidth={1.5} /></div>
+                  <div className="marquee-icon"><Megaphone size={22} strokeWidth={1.5} /></div>
                   <h3 className="marquee-title">CONTENT</h3>
                   <p className="marquee-desc">Création de contenus & copy</p>
                 </Link>
 
                 <Link to="/services" className="marquee-service-card">
-                  <div className="marquee-icon"><Printer size={28} strokeWidth={1.5} /></div>
+                  <div className="marquee-icon"><Printer size={22} strokeWidth={1.5} /></div>
                   <h3 className="marquee-title">ADVERTISING</h3>
                   <p className="marquee-desc">Campagnes Ads & e-réputation</p>
                 </Link>
 
                 {/* Duplicated set for infinite loop */}
                 <Link to="/services" className="marquee-service-card">
-                  <div className="marquee-icon"><Brain size={28} strokeWidth={1.5} /></div>
+                  <div className="marquee-icon"><Brain size={22} strokeWidth={1.5} /></div>
                   <h3 className="marquee-title">STRATEGY</h3>
                   <p className="marquee-desc">Positionnement & audit de marque</p>
                 </Link>
 
                 <Link to="/services" className="marquee-service-card">
-                  <div className="marquee-icon"><PenTool size={28} strokeWidth={1.5} /></div>
+                  <div className="marquee-icon"><PenTool size={22} strokeWidth={1.5} /></div>
                   <h3 className="marquee-title">BRAND</h3>
                   <p className="marquee-desc">Identité visuelle & Naming</p>
                 </Link>
 
                 <Link to="/services" className="marquee-service-card">
-                  <div className="marquee-icon"><Globe size={28} strokeWidth={1.5} /></div>
+                  <div className="marquee-icon"><Globe size={22} strokeWidth={1.5} /></div>
                   <h3 className="marquee-title">DIGITAL</h3>
                   <p className="marquee-desc">Plateformes & sites web</p>
                 </Link>
 
                 <Link to="/services" className="marquee-service-card">
-                  <div className="marquee-icon"><TrendingUp size={28} strokeWidth={1.5} /></div>
+                  <div className="marquee-icon"><TrendingUp size={22} strokeWidth={1.5} /></div>
                   <h3 className="marquee-title">GROWTH</h3>
                   <p className="marquee-desc">SEO & acquisition clients</p>
                 </Link>
 
                 <Link to="/services" className="marquee-service-card">
-                  <div className="marquee-icon"><Megaphone size={28} strokeWidth={1.5} /></div>
+                  <div className="marquee-icon"><Megaphone size={22} strokeWidth={1.5} /></div>
                   <h3 className="marquee-title">CONTENT</h3>
                   <p className="marquee-desc">Création de contenus & copy</p>
                 </Link>
 
                 <Link to="/services" className="marquee-service-card">
-                  <div className="marquee-icon"><Printer size={28} strokeWidth={1.5} /></div>
+                  <div className="marquee-icon"><Printer size={22} strokeWidth={1.5} /></div>
                   <h3 className="marquee-title">ADVERTISING</h3>
                   <p className="marquee-desc">Campagnes Ads & e-réputation</p>
                 </Link>
