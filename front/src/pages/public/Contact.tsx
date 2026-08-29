@@ -94,8 +94,8 @@ export const Contact: React.FC = () => {
                     Nos Coordonnées
                   </h3>
 
-                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'center' }}>
-                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
+                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'flex-start' }}>
+                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0, marginTop: '2px' }}>
                       <Phone size={20} />
                     </div>
                     <div>
@@ -106,8 +106,8 @@ export const Contact: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'center' }}>
-                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
+                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'flex-start' }}>
+                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0, marginTop: '2px' }}>
                       <Mail size={20} />
                     </div>
                     <div>
@@ -118,8 +118,8 @@ export const Contact: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'center' }}>
-                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
+                  <div style={{ display: 'flex', gap: '16px', marginBottom: '25px', alignItems: 'flex-start' }}>
+                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0, marginTop: '2px' }}>
                       <MapPin size={20} />
                     </div>
                     <div>
@@ -129,8 +129,8 @@ export const Contact: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0 }}>
+                  <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fd8604', flexShrink: 0, marginTop: '2px' }}>
                       <Clock size={20} />
                     </div>
                     <div>
