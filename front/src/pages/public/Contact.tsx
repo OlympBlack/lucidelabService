@@ -15,6 +15,7 @@ export const Contact: React.FC = () => {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleChange = (field: string) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -26,17 +27,24 @@ export const Contact: React.FC = () => {
     // Regex email stricte (Frontend)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      alert("Format de l'adresse email invalide.");
+      setErrorMsg("Format de l'adresse email invalide.");
       return;
     }
 
     setLoading(true);
+    setErrorMsg('');
     const result = await api.sendContact(formData);
     setLoading(false);
+    
     if (result && (result.success || result.data)) {
       setSubmitted(true);
+      setFormData({ name: '', email: '', phone: '', service: 'STRATEGY', subject: '', message: '' });
     } else {
-      setSubmitted(true); // Ou afficher une erreur
+      if (result && result.errors && result.errors.email) {
+        setErrorMsg("L'adresse email saisie n'existe pas. Veuillez vérifier que le domaine est correct et réessayer.");
+      } else {
+        setErrorMsg(result?.message || "Une erreur s'est produite lors de l'envoi du message.");
+      }
     }
   };
 
@@ -135,7 +143,7 @@ export const Contact: React.FC = () => {
                     </div>
                     <div>
                       <h4 style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '4px' }}>Horaires d'Ouverture</h4>
-                      <p style={{ color: '#ffffff', fontWeight: 600, fontSize: '15px', margin: 0 }}>Lundi — Vendredi : 08h00 – 18h30</p>
+                      <p style={{ color: '#ffffff', fontWeight: 600, fontSize: '15px', margin: 0 }}>Lundi - Vendredi : 08h00 – 18h30</p>
                     </div>
                   </div>
                 </div>
@@ -151,6 +159,12 @@ export const Contact: React.FC = () => {
                     <h3 className="font-artistic" style={{ fontSize: '26px', color: '#004C99', marginBottom: '25px' }}>
                       Formulaire de Prise de Contact
                     </h3>
+
+                    {errorMsg && (
+                      <div style={{ background: '#fee2e2', border: '1px solid #ef4444', color: '#b91c1c', padding: '12px 16px', borderRadius: '8px', marginBottom: '20px', fontSize: '14px', fontWeight: 500 }}>
+                        {errorMsg}
+                      </div>
+                    )}
 
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '15px' }}>
                         <div>
