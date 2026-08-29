@@ -215,7 +215,7 @@ export const Home: React.FC = () => {
       {/* SECTION 1: HERO STORYTELLING (Fixed Parallax Background & Text Scroll-over) */}
       <section className="storytelling-section" id="hero" style={{ position: 'relative', width: '100%', minHeight: '120vh' }}>
         {/* Sticky Fixed Background */}
-        <div style={{ position: 'sticky', top: 0, height: '100vh', marginBottom: '-100vh', overflow: 'hidden', zIndex: 1 }}>
+        <div style={{ position: 'sticky', top: 0, height: '100vh', marginBottom: '-100vh', overflow: 'hidden', zIndex: 1, pointerEvents: 'none' }}>
           {heroImages.map((src, idx) => (
             <img
               key={idx}
