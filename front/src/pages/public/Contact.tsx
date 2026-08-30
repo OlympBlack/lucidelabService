@@ -88,7 +88,7 @@ export const Contact: React.FC = () => {
         <div style={{ background: 'rgba(100, 105, 115, 0.35)', backdropFilter: 'blur(12px)' }}>
           <div className="ptb-100">
             <div className="container">
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.8fr', gap: '35px', alignItems: 'start' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '35px', alignItems: 'start' }}>
 
                 {/* INFO CARD */}
                 <div style={{
@@ -166,7 +166,7 @@ export const Contact: React.FC = () => {
                       </div>
                     )}
 
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '15px' }}>
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '15px', marginBottom: '15px' }}>
                         <div>
                           <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#4b5563', marginBottom: '6px' }}>Nom complet *</label>
                           <input
@@ -191,7 +191,7 @@ export const Contact: React.FC = () => {
                         </div>
                       </div>
 
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginBottom: '15px' }}>
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '15px', marginBottom: '15px' }}>
                         <div>
                           <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#4b5563', marginBottom: '6px' }}>Téléphone *</label>
                           <input

@@ -43,7 +43,7 @@ export const About: React.FC = () => {
           <div className="ptb-100">
             <div className="container">
               {/* MISSION & VISION */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px', marginBottom: '80px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px', marginBottom: '80px' }}>
                 <div style={{
                   background: 'rgba(0, 76, 153, 0.35)',
                   border: '1px solid rgba(255,255,255,0.15)',
