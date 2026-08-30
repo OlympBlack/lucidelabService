@@ -12,7 +12,6 @@ import {
   Image,
   LogOut,
   UserCheck,
-  Menu,
   Share2,
   MoreVertical
 } from 'lucide-react';
