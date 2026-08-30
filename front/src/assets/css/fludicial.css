@@ -1027,7 +1027,7 @@ ul {
     opacity: 1;
   }
   .admin-menu-toggle {
-    display: block !important;
+    display: flex !important;
   }
   .admin-topbar-link,
   .admin-topbar-divider,

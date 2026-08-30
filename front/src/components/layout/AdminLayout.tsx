@@ -13,7 +13,8 @@ import {
   LogOut,
   UserCheck,
   Menu,
-  Share2
+  Share2,
+  MoreVertical
 } from 'lucide-react';
 import { api } from '../../services/api';
 
@@ -146,9 +147,9 @@ export const AdminLayout: React.FC = () => {
             <button 
               onClick={() => setIsSidebarOpen(true)}
               className="admin-menu-toggle"
-              style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', color: '#011a41' }}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', alignItems: 'center', color: '#011a41' }}
             >
-              <Menu size={24} />
+              <MoreVertical size={24} />
             </button>
             <h2 className="admin-topbar-title" style={{ fontSize: '18px', color: '#011a41', margin: 0 }}>Console d'Administration</h2>
           </div>
